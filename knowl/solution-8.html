@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h3 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">1.3.3.1</span><span class="period">.</span>
+</h3>
+<div class="para logical">
+<div class="para">Let <span class="process-math">\(A_i\)</span> denote the event that the <span class="process-math">\(i\)</span>th person gets their hat back. We want to compute <span class="process-math">\(P(\bigcup_{1\le i \le n} A_i)\text{.}\)</span> Recall the Inclusion–Exclusion Principle:</div>
+<div class="displaymath process-math">
+\begin{equation}
+P\left( \bigcup_{1\le i \le n} A_i \right)
+= \sum_{i=1}^n P(A_i) - \sum_{i \lt j} P(A_i \cap A_j) + \sum_{i \lt j \lt k} P(A_i \cap A_j \cap A_k)
++ \cdots + (-1)^{n+1} P(A_1 \cap \cdots \cap A_n)\tag{1.3.1}
+\end{equation}
+</div>
+<div class="para">Now <span class="process-math">\(P(A_i) = \frac{1}{n}\text{;}\)</span> what about <span class="process-math">\(P(A_i \cap A_j)\text{?}\)</span> Conditional probability gives us a nice way of thinking about this:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(A_i \cap A_j) = P(A_j) P(A_i | A_j) = \frac{1}{n} \cdot \frac{1}{(n-1)} = \frac{(n-2)!}{n!}.  
+\end{equation*}
+</div>
+<div class="para">(Why? The probability that <span class="process-math">\(i\)</span> gets their hat back given that <span class="process-math">\(j\)</span> does is <span class="process-math">\(\frac{1}{n-1}\text{.}\)</span>) A similar argument shows that <span class="process-math">\(P(A_i \cap A_j \cap A_k) = \frac{(n-3)!}{n!}\text{.}\)</span>
+</div>
+</div> <div class="para logical">
+<div class="para">Now we are in a position to simplify the expression in <a href="" class="xref" data-knowl="./knowl/men-incl-excl.html" title="Equation 1.3.1">(1.3.1)</a>:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/men-incl-excl.html">
+\begin{align*}
+\amp = n \cdot \frac{1}{n} - \frac{(n-2)!}{n!} \binom{n}{2} + \frac{(n-3)!}{n!} \binom{n}{3} + \cdots \\
+\amp = 1 - \frac{1}{2!} + \frac{1}{3!} - \cdots + \frac{(-1)^{n+1}}{n!}
+\end{align*}
+</div>
+<div class="para">What we're really interested in is the behavior of this quantity as <span class="process-math">\(n \to \infty\text{.}\)</span> Remembering a little calculus, we see that this probability converges to <span class="process-math">\(1 - e^{-1} \approx 0.63\text{.}\)</span>
+</div>
+</div>
+</div>
+<span class="incontext"><a href="sec-more-examples.html#solution-8" class="internal">in-context</a></span>
+</body>
+</html>

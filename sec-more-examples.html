@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>More Examples</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Math 487 at UNL">
+<meta property="book:author" content="Zach Norwood">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.98,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" href="" target="_blank"><img src="external/assets/dice.png" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="math-487-notes.html"><span class="title">Math 487 at UNL:</span> <span class="subtitle">Fall 2023 lecture notes</span></a></h1>
+<p class="byline">Zach Norwood</p>
+</div>
+<div id="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+</h2>
+<div id="searchempty"><span>No results.</span></div>
+<ol id="searchresults"></ol>
+</div>
+</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden avatar">
+<li data-val="You!" tabindex="-1">
+<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
+<li data-val="😺" tabindex="-1">
+<span id="the😺" class="avatarcheck"></span>😺</li>
+<li data-val="👤" tabindex="-1">
+<span id="the👤" class="avatarcheck"></span>👤</li>
+<li data-val="👽" tabindex="-1">
+<span id="the👽" class="avatarcheck"></span>👽</li>
+<li data-val="🐶" tabindex="-1">
+<span id="the🐶" class="avatarcheck"></span>🐶</li>
+<li data-val="🐼" tabindex="-1">
+<span id="the🐼" class="avatarcheck"></span>🐼</li>
+<li data-val="🌈" tabindex="-1">
+<span id="the🌈" class="avatarcheck"></span>🌈</li>
+</ol>
+</li>
+<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fontfamily">
+<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
+<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
+<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+</ol>
+</li>
+<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fonts">
+<li>Size</li>
+<li><span id="thesize">12</span></li>
+<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
+<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
+<li>Width</li>
+<li><span id="thewdth">100</span></li>
+<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
+<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
+<li>Weight</li>
+<li><span id="thewght">400</span></li>
+<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
+<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
+<li>Letter spacing</li>
+<li>
+<span id="thelspace">0</span><span class="byunits">/200</span>
+</li>
+<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
+<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
+<li>Word spacing</li>
+<li>
+<span id="thewspace">0</span><span class="byunits">/50</span>
+</li>
+<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
+<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
+<li>Line Spacing</li>
+<li>
+<span id="theheight">135</span><span class="byunits">/100</span>
+</li>
+<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
+<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
+</ol>
+</li>
+<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden atmosphere">
+<li data-val="default" tabindex="-1">
+<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
+<li data-val="pastel" tabindex="-1">
+<span id="thepastel" class="atmospherecheck"></span>pastel</li>
+<li data-val="darktwilight" tabindex="-1">
+<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
+<li data-val="dark" tabindex="-1">
+<span id="thedark" class="atmospherecheck"></span>dark</li>
+<li data-val="darkmidnight" tabindex="-1">
+<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
+</ol>
+</li>
+<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden ruler">
+<li data-val="none" tabindex="-1">
+<span id="thenone" class="rulercheck">✔️</span>none</li>
+<li data-val="underline" tabindex="-1">
+<span id="theunderline" class="rulercheck"></span>underline</li>
+<li data-val="lunderline" tabindex="-1">
+<span id="thelunderline" class="rulercheck"></span>L-underline</li>
+<li data-val="greybar" tabindex="-1">
+<span id="thegreybar" class="rulercheck"></span>grey bar</li>
+<li data-val="lightbox" tabindex="-1">
+<span id="thelightbox" class="rulercheck"></span>light box</li>
+<li data-val="sunrise" tabindex="-1">
+<span id="thesunrise" class="rulercheck"></span>sunrise</li>
+<li data-val="sunriseunderline" tabindex="-1">
+<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
+<li class="moveQ">Motion by:</li>
+<li data-val="mouse" tabindex="-1">
+<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
+<li data-val="arrow" tabindex="-1">
+<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
+<li data-val="eye" tabindex="-1">
+<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
+</ol>
+</li>
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="section-2.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="prob-spaces.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="ch-random-variables.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
+<li><div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li>
+<div class="toc-item"><a href="prob-spaces.html" class="internal"><span class="codenumber">1</span> <span class="title">Probability spaces</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="prob-axioms.html" class="internal"><span class="codenumber">1.1</span> <span class="title">The Axioms of Probability</span></a></div></li>
+<li>
+<div class="toc-item"><a href="section-2.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Conditional probability and independence</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-2.html#subsec-conditional-prob" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Conditional Probability</span></a></div></li>
+<li><div class="toc-item"><a href="section-2.html#subsec-independence" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Independence</span></a></div></li>
+</ul>
+</li>
+<li class="active"><div class="toc-item"><a href="sec-more-examples.html" class="internal"><span class="codenumber">1.3</span> <span class="title">More Examples</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-random-variables.html" class="internal"><span class="codenumber">2</span> <span class="title">Random variables</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-random-variables-theory.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Random variables: definition and examples</span></a></div></li></ul>
+</li>
+<li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-more-examples"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">1.3</span> <span class="title">More Examples</span>
+</h2>
+<article class="example example-like" id="example-6"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Poker hands.</span>
+</h3>
+<div class="para" id="p-38">A standard deck of cards (for the purposes of this class) comprises 52 cards. Each card has a <dfn class="terminology">rank</dfn> and a <dfn class="terminology">suit</dfn>. The 13 possible ranks are Ace, 2–10, Jack, Queen, and King, and the 4 possible suits are hearts ♥️, diamonds ♦️, spades ♠️, and clubs ♣️. Each possible pairing of rank and suit is realized in exactly one card.</div> <div class="para" id="p-39">From a standard deck of 52 cards draw a 5-card hand. (Both the deck and the hand are thought of as <em class="emphasis">sets</em>, so order is irrelevant.)</div> <div class="para logical" id="p-40"><ol class="decimal">
+<li id="li-13"><div class="para" id="p-41">What is the probability that your hand is a <dfn class="terminology">full house</dfn>, i.e., takes the form AAABB where A and B are different ranks? (E.g. three 3s and two Queens makes a full house, no matter what the suits of the cards are.)</div></li>
+<li id="li-14"><div class="para" id="p-42">What is the probability that you hold <dfn class="terminology">two pairs</dfn>, i.e., ranks AABBC where A, B, and C represent different ranks? (E.g. 3377K is two pairs, no matter what the suits, but 3337K is three of a kind.)</div></li>
+</ol></div>
+<div class="solution solution-like" id="solution-6">
+<h3 class="heading">
+<span class="type">Solution</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="p-43">
+<div class="para">There are many ways to count full houses, but the simplest is probably to choose the two ranks first, first the rank of the triplet and then the rank of the pair. There are 13 ways of choosing the rank A of the triplet, leaving 12 possibilities for the rank B of the pair. Then there are <span class="process-math">\(\binom{4}{3}\)</span> possible triplets of cards of rank A and <span class="process-math">\(\binom{4}{2}\)</span> possible pairs of cards of rank B. We can now compute the total probability:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{13 \cdot 12 \cdot \binom{4}{3} \binom{4}{2}}{\binom{52}{5}}
+= \frac{13 \cdot 12 \cdot 4 \cdot 6}{\binom{52}{5}}
+\approx 0.0014
+\end{equation*}
+</div>
+</div> <div class="para logical" id="p-44">
+<div class="para">Two pairs: again, it is probably simplest to choose the ranks A, B, and C first. But here we have an overcounting problem, since there is symmetry in A and B. So there are <span class="process-math">\(13\cdot 12 \cdot 11 / 2\)</span> many ways of choosing the three ranks A, B, and C, where the division by 2 represents the fact that 22JJA and JJ22A give the same choice. Once we have chosen the three ranks, we have <span class="process-math">\(\binom42 \binom 42 \binom 41\)</span> many ways to choose cards of these ranks, so this is our total:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{ \frac{13\cdot 12 \cdot 11}{2} \cdot \binom42 \binom 42 \binom 41}{\binom{52}{5}}
+\approx 0.0475.
+\end{equation*}
+</div>
+</div>
+</div></article><article class="example example-like" id="example-7"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.2</span><span class="period">.</span><span class="space"> </span><span class="title">Birthdays.</span>
+</h3>
+<div class="para" id="p-45">There are 28 students in the class. What is the probability that two of you chosen at random share a birthday?</div> <div class="para" id="p-46">(You may make the simplifying assumptions that leap years don't exist and that birthdays are uniformly distributed.)</div>
+<div class="solution solution-like" id="solution-7">
+<h3 class="heading">
+<span class="type">Solution</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-47">There are <span class="process-math">\(365^{28}\)</span> possible outcomes, each of which is equally likely. This is a good example where “counting the complement” works well. That is, instead of counting the event we are asked to count, we will count its complement, the event that no two students share a birthday.</div> <div class="para logical" id="p-48">
+<div class="para">The number of ways of assigning 28 distinct birthdays to 28 students is <span class="process-math">\(\binom{365}{28} 28!\text{,}\)</span> the number of ways of choosing which 28 birthdays will be represented times the number of ways of assigning them to everyone in order. It may help to record another way of expressing this quantity:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\binom{365}{28} 28! = 365 \cdot 364 \cdot \cdots \cdot 338.
+\end{equation*}
+</div>
+<div class="para">Now we can simplify the probability that no two people share a birthday:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(\text{no birthday shared}) = \frac{\binom{365}{28} 28!}{365^{28}}
+= \frac{365!}{337!} \cdot \frac{1}{365^{28}}.
+\end{equation*}
+</div>
+<div class="para">A computer reports that this quantity is <span class="process-math">\(\approx 0.3455\text{.}\)</span> So the probability that at least two people share a birthday is about <span class="process-math">\(65\%\text{.}\)</span>
+</div>
+</div>
+</div></article><article class="example example-like" id="ex-matching-hats"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.3</span><span class="period">.</span><span class="space"> </span><span class="title">Matching hats.</span>
+</h3>
+<div class="para" id="p-49">Each of <span class="process-math">\(n\)</span> people is wearing a hat that they toss into a pile. Then each person retrieves a hat at random. What is the probability that at least one person gets their hat back?</div>
+<div class="solution solution-like" id="solution-8">
+<h3 class="heading">
+<span class="type">Solution</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="p-50">
+<div class="para">Let <span class="process-math">\(A_i\)</span> denote the event that the <span class="process-math">\(i\)</span>th person gets their hat back. We want to compute <span class="process-math">\(P(\bigcup_{1\le i \le n} A_i)\text{.}\)</span> Recall the Inclusion–Exclusion Principle:</div>
+<div class="displaymath process-math" id="men-incl-excl">
+\begin{equation}
+P\left( \bigcup_{1\le i \le n} A_i \right)
+= \sum_{i=1}^n P(A_i) - \sum_{i \lt j} P(A_i \cap A_j) + \sum_{i \lt j \lt k} P(A_i \cap A_j \cap A_k)
++ \cdots + (-1)^{n+1} P(A_1 \cap \cdots \cap A_n)\tag{1.3.1}
+\end{equation}
+</div>
+<div class="para">Now <span class="process-math">\(P(A_i) = \frac{1}{n}\text{;}\)</span> what about <span class="process-math">\(P(A_i \cap A_j)\text{?}\)</span> Conditional probability gives us a nice way of thinking about this:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(A_i \cap A_j) = P(A_j) P(A_i | A_j) = \frac{1}{n} \cdot \frac{1}{(n-1)} = \frac{(n-2)!}{n!}.  
+\end{equation*}
+</div>
+<div class="para">(Why? The probability that <span class="process-math">\(i\)</span> gets their hat back given that <span class="process-math">\(j\)</span> does is <span class="process-math">\(\frac{1}{n-1}\text{.}\)</span>) A similar argument shows that <span class="process-math">\(P(A_i \cap A_j \cap A_k) = \frac{(n-3)!}{n!}\text{.}\)</span>
+</div>
+</div> <div class="para logical" id="p-51">
+<div class="para">Now we are in a position to simplify the expression in <a href="" class="xref" data-knowl="./knowl/men-incl-excl.html" title="Equation 1.3.1">(1.3.1)</a>:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/men-incl-excl.html" id="md-1">
+\begin{align*}
+\amp = n \cdot \frac{1}{n} - \frac{(n-2)!}{n!} \binom{n}{2} + \frac{(n-3)!}{n!} \binom{n}{3} + \cdots \\
+\amp = 1 - \frac{1}{2!} + \frac{1}{3!} - \cdots + \frac{(-1)^{n+1}}{n!}
+\end{align*}
+</div>
+<div class="para">What we're really interested in is the behavior of this quantity as <span class="process-math">\(n \to \infty\text{.}\)</span> Remembering a little calculus, we see that this probability converges to <span class="process-math">\(1 - e^{-1} \approx 0.63\text{.}\)</span>
+</div>
+</div>
+</div></article></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="section-2.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="ch-random-variables.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>
