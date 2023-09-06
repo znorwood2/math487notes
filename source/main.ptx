@@ -54,9 +54,550 @@
 
       <section xml:id="prob-axioms">
         <title>The Axioms of Probability</title>
-        <p></p>
-      </section>
+        <p>
+          Intuition can mislead us, particularly in probability, so we make an effort 
+          to be careful from the start.
+        </p>
+        <p>
+          But let's motivate the definition and consider an example or two before we give it
+          precisely.
+          To describe an experiment or trial with random outcomes, we need three things.
+        </p>
+        <p>
+          <ol>
+          <li>
+            <p>
+              A <em>sample space</em> <m>\Omega</m>, the set of all possible <em>outcomes</em>.
+            </p>
+          </li>
+          <li>
+            <p>
+              A family <m>\mathcal{F}\subseteq 2^{\Omega}</m> of permissible <em>events</em>.
+              (It is less obvious that we need this.)
+              By <m>2^\Omega</m> we mean the powerset of <m>\Omega</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              An assignment <m>P</m> of probabilities (numbers) to events.
+            </p>
+          </li>
+        </ol>
+      </p>
+      <example>
+        <statement>
+        <p>Toss a fair coin 3 times. What is the probability that you see exactly two heads?</p>
+        </statement>
+        <solution>
+          <p>
+            What are the possible outcomes of this experiment?
+          <me>
+            \Omega = \{ HHH, HHT, HTH, THH, TTH, THT, HTT, TTT \}
+          </me>
+          to be finished
+        </p>
+        </solution>
+      </example>
+      <example>
+        <statement>
+          <p>
+            My neighbor and I each leave home, independently, between 8 and 9am,
+            where any time is equally likely. What is the probability that she leaves
+            at least 20 minutes before I do?
+          </p>
+        </statement>
+        <solution>
+          <p></p>
+        </solution>
+      </example>
 
+      <definition xml:id="def-prob-space">
+        <statement>
+        <p>
+          A <term>probability measure</term> <m>P</m> on <m>(\Omega,\mathcal{F})</m>, where <m>\Omega</m>
+          is a set and <m>\mathcal{F}</m> is a <term><m>\sigma</m>-field</term> of subsets of <m>\Omega</m>,
+          is a function <m>P\colon \mathcal{F} \to [0,1]</m> satisfying the following properties.
+          <ol marker="(a)">
+            <li>
+              <p>
+                <m>P(\Omega) = 1</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>P</m> is <term>countably additive</term>, meaning that for any countably infinite
+                list <m>A_1,A_2,\dots</m> of pairwise disjoint (<m>i\ne j</m> implies <m>A_i \cap A_j = \emptyset</m>)
+                members of <m>\mathcal{F}</m>, we have
+                <me>P\left( \bigcup_{n \ge 1} A_i \right) = \sum_{n\ge 1} P(A_n).</me>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+      </definition>
+      <p>
+        The two conditions in <xref ref="def-prob-space"/> together with the fact that <m>P(A) \ge 0</m> for
+        every <m>A \in \mathcal{F}</m> are often called the three Axioms of Probability.
+      </p>
+      <definition>
+        <statement>
+          <p>
+            A collection <m>\mathcal{F}</m> of subsets of <m>\Omega</m> is a <term><m>\sigma</m>-field</term>
+            if it satisfies the following three conditions.
+            <ol>
+              <li>
+                <p>
+                  <m>\emptyset\in\mathcal{F}</m>
+                </p>
+              </li>
+              <li><p>If <m>A_1,A_2,\dots\in\mathcal{F}</m> then <m>\bigcup_{n\ge 1} A_n \in \mathcal{F}</m>
+              (<term>closure under countable unions</term>).</p></li>
+              <li>
+                <p>
+                  If <m>A\in\mathcal{F}</m> then <m>A^c \in \mathcal{F}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </definition>
+      </section>
+      <section>
+        <title>Conditional probability and independence</title>
+        <subsection xml:id="subsec-conditional-prob">
+          <title>Conditional Probability</title>
+        <definition xml:id="def-conditional-prob">
+          <statement>
+            <p>
+              If <m>P(B) \gt 0</m> then the <term>conditional probability of <m>A</m> given <m>B</m></term>,
+              written <m>P(A | B)</m>, is the quantity
+              <me>P(A | B) = \frac{P(A\cap B)}{P(B)} .</me>
+            </p>
+          </statement>
+        </definition>
+        <p>Note that the rearranged form <m>P(A\cap B) = P(A | B) P(B)</m> of the equation can be useful.</p>
+        <example>
+          <statement>
+            <p>
+              In September 40% of days are warm and the rest are cool.
+              On warm days there is a 60% chance of rain; on cool days there is a 30% chance.
+              <ol>
+                <li>
+                  <p>
+                    What is the probability that it will rain on a September day?
+                  </p>
+                </li>
+                <li>
+                  <p>What is the probability that it is warm, given that it is raining?</p>
+                </li>
+              </ol>
+            </p>
+          </statement>
+          <solution>
+            <p>
+              <!-- to be added -->
+            </p>
+          </solution>
+        </example>
+        <theorem xml:id="thm-law-total-prob">
+          <title>The Law of Total Probability</title>
+          <statement>
+            <p>
+              Suppose that events <m>B_1,\dots,B_n</m> partition <m>\Omega</m>.
+              Then for any event <m>A</m> we have
+              <me>P(A) = \sum_{i=1}^n P(A | B_i) P(B_i) = \sum_{i=1}^n P(A\cap B_i) .</me>
+            </p>
+          </statement>
+        </theorem>
+      </subsection>
+        <subsection xml:id="subsec-independence">
+          <title>Independence</title>
+          <definition xml:id="def-independence">
+            <statement>
+              <p>
+                Events <m>A</m> and <m>B</m> in a probability space are <term>independent</term>
+                if <m>P(A\cap B) = P(A)P(B)</m>.
+              </p>
+              <p>
+                More generally, events <m>A_i</m>, <m>i\in I</m>, are <term>mutually independent</term>
+                if for any finite subset <m>J \subseteq I</m> we have
+                <me>
+                  P\left( \bigcap_{i\in J} A_i \right) = \prod_{i\in J} P(A_i).
+                </me>
+                The <m>A_i</m> are said to be <term>pairwise independent</term> if for any distinct indices <m>i,j\in I</m>
+                the two events <m>A_i</m> and <m>A_j</m> are independent.
+              </p>
+            </statement>
+          </definition>
+          <remark>
+            <p>
+            <ul>
+              <li>
+                <p>
+                  Notice that <m>P(A\cap B) = P(A | B) P(B) = P(B | A) P(A)</m>. So, as long as <m>P(A) \gt 0</m>
+                  and <m>P(B) \gt 0</m> the independence of <m>A</m> and <m>B</m> is equivalent to 
+                  either <m>P(A | B) = P(A)</m> or <m>P(B | A) = P(B)</m>; that is,
+                  information about either event doesn't change the probability of the other.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Independence is not the same as disjointness; independent events <m>A</m> and <m>B</m>
+                  may or may not satisfy <m>A \cap B = \emptyset</m>.
+                </p>
+              </li>
+            </ul>
+          </p>
+          </remark>
+          <example>
+            <statement>
+              <p>
+                Roll two fair 6-sided dice.
+                Let <m>A</m> denote the event that the first roll is a 3, 
+                <m>B</m> denote the event that the second roll is a 4,
+                and <m>C</m> denote the event that the sum of the two rolls equals 7.
+              </p>
+              <p>
+                The events <m>A</m> and <m>B</m> are certainly independent:
+                of the 36 possible outcomes, 6 are in <m>A</m> and 6 are in <m>B</m>;
+                and exactly 1 is common to <m>A</m> and <m>B</m>.
+              </p>
+              <p>
+                Show that the three events <m>A</m>, <m>B</m>, and <m>C</m>
+                are <em>pairwise</em> but not <em>mutually</em> independent.
+              </p>
+            </statement>
+            <solution>
+              <p>
+                That <m>A</m> and <m>B</m> are independent is explained in the statement of the example.
+                For <m>A</m> and <m>C</m>, first notice that <m>P(A) = P(B) = P(C) = \tfrac16</m>.
+                Then notice that <m>A \cap C = A \cap B</m> and so we have
+                <me>
+                  P(A \cap C) = P(A \cap B) = P(A) P(B) = P(A) P(C).
+                </me>
+                A similar argument shows that <m>B</m> and <m>C</m> are independent.
+              </p>
+              <p>
+                But <m>A \cap B \cap C = A \cap B</m>, so the three events are not mutually independent:
+                <me>
+                  P(A \cap B \cap C) = P(A \cap B) = \tfrac{1}{36} \ne (\tfrac16)^3.
+                </me>
+              </p>
+            </solution>
+          </example>
+          <example>
+            <statement>
+              <p>
+                Draw one card from a standard 52-card deck. Show that suit is independent of rank;
+                for example, show that drawing a jack is independent of drawing a heart.
+              </p>
+            </statement>
+            <solution>
+              <p>
+                The probability of drawing a jack is <m>\tfrac{4}{52} = \tfrac{1}{13}</m>, and the probability
+                of drawing a heart is <m>\tfrac{13}{52} = \tfrac14</m>.
+                The probability of drawing the Jack of Hearts is <m>\tfrac{1}{52} = \tfrac{1}{13} \cdot \tfrac{1}{4}</m>.
+              </p>
+            </solution>
+          </example>
+        </subsection>
+      </section>
+    <section xml:id="sec-more-examples">
+          <title>More Examples</title>
+          <example>
+            <title>Poker hands</title>
+            <statement>
+              <p>
+                A standard deck of cards (for the purposes of this class) comprises 52 cards.
+                Each card has a <term>rank</term> and a <term>suit</term>.
+                The 13 possible ranks are Ace, 2<ndash/>10, Jack, Queen, and King,
+                and the 4 possible suits are hearts ♥️, diamonds ♦️, spades ♠️,
+                and clubs ♣️. Each possible pairing of rank and suit is realized in exactly one card.
+              </p>
+              <p>
+                From a standard deck of 52 cards draw a 5-card hand.
+                (Both the deck and the hand are thought of as <em>sets</em>, so order is irrelevant.)
+              </p>
+              <p>
+                <ol>
+                  <li>
+                    <p>
+                      What is the probability that your hand is a <term>full house</term>,
+                      i.e., takes the form AAABB where A and B are different ranks?
+                      (E.g. three 3s and two Queens makes a full house, no matter what the suits of the cards are.)
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      What is the probability that you hold <term>two pairs</term>,
+                      i.e., ranks AABBC where A, B, and C represent different ranks?
+                      (E.g. 3377K is two pairs, no matter what the suits, but 3337K is three of a kind.)
+                    </p>
+                  </li>
+                </ol>
+              </p>
+            </statement>
+            <solution>
+              <p>
+                There are many ways to count full houses, but the simplest is probably to choose the 
+                two ranks first, first the rank of the triplet and then the rank of the pair.
+                There are 13 ways of choosing the rank A of the triplet, leaving 12 possibilities for the
+                rank B of the pair. Then there are <m>\binom{4}{3}</m> possible triplets of cards of rank
+                A and <m>\binom{4}{2}</m> possible pairs of cards of rank B. We can now compute the total
+                probability:
+                <me>
+                  \frac{13 \cdot 12 \cdot \binom{4}{3} \binom{4}{2}}{\binom{52}{5}}
+                  = \frac{13 \cdot 12 \cdot 4 \cdot 6}{\binom{52}{5}}
+                  \approx 0.0014
+                </me>
+              </p>
+              <p>
+                Two pairs: again, it is probably simplest to choose the ranks A, B, and C
+                first. But here we have an overcounting problem, since there is symmetry in A
+                and B. So there are <m>13\cdot 12 \cdot 11 / 2</m> many ways of choosing the three ranks
+                A, B, and C, where the division by 2 represents the fact that 
+                22JJA and JJ22A give the same choice.
+                Once we have chosen the three ranks, we have <m>\binom42 \binom 42 \binom 41</m> many
+                ways to choose cards of these ranks, so this is our total:
+                <me>
+                  \frac{ \frac{13\cdot 12 \cdot 11}{2} \cdot \binom42 \binom 42 \binom 41}{\binom{52}{5}}
+                  \approx 0.0475.
+                </me>
+              </p>
+            </solution>
+          </example>
+          <example>
+            <title>Birthdays</title>
+            <statement>
+              <p>
+                There are 28 students in the class. What is the probability that two of you chosen at random
+                share a birthday?
+              </p>
+              <p>
+                (You may make the simplifying assumptions that leap years don't exist 
+                and that birthdays are uniformly distributed.)
+              </p>
+            </statement>
+            <solution>
+              <p>
+                There are <m>365^{28}</m> possible outcomes, each of which is equally likely.
+                This is a good example where <q>counting the complement</q> works well.
+                That is, instead of counting the event we are asked to count, we will count its
+                complement, the event that no two students share a birthday.
+              </p>
+              <p>
+                The number of ways of assigning 28 distinct birthdays to 28 students is
+                <m>\binom{365}{28} 28!</m>, the number of ways of choosing which 28 birthdays
+                will be represented times the number of ways of assigning them to everyone in order.
+                It may help to record another way of expressing this quantity:
+                <me>
+                  \binom{365}{28} 28! = 365 \cdot 364 \cdot \cdots \cdot 338.
+                </me>
+                Now we can simplify the probability that no two people share a birthday:
+                <me>
+                  P(\text{no birthday shared}) = \frac{\binom{365}{28} 28!}{365^{28}}
+                  = \frac{365!}{337!} \cdot \frac{1}{365^{28}}.
+                </me>
+                A computer reports that this quantity is <m>\approx 0.3455</m>.
+                So the probability that at least two people share a birthday is about <m>65\%</m>.
+              </p>
+            </solution>
+          </example>
+          <example xml:id="ex-matching-hats">
+            <title>Matching hats</title>
+            <statement>
+              <p>
+                Each of <m>n</m> people is wearing a hat that they toss into a pile.
+                Then each person retrieves a hat at random. What is the probability that at least one
+                person gets their hat back?
+              </p>
+            </statement>
+            <solution>
+              <p>
+                Let <m>A_i</m> denote the event that the <m>i</m>th person gets their hat back.
+                We want to compute <m>P(\bigcup_{1\le i \le n} A_i)</m>.
+                Recall the Inclusion<ndash/>Exclusion Principle:
+                <men xml:id="men-incl-excl">
+                  P\left( \bigcup_{1\le i \le n} A_i \right)
+                  = \sum_{i=1}^n P(A_i) - \sum_{i \lt j} P(A_i \cap A_j) + \sum_{i \lt j \lt k} P(A_i \cap A_j \cap A_k)
+                    + \cdots + (-1)^{n+1} P(A_1 \cap \cdots \cap A_n)
+                </men>
+                Now <m>P(A_i) = \frac{1}{n}</m>; what about <m>P(A_i \cap A_j)</m>?
+                Conditional probability gives us a nice way of thinking about this:
+                <me>
+                  P(A_i \cap A_j) = P(A_j) P(A_i | A_j) = \frac{1}{n} \cdot \frac{1}{(n-1)} = \frac{(n-2)!}{n!}.  
+                </me>
+                (Why? The probability that <m>i</m> gets their hat back given that <m>j</m> does is 
+                <m>\frac{1}{n-1}</m>.)
+                A similar argument shows that <m>P(A_i \cap A_j \cap A_k) = \frac{(n-3)!}{n!}</m>.
+              </p>
+              <p>
+                Now we are in a position to simplify the expression in <xref ref="men-incl-excl"/>:
+                <md>
+                  <mrow> \amp = n \cdot \frac{1}{n} - \frac{(n-2)!}{n!} \binom{n}{2} + \frac{(n-3)!}{n!} \binom{n}{3} + \cdots </mrow>
+                  <mrow> \amp = 1 - \frac{1}{2!} + \frac{1}{3!} - \cdots + \frac{(-1)^{n+1}}{n!}</mrow>
+                </md>
+                What we're really interested in is the behavior of this quantity as <m>n \to \infty</m>.
+                Remembering a little calculus, we see that this probability converges to <m>1 - e^{-1} \approx 0.63</m>.
+              </p>
+            </solution>
+          </example>
+    </section>
+
+
+    </chapter>
+
+    <chapter xml:id="ch-random-variables">
+      <title>Random variables</title>
+      <section xml:id="sec-random-variables-theory">
+        <title>Random variables: definition and examples</title>
+        <p>
+          Informally, a <term>random variable</term> is a random number 
+          whose value is associated with the various outcome of an experiment.
+        </p>
+        <example>
+          <p>
+            Toss a fair coin three coins, so that the sample space <m>\Omega</m>
+            includes outcomes like HHH, TTH, etc.
+            One example of a random variable associated to this experiment is 
+            simply the number <m>X</m> of heads.
+          </p>
+          <p>
+            Here's a more sophisticated random variable.
+            Suppose that we start with $1, double our money if we see heads
+            and lose it all if we see tails.
+            Then <m>W</m> could be our winnings after this experiment.
+            (Notice that <m>W = 8</m> if we see HHH and <m>=0</m> otherwise.)
+          </p>
+        </example>
+        <example>
+          <p>
+            Suppose that my neighbor and I each leave home independently between
+            8 and 9am, each time equally likely, so <m>\Omega = [8,9]\times[8,9]</m>.
+          </p>
+          <p>
+            One random variable is the time I leave: <m>(x,y) \mapsto x</m>.
+            Another is the time between our departures: <m>(x,y) \mapsto |x - y|</m>.
+          </p>
+        </example>
+        <p>
+          Now we are ready for the formal definition.
+          Suppose that <m>(\Omega, \mathcal{F}, P)</m> is a probability space.
+        </p>
+        <definition xml:id="def-random-var">
+          <statement>
+            <p>
+              A <term>random variable</term> is a function <m>X\colon \Omega \to \R</m>
+              satisfying the following technical assumption. For every <m>a\in \R</m>
+              <me>
+                \{ w\in \Omega : X(w) \le a \} \in \mathcal{F}.
+              </me>
+            </p>
+          </statement>
+        </definition>
+        <remark>
+          <p>
+            We'll abbreviate e.g. <m>\{w\in \Omega : X(w) \le a \}</m> by
+            <m>\{X \le a \}</m>.
+          </p>
+        </remark>
+        <proposition xml:id="prop-rv-basic">
+          <statement>
+            <p>
+              Let <m>X</m> be a random variable. 
+              For all <m>a,b\in\R</m> the following are events (i.e., in <m>\mathcal{F}</m>).
+              <ol marker="(i)">
+                <li>
+                  <p>
+                    <m>\{X \gt a\}</m>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <m>\{X \lt a\}</m> and <m>\{X \ge a \}</m>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <m>\{a \lt X \lt b \}</m>, <m>\{a \le X \lt b \}</m>, etc.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </statement>
+          <proof>
+            <p>
+              <ol>
+                <li>
+                  <p>
+                    <m>\{X \gt a\} = \{ X \le a \}^c</m> and <m>\mathcal{F}</m>
+                    is closed under taking complements.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <m>\{X \lt a \} = \bigcup_{b\in\mathbb{Q}, \; b \lt a} \{X \le b\}</m>,
+                    since <m>\mathbb{Q}</m> is order-dense in <m>\R</m>.
+                    Since <m>\mathbb{Q}</m> is countable and each <m>\{X \le b\}</m> belongs to <m>\mathcal{F}</m>,
+                    we can conclude that this countable union belongs to <m>\mathcal{F}</m> too.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Exercise.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </proof>
+        </proposition>
+        <remark>
+          <p>
+            The set <m>\{X \in A\}</m> is an event for any <term>Borel set</term> <m>A\subseteq \R</m>.
+            The Borel sets are the smallest <m>\sigma</m>-field containing all open sets.
+          </p>
+        </remark>
+        <proposition xml:id="prop-rv-constructor">
+          <statement>
+            <p>
+              If <m>X</m> and <m>Y</m> are random variables on <m>(\Omega,\mathcal{F}, P)</m> and <m>b\in\R</m>,
+              then the following are all also random variables.
+              <ol>
+                <li>
+                  <p>
+                    <m>b X</m>
+                  </p>
+                </li>
+                <li>
+                  <p><m>X + Y</m></p>
+                </li>
+                <li><p><m>X \cdot Y</m></p></li>
+                <li><p><m>
+                  Z = \begin{cases} \frac{Y}{X} \amp \text{if } X \ne 0 \\
+                  0 \amp \text{if } X = 0
+                  \end {cases}
+                </m></p></li>
+              </ol>
+            </p>
+          </statement>
+          <proof>
+            <p>
+              <ol>
+                <li>
+                  <p>
+                    We need to show that <m>\{bX\le a\}</m> for every <m>a\in \R</m>,
+                    but <m>\{X \le \tfrac{a}{b}\}\in \mathcal{F}</m> since <m>X</m> is a random
+                    variable.
+                  </p>
+                  <p>
+                    The rest are similar.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </proof>
+        </proposition>
+      </section>
     </chapter>
 
     <backmatter xml:id="backmatter">
