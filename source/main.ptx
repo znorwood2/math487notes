@@ -655,6 +655,53 @@
             <image source="cdf-2" width="80%"/>
           </solution>
         </example>
+        <proposition xml:id="prop-cdf-properties">
+          <statement>
+            <p>
+              A cdf <m>F</m> for a rv <m>X</m> enjoys the following properties.
+              <ol marker="(a)">
+                <li>
+                  <p>
+                    <m>\lim\limits_{a\to-\infty} F(a) = 0</m> and <m>\lim\limits_{a\to\infty} F(a) = 1</m>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <m>F</m> is increasing: if <m>a \lt b</m> then <m>F(a) \le F(b)</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <m>F</m> is <term>right-continuous</term>: <m>\lim\limits_{x\to a^+} F(x) = F(a)</m>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <m>P(X \gt a) = 1 - F(a)</m>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <m>P(a \lt X \le b) = F(b) - F(a)</m>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <m>P(X \lt a) = \lim\limits_{x\to a^-} F(x)</m>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <m>
+                      P(X = a) = F(a) - \lim\limits_{x\to a^-} F(x)
+                    </m>
+                    (that is, <m>P(X = a)</m> is the <q>jump</q> that <m>F</m> makes at <m>a</m>)
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </statement>
+        </proposition>
       </section>
     </chapter>
 
