@@ -7,7 +7,7 @@ var ptx_lunr_docs = [
   "type": "Colophon",
   "number": "",
   "title": "Colophon",
-  "body": "   math.unl.edu   https:\/\/math.unl.edu   copyright  "
+  "body": "  math.unl.edu   copyright  "
 },
 {
   "id": "prob-axioms",
@@ -169,7 +169,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.1",
   "title": "Random variables: definition and examples",
-  "body": " Random variables: definition and examples  Informally, a random variable is a random number whose value is associated with the various outcome of an experiment.   Toss a fair coin three coins, so that the sample space includes outcomes like HHH, TTH, etc. One example of a random variable associated to this experiment is simply the number of heads.  Here's a more sophisticated random variable. Suppose that we start with $1, double our money if we see heads and lose it all if we see tails. Then could be our winnings after this experiment. (Notice that if we see HHH and otherwise.)    Suppose that my neighbor and I each leave home independently between 8 and 9am, each time equally likely, so .  One random variable is the time I leave: . Another is the time between our departures: .   Now we are ready for the formal definition. Suppose that is a probability space.    A random variable is a function satisfying the following technical assumption. For every       We'll abbreviate e.g. by .     Let be a random variable. For all the following are events (i.e., in ).         and      , , etc.           and is closed under taking complements.     , since is order-dense in . Since is countable and each belongs to , we can conclude that this countable union belongs to too.    Exercise.        The set is an event for any Borel set  . The Borel sets are the smallest -field containing all open sets.     If and are random variables on and , then the following are all also random variables.                   We need to show that for every , but since is a random variable.  The rest are similar.       "
+  "body": " Random variables: definition and examples  Informally, a random variable is a random number whose value is associated with the various outcome of an experiment.   Toss a fair coin three coins, so that the sample space includes outcomes like HHH, TTH, etc. One example of a random variable associated to this experiment is simply the number of heads.  Here's a more sophisticated random variable. Suppose that we start with $1, double our money if we see heads and lose it all if we see tails. Then could be our winnings after this experiment. (Notice that if we see HHH and otherwise.)    Suppose that my neighbor and I each leave home independently between 8 and 9am, each time equally likely, so .  One random variable is the time I leave: . Another is the time between our departures: .   Now we are ready for the formal definition. Suppose that is a probability space.    A random variable is a function satisfying the following technical assumption. For every       We'll abbreviate e.g. by .     Let be a random variable. For all the following are events (i.e., in ).         and      , , etc.           and is closed under taking complements.     , since is order-dense in . Since is countable and each belongs to , we can conclude that this countable union belongs to too.    Exercise.        The set is an event for any Borel set  . The Borel sets are the smallest -field containing all open sets.     If and are random variables on and , then the following are all also random variables.                   We need to show that for every , but since is a random variable.  The rest are similar.         Associated to a random variable is a cumulative distribution function (cdf) defined by .     The definition of random variable ensures that , so is defined.     Let be the number of heads in three flips of a fair coin. Describe its cdf.            My neighbor and I leave our houses again. Let be the time I leave my house; this can be thought of as the projection . Describe the cdf of .            A cdf for a rv enjoys the following properties.    and      is increasing: if then .     is right-continuous :                     (that is, is the jump that makes at )       "
 },
 {
   "id": "p-52",
@@ -242,6 +242,51 @@ var ptx_lunr_docs = [
   "number": "2.1.7",
   "title": "",
   "body": "  If and are random variables on and , then the following are all also random variables.                   We need to show that for every , but since is a random variable.  The rest are similar.      "
+},
+{
+  "id": "def-cdf",
+  "level": "2",
+  "url": "sec-random-variables-theory.html#def-cdf",
+  "type": "Definition",
+  "number": "2.1.8",
+  "title": "",
+  "body": "  Associated to a random variable is a cumulative distribution function (cdf) defined by .   "
+},
+{
+  "id": "remark-4",
+  "level": "2",
+  "url": "sec-random-variables-theory.html#remark-4",
+  "type": "Remark",
+  "number": "2.1.9",
+  "title": "",
+  "body": " The definition of random variable ensures that , so is defined.  "
+},
+{
+  "id": "example-11",
+  "level": "2",
+  "url": "sec-random-variables-theory.html#example-11",
+  "type": "Example",
+  "number": "2.1.10",
+  "title": "",
+  "body": "  Let be the number of heads in three flips of a fair coin. Describe its cdf.         "
+},
+{
+  "id": "example-12",
+  "level": "2",
+  "url": "sec-random-variables-theory.html#example-12",
+  "type": "Example",
+  "number": "2.1.11",
+  "title": "",
+  "body": "  My neighbor and I leave our houses again. Let be the time I leave my house; this can be thought of as the projection . Describe the cdf of .         "
+},
+{
+  "id": "prop-cdf-properties",
+  "level": "2",
+  "url": "sec-random-variables-theory.html#prop-cdf-properties",
+  "type": "Proposition",
+  "number": "2.1.12",
+  "title": "",
+  "body": "  A cdf for a rv enjoys the following properties.    and      is increasing: if then .     is right-continuous :                     (that is, is the jump that makes at )      "
 },
 {
   "id": "colophon-2",
