@@ -9,7 +9,7 @@
     <latex-image-preamble>
       \usepackage{tikz}
     </latex-image-preamble>
-      <brandlogo source="assets/dice.png" />
+      <brandlogo source="dice.png" />
   </docinfo>
 
   <book xml:id="math-487-notes">
@@ -597,6 +597,64 @@
             </p>
           </proof>
         </proposition>
+        <definition xml:id="def-cdf">
+          <statement>
+            <p>
+              Associated to a random variable <m>X</m> is a <term>cumulative distribution function</term>
+              (cdf) <m>F\colon \R\to [0,1]</m> defined by <m>F(a) = P(X \le a)</m>.
+            </p>
+          </statement>
+        </definition>
+        <remark>
+          <p>
+            The definition of <q>random variable</q> ensures that <m>\{X\le a\}\in \mathcal{F}</m>,
+            so <m>P(X\le a)</m> is defined.
+          </p>
+        </remark>
+        <example>
+          <statement>
+            <p>
+              Let <m>X</m> be the number of heads in three flips of a fair coin. 
+              Describe its cdf.
+            </p>
+          </statement>
+          <solution>
+            <p>
+              <me>
+                F(a) = \begin {cases}
+                  0 &amp;\text{if } a \lt 0 \\
+                  \tfrac18 &amp; \text{if } 0 \le a \lt 1 \\
+                  \tfrac12 &amp; \text{if } 1 \le a \lt 2 \\
+                  \tfrac78 &amp; \text{if } 2 \le a \lt 3 \\
+                  1 &amp; \text{if } 3 \le a
+                \end {cases}
+              </me> 
+            </p>
+            <image source="cdf-1.svg" width="80%"/>
+          </solution>
+        </example>
+        <example>
+          <statement>
+            <p>
+              My neighbor and I leave our houses again.
+              Let <m>X</m> be the time I leave my house; this can be thought of as
+              the projection <m>(x,y) \mapsto x</m>.
+              Describe the cdf of <m>X</m>.
+            </p>
+          </statement>
+          <solution>
+            <p>
+              <me>
+                F(a) = \begin {cases}
+                 0 \amp \text{if } a \lt 8 \\
+                 a-8 \amp \text{if } 8 \le a \lt 9 \\
+                 1 \amp \text{if } 9 \le a
+                \end {cases}
+              </me>
+            </p>
+            <image source="cdf-2" width="80%"/>
+          </solution>
+        </example>
       </section>
     </chapter>
 
