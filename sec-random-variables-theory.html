@@ -101,7 +101,7 @@ window.MathJax = {
 <div id="searchempty" class="searchempty"><span>No results.</span></div>
 <ol id="searchresults" class="searchresults"></ol>
 </div>
-</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="ch-random-variables.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-random-variables.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span><div class="searchbox"><div class="searchwidget">
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="ch-random-variables.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-random-variables.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-discrete-rvs.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span><div class="searchbox"><div class="searchwidget">
 <input id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" class="searchbutton" type="button" onclick="doSearch()" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button>
 </div></div>
 <span class="nav-runestone-controls"><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="avatarbutton" class="avatarbutton name">You!</span><div id="preferences_menu_holder" class="preferences_menu_holder hidden"><ol id="preferences_menu" class="preferences_menu" style="font-family: 'Roboto Serif', serif;">
@@ -207,6 +207,8 @@ window.MathJax = {
 </ol>
 </li>
 </ol></div></button></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand {\Bernoulli}{\operatorname{Bernoulli}}
+\newcommand {\binomial}{\operatorname{binomial}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -232,26 +234,39 @@ window.MathJax = {
 </li>
 <li>
 <div class="toc-item"><a href="ch-random-variables.html" class="internal"><span class="codenumber">2</span> <span class="title">Random variables</span></a></div>
-<ul class="structural"><li class="active"><div class="toc-item"><a href="sec-random-variables-theory.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Random variables: definition and examples</span></a></div></li></ul>
+<ul class="structural">
+<li class="active">
+<div class="toc-item"><a href="sec-random-variables-theory.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Random variables: definition and examples</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-random-variables-theory.html#subsec-random-variables" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Random variables: the basics</span></a></div></li>
+<li><div class="toc-item"><a href="sec-random-variables-theory.html#subsec-discrete-rvs" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Discrete random variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec-random-variables-theory.html#subsec-cts-rvs" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Continuous random variables</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="sec-discrete-rvs.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Discrete random variables</span></a></div></li>
+</ul>
 </li>
 <li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-random-variables-theory"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">2.1</span><span class="space"> </span><span class="title">Random variables: definition and examples</span>
 </h2>
+<section class="subsection" id="subsec-random-variables"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.1.1</span><span class="space"> </span><span class="title">Random variables: the basics</span>
+</h3>
 <div class="para" id="p-52">Informally, a <dfn class="terminology">random variable</dfn> is a random number whose value is associated with the various outcome of an experiment.</div>
-<article class="example example-like" id="example-9"><h3 class="heading">
+<article class="example example-like" id="example-9"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.1</span><span class="period">.</span>
-</h3>
-<div class="para" id="p-53">Toss a fair coin three coins, so that the sample space <span class="process-math">\(\Omega\)</span> includes outcomes like HHH, TTH, etc. One example of a random variable associated to this experiment is simply the number <span class="process-math">\(X\)</span> of heads.</div> <div class="para" id="p-54">Here’s a more sophisticated random variable. Suppose that we start with $1, double our money if we see heads and lose it all if we see tails. Then <span class="process-math">\(W\)</span> could be our winnings after this experiment. (Notice that <span class="process-math">\(W = 8\)</span> if we see HHH and <span class="process-math">\(=0\)</span> otherwise.)</div></article><article class="example example-like" id="example-10"><h3 class="heading">
+</h4>
+<div class="para" id="p-53">Toss a fair coin three coins, so that the sample space <span class="process-math">\(\Omega\)</span> includes outcomes like HHH, TTH, etc. One example of a random variable associated to this experiment is simply the number <span class="process-math">\(X\)</span> of heads.</div> <div class="para" id="p-54">Here’s a more sophisticated random variable. Suppose that we start with $1, double our money if we see heads and lose it all if we see tails. Then <span class="process-math">\(W\)</span> could be our winnings after this experiment. (Notice that <span class="process-math">\(W = 8\)</span> if we see HHH and <span class="process-math">\(=0\)</span> otherwise.)</div></article><article class="example example-like" id="example-10"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.2</span><span class="period">.</span>
-</h3>
+</h4>
 <div class="para" id="p-55">Suppose that my neighbor and I each leave home independently between 8 and 9am, each time equally likely, so <span class="process-math">\(\Omega = [8,9]\times[8,9]\text{.}\)</span>
 </div> <div class="para" id="p-56">One random variable is the time I leave: <span class="process-math">\((x,y) \mapsto x\text{.}\)</span> Another is the time between our departures: <span class="process-math">\((x,y) \mapsto |x - y|\text{.}\)</span>
 </div></article><div class="para" id="p-57">Now we are ready for the formal definition. Suppose that <span class="process-math">\((\Omega, \mathcal{F}, P)\)</span> is a probability space.</div>
-<article class="definition definition-like" id="def-random-var"><h3 class="heading">
+<article class="definition definition-like" id="def-random-var"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.1.3</span><span class="period">.</span>
-</h3>
+</h4>
 <div class="para logical" id="p-58">
 <div class="para">A <dfn class="terminology">random variable</dfn> is a function <span class="process-math">\(X\colon \Omega \to \R\)</span> satisfying the following technical assumption. For every <span class="process-math">\(a\in \R\)</span>
 </div>
@@ -260,13 +275,13 @@ window.MathJax = {
 \{ w\in \Omega : X(w) \le a \} \in \mathcal{F}.
 \end{equation*}
 </div>
-</div></article><article class="remark remark-like" id="remark-2"><h3 class="heading">
+</div></article><article class="remark remark-like" id="remark-2"><h4 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">2.1.4</span><span class="period">.</span>
-</h3>
+</h4>
 <div class="para" id="p-59">We’ll abbreviate e.g. <span class="process-math">\(\{w\in \Omega : X(w) \le a \}\)</span> by <span class="process-math">\(\{X \le a \}\text{.}\)</span>
-</div></article><article class="proposition theorem-like" id="prop-rv-basic"><h3 class="heading">
+</div></article><article class="proposition theorem-like" id="prop-rv-basic"><h4 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.1.5</span><span class="period">.</span>
-</h3>
+</h4>
 <div class="para logical" id="p-60">
 <div class="para">Let <span class="process-math">\(X\)</span> be a random variable. For all <span class="process-math">\(a,b\in\R\)</span> the following are events (i.e., in <span class="process-math">\(\mathcal{F}\)</span>).</div>
 <ol class="lower-roman">
@@ -277,19 +292,19 @@ window.MathJax = {
 <li id="li-17"><div class="para" id="p-63">
 <span class="process-math">\(\{a \lt X \lt b \}\text{,}\)</span> <span class="process-math">\(\{a \le X \lt b \}\text{,}\)</span> etc.</div></li>
 </ol>
-</div></article><article class="hiddenproof" id="proof-1"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-1"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-1"><article class="hiddenproof"><div class="para logical" id="p-64"><ol class="decimal">
+</div></article><article class="hiddenproof" id="proof-1"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-1"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-1"><article class="hiddenproof"><div class="para logical" id="p-64"><ol class="decimal">
 <li id="li-18"><div class="para" id="p-65">
 <span class="process-math">\(\{X \gt a\} = \{ X \le a \}^c\)</span> and <span class="process-math">\(\mathcal{F}\)</span> is closed under taking complements.</div></li>
 <li id="li-19"><div class="para" id="p-66">
 <span class="process-math">\(\{X \lt a \} = \bigcup_{b\in\mathbb{Q}, \; b \lt a} \{X \le b\}\text{,}\)</span> since <span class="process-math">\(\mathbb{Q}\)</span> is order-dense in <span class="process-math">\(\R\text{.}\)</span> Since <span class="process-math">\(\mathbb{Q}\)</span> is countable and each <span class="process-math">\(\{X \le b\}\)</span> belongs to <span class="process-math">\(\mathcal{F}\text{,}\)</span> we can conclude that this countable union belongs to <span class="process-math">\(\mathcal{F}\)</span> too.</div></li>
 <li id="li-20"><div class="para" id="p-67">Exercise.</div></li>
 </ol></div></article></div>
-<article class="remark remark-like" id="remark-3"><h3 class="heading">
+<article class="remark remark-like" id="remark-3"><h4 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">2.1.6</span><span class="period">.</span>
-</h3>
-<div class="para" id="p-68">The set <span class="process-math">\(\{X \in A\}\)</span> is an event for any <dfn class="terminology">Borel set</dfn> <span class="process-math">\(A\subseteq \R\text{.}\)</span> The Borel sets are the smallest <span class="process-math">\(\sigma\)</span>-field containing all open sets.</div></article><article class="proposition theorem-like" id="prop-rv-constructor"><h3 class="heading">
+</h4>
+<div class="para" id="p-68">The set <span class="process-math">\(\{X \in A\}\)</span> is an event for any <dfn class="terminology">Borel set</dfn> <span class="process-math">\(A\subseteq \R\text{.}\)</span> The Borel sets are the smallest <span class="process-math">\(\sigma\)</span>-field containing all open sets.</div></article><article class="proposition theorem-like" id="prop-rv-constructor"><h4 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.1.7</span><span class="period">.</span>
-</h3>
+</h4>
 <div class="para logical" id="p-69">
 <div class="para">If <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are random variables on <span class="process-math">\((\Omega,\mathcal{F}, P)\)</span> and <span class="process-math">\(b\in\R\text{,}\)</span> then the following are all also random variables.</div>
 <ol class="decimal">
@@ -300,20 +315,20 @@ window.MathJax = {
 0 \amp \text{if } X = 0
 \end {cases}\)</span></div></li>
 </ol>
-</div></article><article class="hiddenproof" id="proof-2"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-2"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-2"><article class="hiddenproof"><div class="para logical" id="p-74"><ol class="decimal"><li id="li-25">
+</div></article><article class="hiddenproof" id="proof-2"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-2"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-2"><article class="hiddenproof"><div class="para logical" id="p-74"><ol class="decimal"><li id="li-25">
 <div class="para" id="p-75">We need to show that <span class="process-math">\(\{bX\le a\}\)</span> for every <span class="process-math">\(a\in \R\text{,}\)</span> but <span class="process-math">\(\{X \le \tfrac{a}{b}\}\in \mathcal{F}\)</span> since <span class="process-math">\(X\)</span> is a random variable.</div>
 <div class="para" id="p-76">The rest are similar.</div>
 </li></ol></div></article></div>
-<article class="definition definition-like" id="def-cdf"><h3 class="heading">
+<article class="definition definition-like" id="def-cdf"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.1.8</span><span class="period">.</span>
-</h3>
+</h4>
 <div class="para" id="p-77">Associated to a random variable <span class="process-math">\(X\)</span> is a <dfn class="terminology">cumulative distribution function</dfn> (cdf) <span class="process-math">\(F\colon \R\to [0,1]\)</span> defined by <span class="process-math">\(F(a) = P(X \le a)\text{.}\)</span>
-</div></article><article class="remark remark-like" id="remark-4"><h3 class="heading">
+</div></article><article class="remark remark-like" id="remark-4"><h4 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">2.1.9</span><span class="period">.</span>
-</h3>
-<div class="para" id="p-78">The definition of “random variable” ensures that <span class="process-math">\(\{X\le a\}\in \mathcal{F}\text{,}\)</span> so <span class="process-math">\(P(X\le a)\)</span> is defined.</div></article><article class="example example-like" id="example-11"><h3 class="heading">
+</h4>
+<div class="para" id="p-78">The definition of “random variable” ensures that <span class="process-math">\(\{X\le a\}\in \mathcal{F}\text{,}\)</span> so <span class="process-math">\(P(X\le a)\)</span> is defined.</div></article><article class="example example-like" id="example-11"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.10</span><span class="period">.</span>
-</h3>
+</h4>
 <div class="para" id="p-79">Let <span class="process-math">\(X\)</span> be the number of heads in three flips of a fair coin. Describe its cdf.</div>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-9" id="solution-9"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-9"><div class="solution solution-like">
@@ -329,9 +344,9 @@ F(a) = \begin {cases}
 \end{equation*}
 </div></div> <div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/cdf-1.svg" class="contained"></div>
 </div></div>
-</div></article><article class="example example-like" id="example-12"><h3 class="heading">
+</div></article><article class="example example-like" id="example-12"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.11</span><span class="period">.</span>
-</h3>
+</h4>
 <div class="para" id="p-81">My neighbor and I leave our houses again. Let <span class="process-math">\(X\)</span> be the time I leave my house; this can be thought of as the projection <span class="process-math">\((x,y) \mapsto x\text{.}\)</span> Describe the cdf of <span class="process-math">\(X\text{.}\)</span>
 </div>
 <div class="solutions">
@@ -346,9 +361,9 @@ a-8 \amp \text{if } 8 \le a \lt 9 \\
 \end{equation*}
 </div></div> <div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/cdf-2.svg" role="img" class="contained"></div>
 </div></div>
-</div></article><article class="proposition theorem-like" id="prop-cdf-properties"><h3 class="heading">
+</div></article><article class="proposition theorem-like" id="prop-cdf-properties"><h4 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.1.12</span><span class="period">.</span>
-</h3>
+</h4>
 <div class="para logical" id="p-83">
 <div class="para">A cdf <span class="process-math">\(F\)</span> for a rv <span class="process-math">\(X\)</span> enjoys the following properties.</div>
 <ol class="lower-alpha">
@@ -364,12 +379,111 @@ a-8 \amp \text{if } 8 \le a \lt 9 \\
 <li id="li-29"><div class="para" id="p-87"><span class="process-math">\(\displaystyle P(X \gt a) = 1 - F(a)\)</span></div></li>
 <li id="li-30"><div class="para" id="p-88"><span class="process-math">\(\displaystyle P(a \lt X \le b) = F(b) - F(a)\)</span></div></li>
 <li id="li-31"><div class="para" id="p-89"><span class="process-math">\(\displaystyle P(X \lt a) = \lim\limits_{x\to a^-} F(x)\)</span></div></li>
-<li id="li-32"><div class="para" id="p-90">
+<li id="li-prob-jump"><div class="para" id="p-90">
 <span class="process-math">\(P(X = a) = F(a) - \lim\limits_{x\to a^-} F(x)\)</span> (that is, <span class="process-math">\(P(X = a)\)</span> is the “jump” that <span class="process-math">\(F\)</span> makes at <span class="process-math">\(a\)</span>)</div></li>
 </ol>
-</div></article></section></div>
+</div></article><div class="para" id="p-91">In fact, a function <span class="process-math">\(F\)</span> satisfying the first three conditions of <a href="" class="xref" data-knowl="./knowl/prop-cdf-properties.html" title="Proposition 2.1.12">Proposition 2.1.12</a> must in fact be realizable as the cdf of some random variable <span class="process-math">\(X\text{,}\)</span> as you might have the pleasure of verifying on the homework.</div></section><section class="subsection" id="subsec-discrete-rvs"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.1.2</span><span class="space"> </span><span class="title">Discrete random variables</span>
+</h3>
+<article class="definition definition-like" id="def-discrete-rv"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.1.13</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-92">The random variable <span class="process-math">\(X\)</span> is <dfn class="terminology">discrete</dfn> if it takes values only in some countable subset <span class="process-math">\(\{x_1,x_2,\dots\}\)</span> of <span class="process-math">\(\R\text{.}\)</span> In this case we defined its <dfn class="terminology">probability mass function (pmf)</dfn> <span class="process-math">\(f\colon \R\to [0,1]\)</span> by <span class="process-math">\(f(x) = P(X = x)\text{.}\)</span>
+</div></article><div class="para" id="p-93">Note that the nonzero values of the pmf <span class="process-math">\(p_i = P(X = x_i)\)</span> satisfy <span class="process-math">\(0 \le p_i \le 1\)</span> and <span class="process-math">\(\sum_{1\le i} p_i = 1\text{.}\)</span> In particular, at least one <span class="process-math">\(p_i\)</span> must be positive! We will contrast this below with the situation for “continuous” random variables.</div>
+<article class="remark remark-like" id="remark-5"><h4 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">2.1.14</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-94">Most—but not all!—discrete random variables we consider will have <em class="emphasis">finite</em> range. But many interesting examples have (countably) infinite range; in this case the range will usually be something like <span class="process-math">\(\mathbb{N}\text{.}\)</span>
+</div></article><article class="example example-like" id="example-13"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.15</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-95">A simple but important random variable is one that can take only two possible values, <span class="process-math">\(0\)</span> and <span class="process-math">\(1\text{.}\)</span> Such a random variable <span class="process-math">\(X\)</span> is called a <dfn class="terminology">Bernoulli random variable</dfn>, and we write <span class="process-math">\(X \sim \Bernoulli(p)\)</span> where <span class="process-math">\(p\)</span> denotes <span class="process-math">\(P(X = 1)\text{.}\)</span>
+</div> <div class="para logical" id="p-96">
+<div class="para">Then <span class="process-math">\(X\)</span> may represent the outcome of a biased coin or might be an <dfn class="terminology">indicator rv</dfn> for some event <span class="process-math">\(E\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+X(w) = 1_E(w) = \begin {cases}
+0 \amp w \in A^c \\
+1 \amp w \in A
+\end {cases}
+\end{equation*}
+</div>
+</div> <div class="para logical" id="p-97">
+<div class="para">The cdf <span class="process-math">\(F\)</span> of a <span class="process-math">\(\Bernoulli(p)\)</span> rv <span class="process-math">\(X\)</span> is described as follows.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F(x) = \begin {cases}
+0 \amp x \lt 0 \\
+1-p \amp 0 \le x \lt 1 \\
+1 \amp 1 \le x
+\end {cases}
+\end{equation*}
+</div>
+</div></article><article class="example example-like" id="example-14"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.16</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-98">Roll two dice, details to be added.</div></article><article class="example example-like" id="example-15"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.17</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="p-99">
+<div class="para">Back to our usual example of tossing three coins, where <span class="process-math">\(X\)</span> denotes the number of heads. Certainly <span class="process-math">\(X\)</span> is discrete, since it has only four possible values: 0,1,2,3. This <span class="process-math">\(X\)</span> has the following pmf.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f_X(x) = \begin {cases}
+\tfrac18 \amp x = 0,3 \\
+\tfrac38 \amp x = 1,2 \\
+0 \amp \text{otherwise}
+\end {cases}
+\end{equation*}
+</div>
+</div></article></section><section class="subsection" id="subsec-cts-rvs"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.1.3</span><span class="space"> </span><span class="title">Continuous random variables</span>
+</h3>
+<article class="definition definition-like" id="def-cts-rv"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.1.18</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="p-100">
+<div class="para">The rv <span class="process-math">\(X\)</span> is <dfn class="terminology">continuous</dfn> if its cdf <span class="process-math">\(F\)</span> can be expressed as the integral of an integrable function <span class="process-math">\(g\)</span> as follows.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F(x) = \int_{-\infty}^x g(u)\,du \quad \text{for all } x\in \R .
+\end{equation*}
+</div>
+<div class="para">This (integrable) function <span class="process-math">\(g\)</span> is called the <dfn class="terminology">probability density function (pdf)</dfn> of <span class="process-math">\(X\text{.}\)</span>
+</div>
+</div></article><article class="example example-like" id="example-16"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.19</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-101">Leaving home, to be added</div></article><article class="remark remark-like" id="remark-6"><h4 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">2.1.20</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="p-102"><ol class="lower-alpha">
+<li id="li-33"><div class="para" id="p-103">
+<span class="process-math">\(X\)</span> is called “continuous” since <span class="process-math">\(F_X\)</span> is a continuous function. Notice that this implies that <span class="process-math">\(P(X = x) = 0\)</span> for every <span class="process-math">\(x\in \R\text{.}\)</span> See <a href="" class="xref" data-knowl="./knowl/li-prob-jump.html" title="Item g">Item g</a>.</div></li>
+<li id="li-34"><div class="para" id="p-104">By the Fundamental Theorem of Calculus, <span class="process-math">\(\frac{d}{dx}F(x) = g(x)\)</span> almost everywhere.</div></li>
+<li id="li-35"><div class="para" id="p-105">
+<span class="process-math">\(P(X\in [a,b]) = F(b) - F(a) = \int_a^b g(u)\,du\text{.}\)</span> In fact, <span class="process-math">\(P(X\in B) = \int_B g(u)\,du\)</span> for any Borel set <span class="process-math">\(B\text{.}\)</span> In particular, <span class="process-math">\(\int_{-\infty}^\infty g(u)\,du = 1\text{.}\)</span>
+</div></li>
+<li id="li-36"><div class="para logical" id="p-106">
+<div class="para">In particular, for small <span class="process-math">\(\epsilon\text{,}\)</span> we have the following.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(X \in [x,x+\epsilon]) = \int_x^{x+\epsilon} g(u)\,du \approx \epsilon g(x)
+\end{equation*}
+</div>
+<div class="para">Dividing each side of this approximate equality by <span class="process-math">\(\epsilon\text{,}\)</span> we see that we are justified in calling <span class="process-math">\(f\)</span> a “density” function. Even though there is no “point-mass” at <span class="process-math">\(x\text{,}\)</span> there is density there.</div>
+</div></li>
+</ol></div></article><div class="para" id="p-107">A continuous rv cannot be discrete, because a discrete rv must have point mass while a continuous rv cannot. But there are rvs that are neither continuous nor discrete.</div>
+<article class="example example-like" id="example-17"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.21</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-108">Choose a real number from <span class="process-math">\(\Omega = [-1,1]\text{,}\)</span> each equally likely. If it is negative, round it up to 0. Otherwise leave it alone. Let <span class="process-math">\(X\)</span> be the result of this procedure. Show that <span class="process-math">\(X\)</span> is neither discrete nor continuous.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-11" id="solution-11"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-11"><div class="solution solution-like"><div class="para" id="p-109">Then <span class="process-math">\(X\)</span> cannot be continuous, for <span class="process-math">\(P(X = 0) = 1/2\text{.}\)</span> But <span class="process-math">\(X\)</span> can take any value in <span class="process-math">\([0,1]\text{,}\)</span> of which there are uncountably many. So <span class="process-math">\(X\)</span> is not discrete, either.</div></div></div>
+</div></article></section></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="ch-random-variables.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="ch-random-variables.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-discrete-rvs.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">

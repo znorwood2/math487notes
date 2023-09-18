@@ -169,7 +169,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.1",
   "title": "Random variables: definition and examples",
-  "body": " Random variables: definition and examples  Informally, a random variable is a random number whose value is associated with the various outcome of an experiment.   Toss a fair coin three coins, so that the sample space includes outcomes like HHH, TTH, etc. One example of a random variable associated to this experiment is simply the number of heads.  Here's a more sophisticated random variable. Suppose that we start with $1, double our money if we see heads and lose it all if we see tails. Then could be our winnings after this experiment. (Notice that if we see HHH and otherwise.)    Suppose that my neighbor and I each leave home independently between 8 and 9am, each time equally likely, so .  One random variable is the time I leave: . Another is the time between our departures: .   Now we are ready for the formal definition. Suppose that is a probability space.    A random variable is a function satisfying the following technical assumption. For every       We'll abbreviate e.g. by .     Let be a random variable. For all the following are events (i.e., in ).         and      , , etc.           and is closed under taking complements.     , since is order-dense in . Since is countable and each belongs to , we can conclude that this countable union belongs to too.    Exercise.        The set is an event for any Borel set  . The Borel sets are the smallest -field containing all open sets.     If and are random variables on and , then the following are all also random variables.                   We need to show that for every , but since is a random variable.  The rest are similar.         Associated to a random variable is a cumulative distribution function (cdf) defined by .     The definition of random variable ensures that , so is defined.     Let be the number of heads in three flips of a fair coin. Describe its cdf.            My neighbor and I leave our houses again. Let be the time I leave my house; this can be thought of as the projection . Describe the cdf of .            A cdf for a rv enjoys the following properties.    and      is increasing: if then .     is right-continuous :                     (that is, is the jump that makes at )       "
+  "body": " Random variables: definition and examples   Random variables: the basics  Informally, a random variable is a random number whose value is associated with the various outcome of an experiment.   Toss a fair coin three coins, so that the sample space includes outcomes like HHH, TTH, etc. One example of a random variable associated to this experiment is simply the number of heads.  Here's a more sophisticated random variable. Suppose that we start with $1, double our money if we see heads and lose it all if we see tails. Then could be our winnings after this experiment. (Notice that if we see HHH and otherwise.)    Suppose that my neighbor and I each leave home independently between 8 and 9am, each time equally likely, so .  One random variable is the time I leave: . Another is the time between our departures: .   Now we are ready for the formal definition. Suppose that is a probability space.    A random variable is a function satisfying the following technical assumption. For every       We'll abbreviate e.g. by .     Let be a random variable. For all the following are events (i.e., in ).         and      , , etc.           and is closed under taking complements.     , since is order-dense in . Since is countable and each belongs to , we can conclude that this countable union belongs to too.    Exercise.        The set is an event for any Borel set  . The Borel sets are the smallest -field containing all open sets.     If and are random variables on and , then the following are all also random variables.                   We need to show that for every , but since is a random variable.  The rest are similar.         Associated to a random variable is a cumulative distribution function (cdf) defined by .     The definition of random variable ensures that , so is defined.     Let be the number of heads in three flips of a fair coin. Describe its cdf.            My neighbor and I leave our houses again. Let be the time I leave my house; this can be thought of as the projection . Describe the cdf of .            A cdf for a rv enjoys the following properties.    and      is increasing: if then .     is right-continuous :                     (that is, is the jump that makes at )       In fact, a function satisfying the first three conditions of must in fact be realizable as the cdf of some random variable , as you might have the pleasure of verifying on the homework.    Discrete random variables    The random variable is discrete if it takes values only in some countable subset of . In this case we defined its probability mass function (pmf)  by .    Note that the nonzero values of the pmf satisfy and . In particular, at least one must be positive! We will contrast this below with the situation for continuous random variables.   Most but not all! discrete random variables we consider will have finite range. But many interesting examples have (countably) infinite range; in this case the range will usually be something like .    A simple but important random variable is one that can take only two possible values, and . Such a random variable is called a Bernoulli random variable , and we write where denotes .  Then may represent the outcome of a biased coin or might be an indicator rv for some event :   The cdf of a rv is described as follows.     Roll two dice, details to be added.    Back to our usual example of tossing three coins, where denotes the number of heads. Certainly is discrete, since it has only four possible values: 0,1,2,3. This has the following pmf.      Continuous random variables    The rv is continuous if its cdf can be expressed as the integral of an integrable function as follows. This (integrable) function is called the probability density function (pdf) of .     Leaving home, to be added        is called continuous since is a continuous function. Notice that this implies that for every . See .    By the Fundamental Theorem of Calculus, almost everywhere.     . In fact, for any Borel set . In particular, .    In particular, for small , we have the following. Dividing each side of this approximate equality by , we see that we are justified in calling a density function. Even though there is no point-mass at , there is density there.      A continuous rv cannot be discrete, because a discrete rv must have point mass while a continuous rv cannot. But there are rvs that are neither continuous nor discrete.    Choose a real number from , each equally likely. If it is negative, round it up to 0. Otherwise leave it alone. Let be the result of this procedure. Show that is neither discrete nor continuous.    Then cannot be continuous, for . But can take any value in , of which there are uncountably many. So is not discrete, either.     "
 },
 {
   "id": "p-52",
@@ -287,6 +287,114 @@ var ptx_lunr_docs = [
   "number": "2.1.12",
   "title": "",
   "body": "  A cdf for a rv enjoys the following properties.    and      is increasing: if then .     is right-continuous :                     (that is, is the jump that makes at )      "
+},
+{
+  "id": "def-discrete-rv",
+  "level": "2",
+  "url": "sec-random-variables-theory.html#def-discrete-rv",
+  "type": "Definition",
+  "number": "2.1.13",
+  "title": "",
+  "body": "  The random variable is discrete if it takes values only in some countable subset of . In this case we defined its probability mass function (pmf)  by .   "
+},
+{
+  "id": "remark-5",
+  "level": "2",
+  "url": "sec-random-variables-theory.html#remark-5",
+  "type": "Remark",
+  "number": "2.1.14",
+  "title": "",
+  "body": " Most but not all! discrete random variables we consider will have finite range. But many interesting examples have (countably) infinite range; in this case the range will usually be something like .  "
+},
+{
+  "id": "example-13",
+  "level": "2",
+  "url": "sec-random-variables-theory.html#example-13",
+  "type": "Example",
+  "number": "2.1.15",
+  "title": "",
+  "body": " A simple but important random variable is one that can take only two possible values, and . Such a random variable is called a Bernoulli random variable , and we write where denotes .  Then may represent the outcome of a biased coin or might be an indicator rv for some event :   The cdf of a rv is described as follows.   "
+},
+{
+  "id": "example-14",
+  "level": "2",
+  "url": "sec-random-variables-theory.html#example-14",
+  "type": "Example",
+  "number": "2.1.16",
+  "title": "",
+  "body": " Roll two dice, details to be added.  "
+},
+{
+  "id": "example-15",
+  "level": "2",
+  "url": "sec-random-variables-theory.html#example-15",
+  "type": "Example",
+  "number": "2.1.17",
+  "title": "",
+  "body": " Back to our usual example of tossing three coins, where denotes the number of heads. Certainly is discrete, since it has only four possible values: 0,1,2,3. This has the following pmf.   "
+},
+{
+  "id": "def-cts-rv",
+  "level": "2",
+  "url": "sec-random-variables-theory.html#def-cts-rv",
+  "type": "Definition",
+  "number": "2.1.18",
+  "title": "",
+  "body": "  The rv is continuous if its cdf can be expressed as the integral of an integrable function as follows. This (integrable) function is called the probability density function (pdf) of .   "
+},
+{
+  "id": "example-16",
+  "level": "2",
+  "url": "sec-random-variables-theory.html#example-16",
+  "type": "Example",
+  "number": "2.1.19",
+  "title": "",
+  "body": " Leaving home, to be added  "
+},
+{
+  "id": "remark-6",
+  "level": "2",
+  "url": "sec-random-variables-theory.html#remark-6",
+  "type": "Remark",
+  "number": "2.1.20",
+  "title": "",
+  "body": "     is called continuous since is a continuous function. Notice that this implies that for every . See .    By the Fundamental Theorem of Calculus, almost everywhere.     . In fact, for any Borel set . In particular, .    In particular, for small , we have the following. Dividing each side of this approximate equality by , we see that we are justified in calling a density function. Even though there is no point-mass at , there is density there.     "
+},
+{
+  "id": "example-17",
+  "level": "2",
+  "url": "sec-random-variables-theory.html#example-17",
+  "type": "Example",
+  "number": "2.1.21",
+  "title": "",
+  "body": "  Choose a real number from , each equally likely. If it is negative, round it up to 0. Otherwise leave it alone. Let be the result of this procedure. Show that is neither discrete nor continuous.    Then cannot be continuous, for . But can take any value in , of which there are uncountably many. So is not discrete, either.   "
+},
+{
+  "id": "sec-discrete-rvs",
+  "level": "1",
+  "url": "sec-discrete-rvs.html",
+  "type": "Section",
+  "number": "2.2",
+  "title": "Discrete random variables",
+  "body": " Discrete random variables    We perform independent trials, each with a fixed probability of success. The total number of successes at the end is a binomial random variable with parameters and ; we write . Find its probability mass function.    Fix . There are -many ways of choosing which of the trials will end in success. Then the probability that these trials succeed and the other fail is (by independence) . Multiplying these gives the value of the pmf at : You can view a graph of this pmf at this GeoGebra link .    Verify that .  "
+},
+{
+  "id": "example-18",
+  "level": "2",
+  "url": "sec-discrete-rvs.html#example-18",
+  "type": "Example",
+  "number": "2.2.1",
+  "title": "",
+  "body": "  We perform independent trials, each with a fixed probability of success. The total number of successes at the end is a binomial random variable with parameters and ; we write . Find its probability mass function.    Fix . There are -many ways of choosing which of the trials will end in success. Then the probability that these trials succeed and the other fail is (by independence) . Multiplying these gives the value of the pmf at : You can view a graph of this pmf at this GeoGebra link .   "
+},
+{
+  "id": "exercise-1",
+  "level": "2",
+  "url": "sec-discrete-rvs.html#exercise-1",
+  "type": "Checkpoint",
+  "number": "2.2.2",
+  "title": "",
+  "body": "Verify that . "
 },
 {
   "id": "colophon-2",
