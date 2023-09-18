@@ -5,6 +5,8 @@
   <docinfo>
     <macros>
       \newcommand{\R}{\mathbb R}
+      \newcommand {\Bernoulli}{\operatorname{Bernoulli}}
+      \newcommand {\binomial}{\operatorname{binomial}}
     </macros>
     <latex-image-preamble>
       \usepackage{tikz}
@@ -450,7 +452,9 @@
     <chapter xml:id="ch-random-variables">
       <title>Random variables</title>
       <section xml:id="sec-random-variables-theory">
-        <title>Random variables: definition and examples</title>
+      <title>Random variables: definition and examples</title>
+      <subsection xml:id="subsec-random-variables">
+        <title>Random variables: the basics</title>
         <p>
           Informally, a <term>random variable</term> is a random number 
           whose value is associated with the various outcome of an experiment.
@@ -690,7 +694,7 @@
                     <m>P(X \lt a) = \lim\limits_{x\to a^-} F(x)</m>
                   </p>
                 </li>
-                <li>
+                <li xml:id="li-prob-jump">
                   <p>
                     <m>
                       P(X = a) = F(a) - \lim\limits_{x\to a^-} F(x)
@@ -702,6 +706,215 @@
             </p>
           </statement>
         </proposition>
+        <p>
+          In fact, a function <m>F</m> satisfying the first three conditions
+          of <xref ref="prop-cdf-properties"/> must in fact be realizable as the cdf
+          of some random variable <m>X</m>, as you might have the pleasure of verifying
+          on the homework.
+        </p>
+      </subsection>
+      <subsection xml:id="subsec-discrete-rvs">
+        <title>Discrete random variables</title>
+        <definition xml:id="def-discrete-rv">
+          <statement>
+            <p>
+              The random variable <m>X</m> is <term>discrete</term>
+              if it takes values only in some countable subset
+              <m>\{x_1,x_2,\dots\}</m> of <m>\R</m>.
+              In this case we defined its <term>probability mass function (pmf)</term>
+              <m>f\colon \R\to [0,1]</m> by
+              <m>f(x) = P(X = x)</m>.
+            </p>
+          </statement>
+        </definition>
+        <p>
+          Note that the nonzero values of the pmf
+          <m>p_i = P(X = x_i)</m> satisfy <m>0 \le p_i \le 1</m>
+          and <m>\sum_{1\le i} p_i = 1</m>.
+          In particular, at least one <m>p_i</m> must be positive!
+          We will contrast this below with the situation
+          for <q>continuous</q> random variables.
+        </p>
+        <remark>
+          <p>
+            Most<mdash/>but not all!<mdash/>discrete random variables
+            we consider will have <em>finite</em> range.
+            But many interesting examples have (countably) infinite range;
+            in this case the range will usually be something like <m>\mathbb{N}</m>.
+          </p>
+        </remark>
+        <example>
+          <p>
+            A simple but important random variable is one that
+            can take only two possible values, <m>0</m> and <m>1</m>.
+            Such a random variable <m>X</m> is called a
+            <term>Bernoulli random variable</term>, and we write
+            <m>X \sim \Bernoulli(p)</m> where <m>p</m> denotes 
+            <m>P(X = 1)</m>.
+          </p>
+          <p>
+            Then <m>X</m> may represent the outcome of a biased coin
+            or might be an <term>indicator rv</term> for some event <m>E</m>:
+            <me>
+              X(w) = 1_E(w) = \begin {cases}
+              0 \amp w \in A^c \\
+              1 \amp w \in A
+              \end {cases}
+            </me>
+          </p>
+          <p>
+            The cdf <m>F</m> of a <m>\Bernoulli(p)</m> rv <m>X</m> is 
+            described as follows.
+            <me>
+              F(x) = \begin {cases}
+                0 \amp x \lt 0 \\
+                1-p \amp 0 \le x \lt 1 \\
+                1 \amp 1 \le x
+              \end {cases}
+            </me>
+          </p>
+        </example>
+        <example>
+          <p>
+            Roll two dice, details to be added.
+          </p>
+        </example>
+        <example>
+          <p>
+            Back to our usual example of tossing three coins,
+            where <m>X</m> denotes the number of heads.
+            Certainly <m>X</m> is discrete, since it has only four
+            possible values: 0,1,2,3.
+            This <m>X</m> has the following pmf.
+            <me>
+              f_X(x) = \begin {cases}
+              \tfrac18 \amp x = 0,3 \\
+              \tfrac38 \amp x = 1,2 \\
+              0 \amp \text{otherwise}
+              \end {cases}
+            </me>
+          </p>
+        </example>
+      </subsection>
+        <subsection xml:id="subsec-cts-rvs">
+          <title>Continuous random variables</title>
+          <definition xml:id="def-cts-rv">
+          <statement>
+            <p>
+              The rv <m>X</m> is <term>continuous</term> if its cdf
+              <m>F</m> can be expressed as the integral of an integrable
+              function <m>g</m> as follows.
+              <me>
+                F(x) = \int_{-\infty}^x g(u)\,du \quad \text{for all } x\in \R .
+              </me>
+              This (integrable) function <m>g</m> is called the 
+              <term>probability density function (pdf)</term>
+              of <m>X</m>.
+            </p>
+          </statement>
+        </definition>
+        <example>
+          <p>
+            Leaving home, to be added
+          </p>
+        </example>
+        <remark>
+          <p>
+            <ol marker="(a)">
+              <li>
+                <p>
+                  <m>X</m> is called <q>continuous</q>
+                  since <m>F_X</m> is a continuous function.
+                  Notice that this implies that <m>P(X = x) = 0</m>
+                  for every <m>x\in \R</m>.
+                  See <xref ref="li-prob-jump"/>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  By the Fundamental Theorem of Calculus,
+                  <m>\frac{d}{dx}F(x) = g(x)</m> almost everywhere.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>P(X\in [a,b]) = F(b) - F(a) = \int_a^b g(u)\,du</m>.
+                  In fact, <m>P(X\in B) = \int_B g(u)\,du</m> for any
+                  Borel set <m>B</m>.
+                  In particular, <m>\int_{-\infty}^\infty g(u)\,du = 1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  In particular, for small <m>\epsilon</m>,
+                  we have the following.
+                  <me>
+                    P(X \in [x,x+\epsilon]) = \int_x^{x+\epsilon} g(u)\,du \approx \epsilon g(x)
+                  </me>
+                  Dividing each side of this approximate equality by <m>\epsilon</m>,
+                  we see that we are justified in calling <m>f</m> a <q>density</q> function.
+                  Even though there is no <q>point-mass</q> at <m>x</m>,
+                  there is density there.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </remark>
+        <p>
+          A continuous rv cannot be discrete, because a discrete rv
+          must have point mass while a continuous rv cannot.
+          But there are rvs that are neither continuous nor discrete.
+        </p>
+        <example>
+          <statement>
+            <p>
+              Choose a real number from <m>\Omega = [-1,1]</m>, each equally likely.
+              If it is negative, round it up to 0. Otherwise leave it alone.
+              Let <m>X</m> be the result of this procedure. 
+              Show that <m>X</m> is neither discrete nor continuous.
+            </p>
+          </statement>
+          <solution>
+            <p>
+              Then <m>X</m> cannot be continuous, for <m>P(X = 0) = 1/2</m>.
+              But <m>X</m> can take any value in <m>[0,1]</m>, of which
+              there are uncountably many. So <m>X</m> is not discrete, either.
+            </p>
+          </solution>
+        </example>
+      </subsection>
+      </section>
+      <section xml:id="sec-discrete-rvs">
+        <title>Discrete random variables</title>
+        <example>
+          <statement>
+            <p>
+              We perform <m>n</m> independent trials, each with a fixed probability
+              <m>p</m> of success. 
+              The total number of successes at the end is a <term>binomial random variable</term>
+              with parameters <m>n</m> and <m>p</m>; we write <m>X \sim \binomial(n,p)</m>.
+              Find its probability mass function.  
+            </p>
+          </statement>
+          <solution>
+            <p>
+              Fix <m>k \le n</m>. There are <m>\binom nk</m>-many ways of choosing which of the 
+              <m>k</m> trials will end in success. Then the probability that these <m>k</m> trials
+              succeed and the other <m>n-k</m> fail is (by independence) <m>p^k (1-p)^{n-k}</m>.
+              Multiplying these gives the value <m>p(k)</m> of the pmf at <m>k</m>:
+              <me>
+                p(k) = \binom nk p^k (1-p)^{n-k}
+              </me>
+              You can view a graph of this pmf at 
+              <url href="https://www.geogebra.org/calculator/ykvdawbt" visual="geogebra.org">this GeoGebra link</url>.
+            </p>
+          </solution>
+        </example>
+        <exercise>
+          <p>
+            Verify that <m>\sum_{0\le k \le n} p(k) = 1</m>.
+          </p>
+        </exercise>
       </section>
     </chapter>
 
