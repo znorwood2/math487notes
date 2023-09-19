@@ -5,8 +5,11 @@
   <docinfo>
     <macros>
       \newcommand{\R}{\mathbb R}
+      \newcommand{\N}{\mathbb N}
       \newcommand {\Bernoulli}{\operatorname{Bernoulli}}
       \newcommand {\binomial}{\operatorname{binomial}}
+      \newcommand {\geometric}{\operatorname{geometric}}
+      \newcommand {\var} {\operatorname{var}}
     </macros>
     <latex-image-preamble>
       \usepackage{tikz}
@@ -886,6 +889,7 @@
       </section>
       <section xml:id="sec-discrete-rvs">
         <title>Discrete random variables</title>
+        <introduction>
         <example>
           <statement>
             <p>
@@ -908,6 +912,10 @@
               You can view a graph of this pmf at 
               <url href="https://www.geogebra.org/calculator/ykvdawbt" visual="geogebra.org">this GeoGebra link</url>.
             </p>
+            <p>
+              Later we will make precise the guess that the <q>center of mass</q>
+              of this pmf occurs at <m>p n</m>.
+            </p>
           </solution>
         </example>
         <exercise>
@@ -915,6 +923,307 @@
             Verify that <m>\sum_{0\le k \le n} p(k) = 1</m>.
           </p>
         </exercise>
+        <definition xml:id="def-indep-rv">
+          <statement>
+            <p>
+              Two random variables <m>X</m> and <m>Y</m> on the same probability
+              space are <term>independent</term> if for all <m>x,y\in\R</m>
+              the events <m>\{X \le x\}</m> and <m>\{Y \le y\}</m> are independent.
+            </p>
+            <p>
+              If <m>X</m> and <m>Y</m> are discrete, then it is equivalent to 
+              require that for all <m>x,y\in\R</m> the events <m>\{X = x\}</m>
+              and <m>\{Y = y\}</m> are independent.
+            </p>
+          </statement>
+        </definition>
+        <p>
+          Then a random variable is <m>\binomial(n,p)</m> if and only if
+          it is a sum of <m>n</m> independent <m>\Bernoulli(p)</m> random variables:
+          <me>
+            Y = X_1 + \cdots + X_n
+          </me>
+        </p>
+        <example>
+          <statement>
+          <p>
+            Independent trials are performed, each with a fixed probability
+            <m>p</m> of success. The number of trials required to see the first
+            success is a <term>geometric</term> random variable with parameter
+            <m>p</m>, and if it's called <m>X</m> then we write
+            <m>X \sim \geometric(p)</m>.
+            Compute the pmf of a <m>\geometric(p)</m> random variable.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The possible values of <m>X</m> are <m>1,2,3,\dots</m>.
+            Fix a positive integer <m>k</m>.
+            The probability that the first <m>k-1</m> trials fail
+            and the <m>k</m>th succeeds is 
+            <me>
+              f(k) = (1-p)^{k-1} p
+            </me>
+          </p>
+        </solution>
+        </example>
+        <exercise>
+          <p>
+            Verify for the pmf <m>f</m> of a <m>\geometric(p)</m> 
+            random variable that
+            <me>
+              \sum_{1 \le k} f(k) = 1.
+            </me>
+          </p>
+        </exercise>
+      </introduction>
+        <subsection xml:id="subsec-expectation-discrete">
+          <title>The expectation of a discrete random variable</title>
+          <definition xml:id="def-expectation-discrete">
+            <statement>
+              <p>
+                The <term>expected value</term>, <term>expectation</term>,
+                or <term>mean</term> of a discrete random variable <m>X</m>
+                with pmf <m>f</m> is defined as follows.
+                <me>
+                  E(X) = \sum_{x} xf(x) = \sum_i x_i p_i,
+                </me>
+                whenever this sum converges absolutely.
+                (Otherwise the expected value does not exist.)
+              </p>
+            </statement>
+          </definition>
+          <exercise>
+            <p>
+              Verify that this agrees with the gradeschool notion of mean
+              in the case <m>p_1 = p_2 = \cdots = p_n = \tfrac1n</m>.
+            </p>
+          </exercise>
+          <example>
+            <p>
+              A <m>\Bernoulli(p)</m> random variable has mean <m>p</m>:
+              <me>
+                \sum_x x f(x) = 0\cdot f(0) + 1 \cdot f(1) = 0(1-p) + p = p.
+              </me>
+            </p>
+            <p>
+              In particular, <m>E(1_A) = P(A)</m>.
+            </p>
+          </example>
+          <example>
+            <p>
+              In order to compute the expectation of <m>Y \sim \binomial(n,p)</m>,
+              we must make sense of the following quantity.
+              <me>
+                E(Y) = \sum_{k=0}^n k \binom nk p^k (1-p)^{n-k}
+              </me>
+              After some thought, we might notice that this is the following
+              function of <m>x</m> and <m>y</m> evaluated at <m>x = p</m>,
+              <m>y = 1-p</m>.
+              <md>
+                <mrow> \sum_{k=0}^n k \binom nk x^k y^{n-k}
+                \amp = x \frac{d}{dx} \sum_{k=0}^n \binom nk x^k y^{n-k} </mrow>
+                <mrow> \amp = x \frac{d}{dx} (x+y)^{n} </mrow>
+                <mrow> \amp = x n (x+y)^{n-1}  </mrow>
+              </md>
+              (We have used the Binomial Theorem.)
+              Now, plugging in <m>x = p</m> and <m>y = 1-p</m> gives
+              <me>
+                pn(p + 1-p)^{n-1} = pn.
+              </me>
+              But this is much easier using the linearity of expectation!
+            </p>
+          </example>
+          <theorem xml:id="thm-linearity-expectation-discrete">
+            <statement>
+              <p>
+                The expectation operator <m>E</m> is linear; that is,
+                <md>
+                  <mrow> E(aX) \amp = a E(X) </mrow>
+                  <mrow> \text{and} \quad E(X+Y) \amp = E(X) + E(Y) </mrow>
+                </md>
+              </p>
+            </statement>
+            <proof>
+              <p>
+                It is useful to notice that, for fixed <m>x\in\R</m>,
+                <m>\{X = x\} = \bigcup_y \{X = x \text{ and } Y = y\}</m>,
+                and that this is a disjoint union.
+                Thus, by the additivity of the probability measure,
+                <m>P(X = x) = \sum_y P(X = x \text{ and } Y = y)</m>.
+                We will use this fact and a similar one with the roles of 
+                <m>X</m> and <m>Y</m> interchanged in what follows.
+              </p>
+              <p>
+                <md>
+                  <mrow> E(X+Y) \amp = \sum_z zP(X+Y = z)</mrow>
+                  <mrow> \amp = \sum_x \sum_y (x+y) P(X = x \text{ and } Y = y) </mrow>
+                  <mrow> \amp = \sum_x x \left[ \sum_y P(X = x \text{ and } Y = y) \right] 
+                    + \sum_y y \left[ \sum_x P(X = x \text{ and } Y = y) \right]
+                  </mrow>
+                  <mrow>
+                    \amp = \sum_x x P(X = x) + \sum_y y P(Y = y)
+                  </mrow>
+                  <mrow> \amp = E(X) + E(Y)</mrow>
+                </md>
+                The proof that <m>E(aX) = aE(X)</m> is easier and is left as an exercise.
+              </p>
+            </proof>
+          </theorem>
+          <example>
+            <p>
+              Now it is much easier to compute the expectation of a binomial
+              random variable: if <m>Y \sim \binomial(n,p)</m> then there are 
+              independent <m>\Bernoulli(p)</m> random variables <m>X_1,\dots,X_n</m>
+              of which <m>Y</m> is the sum, and now we can use the linearity of expectation:
+              <me>
+                E(Y) = E(X_1) + \cdots + E(X_n) = np.
+              </me>
+            </p>
+          </example>
+          <lemma xml:id="lem-lotus">
+            <statement>
+              <p>
+                Suppose that <m>X</m> is a discrete random variable with pmf <m>f</m>
+                and that <m>g\colon\R\to\R</m> is any function. Then the expectation
+                of the random variable <m>g(X)</m> can be computed as follows.
+                <me>
+                  E(g(X)) = \sum_x g(x) f(x).
+                </me>
+              </p>
+            </statement>
+            <proof>
+              <p>
+                Exercise.
+              </p>
+            </proof>
+          </lemma>
+          <definition xml:id="def-moments">
+            <statement>
+              <p>
+                Let <m>X</m> be a random variable.
+                For <m>k\in\N</m> we define the <m>k</m>th <term>moment</term> of <m>X</m>,
+                denoted <m>m_k(X)</m>, to be <m>E(X^k)</m>.
+                The <m>k</m>th <term>central moment</term> of <m>X</m>, denoted
+                <m>\sigma_k(X)</m>, to be <m>E((X- E(X))^k)</m>.
+              </p>
+              <p>
+                Of particular note is <m>\sigma_2 = E((X - E(X))^2) = \var(X)</m>,
+                the <term>variance</term> of <m>X</m>.
+              </p>
+            </statement>
+          </definition>
+          <p>
+            The variance of <m>X</m> measures the tendency of <m>X</m>
+            to deviate from its mean.
+          </p>
+          <exercise>
+            <p>
+              Show that <m>\var(X) = E(X^2) - E(X)^2</m>.
+            </p>
+          </exercise>
+          <example>
+            <statement>
+              <p>
+                Compute the variance of a <m>\Bernoulli(p)</m> random variable.
+              </p>
+            </statement>
+            <solution>
+              <p>
+                We see that 
+                <me>
+                  E(X^2) = \sum_x x^2 f(x) = 0^2 (1-p) + 1^2 p = p,
+                </me>
+                so the variance is given by
+                <me>
+                  \var(X) = E(X^2) - E(X)^2 = p - p^2 = p(1-p).
+                </me>
+              </p>
+            </solution>
+          </example>
+          <example>
+            <title>Matching, revisited</title>
+            <statement>
+            <p>
+              Recall <xref ref="ex-matching-hats"/>, in which we determined
+              that, when <m>n</m> people's hats are randomly shuffled,
+              the probability that at least one person gets their hat back
+              is 
+              <me>
+                1 - \frac{1}{2!} + \frac{1}{3!} - \cdots + \frac{(-1)^{n+1}}{n!},
+              </me>
+              a quantity that tends as <m>n\to\infty</m> to <m>1 - \tfrac1e</m>.
+            </p>
+            <p>
+              Now, letting <m>X</m> be the number of people who receive
+              their own hat, find <m>E(X)</m> and <m>\var(X)</m>.
+            </p>
+          </statement>
+          <solution>
+            <p>
+              Consider, for <m>k=1,\dots,n</m>, the following indicator random variable.
+              <me>
+                I_k = \begin {cases}
+                1 \amp \text{ if the } k \text{th person gets his hat back} \\
+                0 \amp \text{ otherwise}
+                \end {cases}
+              </me>
+              Notice that <m>E(I_k)</m> equals the probability that the <m>k</m>th
+              person gets their hat back, which as we discovered in the previous
+              example is <m>\tfrac1n</m>. Now we use the linearity of expectation:
+              <me>
+                E(X) 
+                = E\left( \sum_{k=1}^n I_k \right)
+                = \sum_{k=1}^n E(X_k) = \sum_{k=1}^n \frac1n = 1.
+              </me>
+            </p>
+            <p>
+              <md>
+                <mrow> E(X^2) \amp = E \left[ \left( \sum_{k=1}^n I_k \right)^2 \right]</mrow>
+                <mrow> \amp = E \left[ \sum_{k=1}^n I_k^2 + \sum_{j\ne k} I_j I_k \right]</mrow>
+                <mrow> \amp = \sum_{k=1}^n E[I_k^2] + \sum_{j \ne k} E[I_j I_k]</mrow>
+                <mrow> \amp = \sum_{k=1}^n \frac{1}{n} + \sum_{j\ne k} \frac{1}{n(n-1)} </mrow>
+                <mrow> \amp = 1 + n(n-1)\frac{1}{n(n-1)}</mrow>
+                <mrow> \amp = 2</mrow>
+              </md>
+              For that we needed to compute <m>E[I_j I_k]</m>:
+              <md>
+                <mrow> E(I_j I_k) \amp = 1P(\text{both } j \text{ and } k \text{ get their hat back}) + 0P(\text{at least one doesn't}) </mrow>
+                <mrow> \amp = 1\cdot \frac{1}{n(n-1)} + 0 </mrow>
+              </md>
+              Now we can conclude that
+              <me>
+                \var(X) = E(X^2) - E(X)^2 = 2 - 1 = 1.
+              </me>
+            </p>
+          </solution>
+          </example>
+          <example>
+            <title>Coupon Collector</title>
+            <statement>
+              <p>
+                A fast-food restaurant offers kiddie meals that each include
+                a toy. There are <m>N</m> different toys available, and toys
+                are equally likely to be in a given meal.
+                <ol marker="(a)">
+                 <li>
+                  <p>
+                    Find the expected number of meals needed to collect all the toys.
+                  </p>
+                 </li>
+                 <li><p>Find the expected number of different toys collected
+                  if <m>M</m> kiddie meals are purchased.
+                 </p></li>
+                </ol>
+              </p>
+            </statement>
+            <solution>
+              <p>
+                to be added
+              </p>
+            </solution>
+          </example>
+        </subsection>
       </section>
     </chapter>
 
