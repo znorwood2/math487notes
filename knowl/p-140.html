@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<div class="para logical">
+<div class="displaymath process-math">
+\begin{align*}
+E(X^2) \amp = E \left[ \left( \sum_{k=1}^n I_k \right)^2 \right]\\
+\amp = E \left[ \sum_{k=1}^n I_k^2 + \sum_{j\ne k} I_j I_k \right]\\
+\amp = \sum_{k=1}^n E[I_k^2] + \sum_{j \ne k} E[I_j I_k]\\
+\amp = \sum_{k=1}^n \frac{1}{n} + \sum_{j\ne k} \frac{1}{n(n-1)} \\
+\amp = 1 + n(n-1)\frac{1}{n(n-1)}\\
+\amp = 2
+\end{align*}
+</div>
+<div class="para">For that we needed to compute <span class="process-math">\(E[I_j I_k]\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+E(I_j I_k) \amp = 1P(\text{both } j \text{ and } k \text{ get their hat back}) + 0P(\text{at least one doesn't}) \\
+\amp = 1\cdot \frac{1}{n(n-1)} + 0 
+\end{align*}
+</div>
+<div class="para">Now we can conclude that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\var(X) = E(X^2) - E(X)^2 = 2 - 1 = 1.
+\end{equation*}
+</div>
+</div>
+<span class="incontext"><a href="sec-discrete-rvs.html#p-140" class="internal">in-context</a></span>
+</body>
+</html>

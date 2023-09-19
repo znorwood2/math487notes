@@ -207,8 +207,11 @@ window.MathJax = {
 </ol>
 </li>
 </ol></div></button></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
 \newcommand {\Bernoulli}{\operatorname{Bernoulli}}
 \newcommand {\binomial}{\operatorname{binomial}}
+\newcommand {\geometric}{\operatorname{geometric}}
+\newcommand {\var} {\operatorname{var}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -243,7 +246,10 @@ window.MathJax = {
 <li><div class="toc-item"><a href="sec-random-variables-theory.html#subsec-cts-rvs" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Continuous random variables</span></a></div></li>
 </ul>
 </li>
-<li class="active"><div class="toc-item"><a href="sec-discrete-rvs.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Discrete random variables</span></a></div></li>
+<li class="active">
+<div class="toc-item"><a href="sec-discrete-rvs.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Discrete random variables</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-discrete-rvs.html#subsec-expectation-discrete" class="internal"><span class="codenumber">2.2.1</span> <span class="title">The expectation of a discrete random variable</span></a></div></li></ul>
+</li>
 </ul>
 </li>
 <li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
@@ -252,12 +258,13 @@ window.MathJax = {
 <section class="section" id="sec-discrete-rvs"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">2.2</span><span class="space"> </span><span class="title">Discrete random variables</span>
 </h2>
-<article class="example example-like" id="example-18"><h3 class="heading">
+<section class="introduction" id="introduction-1"><article class="example example-like" id="example-18"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.1</span><span class="period">.</span>
 </h3>
 <div class="para" id="p-110">We perform <span class="process-math">\(n\)</span> independent trials, each with a fixed probability <span class="process-math">\(p\)</span> of success. The total number of successes at the end is a <dfn class="terminology">binomial random variable</dfn> with parameters <span class="process-math">\(n\)</span> and <span class="process-math">\(p\text{;}\)</span> we write <span class="process-math">\(X \sim \binomial(n,p)\text{.}\)</span> Find its probability mass function.</div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-12" id="solution-12"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-12"><div class="solution solution-like"><div class="para logical" id="p-111">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-12" id="solution-12"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-12"><div class="solution solution-like">
+<div class="para logical" id="p-111">
 <div class="para">Fix <span class="process-math">\(k \le n\text{.}\)</span> There are <span class="process-math">\(\binom nk\)</span>-many ways of choosing which of the <span class="process-math">\(k\)</span> trials will end in success. Then the probability that these <span class="process-math">\(k\)</span> trials succeed and the other <span class="process-math">\(n-k\)</span> fail is (by independence) <span class="process-math">\(p^k (1-p)^{n-k}\text{.}\)</span> Multiplying these gives the value <span class="process-math">\(p(k)\)</span> of the pmf at <span class="process-math">\(k\text{:}\)</span>
 </div>
 <div class="displaymath process-math">
@@ -266,11 +273,237 @@ p(k) = \binom nk p^k (1-p)^{n-k}
 \end{equation*}
 </div>
 <div class="para">You can view a graph of this pmf at <a class="external" href="https://www.geogebra.org/calculator/ykvdawbt" target="_blank">this GeoGebra link</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-3" id="fn-3"><sup> 1 </sup></a>.</div>
+</div> <div class="para" id="p-112">Later we will make precise the guess that the “center of mass” of this pmf occurs at <span class="process-math">\(p n\text{.}\)</span>
+</div>
+</div></div>
+</div></article> <article class="exercise exercise-like" id="exercise-1"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-1"></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-1"><article class="exercise exercise-like"></article></div> <article class="definition definition-like" id="def-indep-rv"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.2.2</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-114">Two random variables <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> on the same probability space are <dfn class="terminology">independent</dfn> if for all <span class="process-math">\(x,y\in\R\)</span> the events <span class="process-math">\(\{X \le x\}\)</span> and <span class="process-math">\(\{Y \le y\}\)</span> are independent.</div> <div class="para" id="p-115">If <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are discrete, then it is equivalent to require that for all <span class="process-math">\(x,y\in\R\)</span> the events <span class="process-math">\(\{X = x\}\)</span> and <span class="process-math">\(\{Y = y\}\)</span> are independent.</div></article> <div class="para logical" id="p-116">
+<div class="para">Then a random variable is <span class="process-math">\(\binomial(n,p)\)</span> if and only if it is a sum of <span class="process-math">\(n\)</span> independent <span class="process-math">\(\Bernoulli(p)\)</span> random variables:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+Y = X_1 + \cdots + X_n
+\end{equation*}
+</div>
+</div> <article class="example example-like" id="example-19"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.3</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-117">Independent trials are performed, each with a fixed probability <span class="process-math">\(p\)</span> of success. The number of trials required to see the first success is a <dfn class="terminology">geometric</dfn> random variable with parameter <span class="process-math">\(p\text{,}\)</span> and if it’s called <span class="process-math">\(X\)</span> then we write <span class="process-math">\(X \sim \geometric(p)\text{.}\)</span> Compute the pmf of a <span class="process-math">\(\geometric(p)\)</span> random variable.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-13" id="solution-13"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-13"><div class="solution solution-like"><div class="para logical" id="p-118">
+<div class="para">The possible values of <span class="process-math">\(X\)</span> are <span class="process-math">\(1,2,3,\dots\text{.}\)</span> Fix a positive integer <span class="process-math">\(k\text{.}\)</span> The probability that the first <span class="process-math">\(k-1\)</span> trials fail and the <span class="process-math">\(k\)</span>th succeeds is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(k) = (1-p)^{k-1} p
+\end{equation*}
+</div>
 </div></div></div>
-</div></article><article class="exercise exercise-like" id="exercise-1"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-1"><h3 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.2.2</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-1"><article class="exercise exercise-like"><div class="para" id="p-112">Verify that <span class="process-math">\(\sum_{0\le k \le n} p(k) = 1\text{.}\)</span>
-</div></article></div></section><div class="hidden-content tex2jax_ignore" id="hk-fn-3"><div class="fn"><code class="code-inline tex2jax_ignore">geogebra.org</code></div></div>
+</div></article> <article class="exercise exercise-like" id="exercise-2"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-2"></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-2"><article class="exercise exercise-like"></article></div></section><section class="subsection" id="subsec-expectation-discrete"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.2.1</span><span class="space"> </span><span class="title">The expectation of a discrete random variable</span>
+</h3>
+<article class="definition definition-like" id="def-expectation-discrete"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.2.4</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="p-120">
+<div class="para">The <dfn class="terminology">expected value</dfn>, <dfn class="terminology">expectation</dfn>, or <dfn class="terminology">mean</dfn> of a discrete random variable <span class="process-math">\(X\)</span> with pmf <span class="process-math">\(f\)</span> is defined as follows.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E(X) = \sum_{x} xf(x) = \sum_i x_i p_i,
+\end{equation*}
+</div>
+<div class="para">whenever this sum converges absolutely. (Otherwise the expected value does not exist.)</div>
+</div></article><article class="exercise exercise-like" id="exercise-3"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-3"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.2.5</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-3"><article class="exercise exercise-like"><div class="para" id="p-121">Verify that this agrees with the gradeschool notion of mean in the case <span class="process-math">\(p_1 = p_2 = \cdots = p_n = \tfrac1n\text{.}\)</span>
+</div></article></div>
+<article class="example example-like" id="example-20"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.6</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="p-122">
+<div class="para">A <span class="process-math">\(\Bernoulli(p)\)</span> random variable has mean <span class="process-math">\(p\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_x x f(x) = 0\cdot f(0) + 1 \cdot f(1) = 0(1-p) + p = p.
+\end{equation*}
+</div>
+</div> <div class="para" id="p-123">In particular, <span class="process-math">\(E(1_A) = P(A)\text{.}\)</span>
+</div></article><article class="example example-like" id="example-21"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.7</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="p-124">
+<div class="para">In order to compute the expectation of <span class="process-math">\(Y \sim \binomial(n,p)\text{,}\)</span> we must make sense of the following quantity.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E(Y) = \sum_{k=0}^n k \binom nk p^k (1-p)^{n-k}
+\end{equation*}
+</div>
+<div class="para">After some thought, we might notice that this is the following function of <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> evaluated at <span class="process-math">\(x = p\text{,}\)</span> <span class="process-math">\(y = 1-p\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="md-2">
+\begin{align*}
+\sum_{k=0}^n k \binom nk x^k y^{n-k}
+\amp = x \frac{d}{dx} \sum_{k=0}^n \binom nk x^k y^{n-k} \\
+\amp = x \frac{d}{dx} (x+y)^{n} \\
+\amp = x n (x+y)^{n-1}  
+\end{align*}
+</div>
+<div class="para">(We have used the Binomial Theorem.) Now, plugging in <span class="process-math">\(x = p\)</span> and <span class="process-math">\(y = 1-p\)</span> gives</div>
+<div class="displaymath process-math">
+\begin{equation*}
+pn(p + 1-p)^{n-1} = pn.
+\end{equation*}
+</div>
+<div class="para">But this is much easier using the linearity of expectation!</div>
+</div></article><article class="theorem theorem-like" id="thm-linearity-expectation-discrete"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.2.8</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="p-125">
+<div class="para">The expectation operator <span class="process-math">\(E\)</span> is linear; that is,</div>
+<div class="displaymath process-math" id="md-3">
+\begin{align*}
+E(aX) \amp = a E(X) \\
+\text{and} \quad E(X+Y) \amp = E(X) + E(Y) 
+\end{align*}
+</div>
+</div></article><article class="hiddenproof" id="proof-3"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-3"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-3"><article class="hiddenproof"><div class="para" id="p-126">It is useful to notice that, for fixed <span class="process-math">\(x\in\R\text{,}\)</span> <span class="process-math">\(\{X = x\} = \bigcup_y \{X = x \text{ and } Y = y\}\text{,}\)</span> and that this is a disjoint union. Thus, by the additivity of the probability measure, <span class="process-math">\(P(X = x) = \sum_y P(X = x \text{ and } Y = y)\text{.}\)</span> We will use this fact and a similar one with the roles of <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> interchanged in what follows.</div> <div class="para logical" id="p-127">
+<div class="displaymath process-math" id="md-4">
+\begin{align*}
+E(X+Y) \amp = \sum_z zP(X+Y = z)\\
+\amp = \sum_x \sum_y (x+y) P(X = x \text{ and } Y = y) \\
+\amp = \sum_x x \left[ \sum_y P(X = x \text{ and } Y = y) \right] 
++ \sum_y y \left[ \sum_x P(X = x \text{ and } Y = y) \right]\\
+\amp = \sum_x x P(X = x) + \sum_y y P(Y = y)\\
+\amp = E(X) + E(Y)
+\end{align*}
+</div>
+<div class="para">The proof that <span class="process-math">\(E(aX) = aE(X)\)</span> is easier and is left as an exercise.</div>
+</div></article></div>
+<article class="example example-like" id="example-22"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.9</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="p-128">
+<div class="para">Now it is much easier to compute the expectation of a binomial random variable: if <span class="process-math">\(Y \sim \binomial(n,p)\)</span> then there are independent <span class="process-math">\(\Bernoulli(p)\)</span> random variables <span class="process-math">\(X_1,\dots,X_n\)</span> of which <span class="process-math">\(Y\)</span> is the sum, and now we can use the linearity of expectation:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E(Y) = E(X_1) + \cdots + E(X_n) = np.
+\end{equation*}
+</div>
+</div></article><article class="lemma theorem-like" id="lem-lotus"><h4 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">2.2.10</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="p-129">
+<div class="para">Suppose that <span class="process-math">\(X\)</span> is a discrete random variable with pmf <span class="process-math">\(f\)</span> and that <span class="process-math">\(g\colon\R\to\R\)</span> is any function. Then the expectation of the random variable <span class="process-math">\(g(X)\)</span> can be computed as follows.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E(g(X)) = \sum_x g(x) f(x).
+\end{equation*}
+</div>
+</div></article><article class="hiddenproof" id="proof-4"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-4"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-4"><article class="hiddenproof"><div class="para" id="p-130">Exercise.</div></article></div>
+<article class="definition definition-like" id="def-moments"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.2.11</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-131">Let <span class="process-math">\(X\)</span> be a random variable. For <span class="process-math">\(k\in\N\)</span> we define the <span class="process-math">\(k\)</span>th <dfn class="terminology">moment</dfn> of <span class="process-math">\(X\text{,}\)</span> denoted <span class="process-math">\(m_k(X)\text{,}\)</span> to be <span class="process-math">\(E(X^k)\text{.}\)</span> The <span class="process-math">\(k\)</span>th <dfn class="terminology">central moment</dfn> of <span class="process-math">\(X\text{,}\)</span> denoted <span class="process-math">\(\sigma_k(X)\text{,}\)</span> to be <span class="process-math">\(E((X- E(X))^k)\text{.}\)</span>
+</div> <div class="para" id="p-132">Of particular note is <span class="process-math">\(\sigma_2 = E((X - E(X))^2) = \var(X)\text{,}\)</span> the <dfn class="terminology">variance</dfn> of <span class="process-math">\(X\text{.}\)</span>
+</div></article><div class="para" id="p-133">The variance of <span class="process-math">\(X\)</span> measures the tendency of <span class="process-math">\(X\)</span> to deviate from its mean.</div>
+<article class="exercise exercise-like" id="exercise-4"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-4"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.2.12</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-4"><article class="exercise exercise-like"><div class="para" id="p-134">Show that <span class="process-math">\(\var(X) = E(X^2) - E(X)^2\text{.}\)</span>
+</div></article></div>
+<article class="example example-like" id="example-23"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.13</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-135">Compute the variance of a <span class="process-math">\(\Bernoulli(p)\)</span> random variable.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-14" id="solution-14"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-14"><div class="solution solution-like"><div class="para logical" id="p-136">
+<div class="para">We see that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E(X^2) = \sum_x x^2 f(x) = 0^2 (1-p) + 1^2 p = p,
+\end{equation*}
+</div>
+<div class="para">so the variance is given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\var(X) = E(X^2) - E(X)^2 = p - p^2 = p(1-p).
+\end{equation*}
+</div>
+</div></div></div>
+</div></article><article class="example example-like" id="example-24"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.14</span><span class="period">.</span><span class="space"> </span><span class="title">Matching, revisited.</span>
+</h4>
+<div class="para logical" id="p-137">
+<div class="para">Recall <a href="" class="xref" data-knowl="./knowl/ex-matching-hats.html" title="Example 1.3.3: Matching hats">Example 1.3.3</a>, in which we determined that, when <span class="process-math">\(n\)</span> people’s hats are randomly shuffled, the probability that at least one person gets their hat back is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-matching-hats.html">
+\begin{equation*}
+1 - \frac{1}{2!} + \frac{1}{3!} - \cdots + \frac{(-1)^{n+1}}{n!},
+\end{equation*}
+</div>
+<div class="para">a quantity that tends as <span class="process-math">\(n\to\infty\)</span> to <span class="process-math">\(1 - \tfrac1e\text{.}\)</span>
+</div>
+</div> <div class="para" id="p-138">Now, letting <span class="process-math">\(X\)</span> be the number of people who receive their own hat, find <span class="process-math">\(E(X)\)</span> and <span class="process-math">\(\var(X)\text{.}\)</span>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-15" id="solution-15"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-15"><div class="solution solution-like">
+<div class="para logical" id="p-139">
+<div class="para">Consider, for <span class="process-math">\(k=1,\dots,n\text{,}\)</span> the following indicator random variable.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+I_k = \begin {cases}
+1 \amp \text{ if the } k \text{th person gets his hat back} \\
+0 \amp \text{ otherwise}
+\end {cases}
+\end{equation*}
+</div>
+<div class="para">Notice that <span class="process-math">\(E(I_k)\)</span> equals the probability that the <span class="process-math">\(k\)</span>th person gets their hat back, which as we discovered in the previous example is <span class="process-math">\(\tfrac1n\text{.}\)</span> Now we use the linearity of expectation:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E(X) 
+= E\left( \sum_{k=1}^n I_k \right)
+= \sum_{k=1}^n E(X_k) = \sum_{k=1}^n \frac1n = 1.
+\end{equation*}
+</div>
+</div> <div class="para logical" id="p-140">
+<div class="displaymath process-math" id="md-5">
+\begin{align*}
+E(X^2) \amp = E \left[ \left( \sum_{k=1}^n I_k \right)^2 \right]\\
+\amp = E \left[ \sum_{k=1}^n I_k^2 + \sum_{j\ne k} I_j I_k \right]\\
+\amp = \sum_{k=1}^n E[I_k^2] + \sum_{j \ne k} E[I_j I_k]\\
+\amp = \sum_{k=1}^n \frac{1}{n} + \sum_{j\ne k} \frac{1}{n(n-1)} \\
+\amp = 1 + n(n-1)\frac{1}{n(n-1)}\\
+\amp = 2
+\end{align*}
+</div>
+<div class="para">For that we needed to compute <span class="process-math">\(E[I_j I_k]\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="md-6">
+\begin{align*}
+E(I_j I_k) \amp = 1P(\text{both } j \text{ and } k \text{ get their hat back}) + 0P(\text{at least one doesn't}) \\
+\amp = 1\cdot \frac{1}{n(n-1)} + 0 
+\end{align*}
+</div>
+<div class="para">Now we can conclude that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\var(X) = E(X^2) - E(X)^2 = 2 - 1 = 1.
+\end{equation*}
+</div>
+</div>
+</div></div>
+</div></article><article class="example example-like" id="example-25"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.15</span><span class="period">.</span><span class="space"> </span><span class="title">Coupon Collector.</span>
+</h4>
+<div class="para logical" id="p-141">
+<div class="para">A fast-food restaurant offers kiddie meals that each include a toy. There are <span class="process-math">\(N\)</span> different toys available, and toys are equally likely to be in a given meal.</div>
+<ol class="lower-alpha">
+<li id="li-37"><div class="para" id="p-142">Find the expected number of meals needed to collect all the toys.</div></li>
+<li id="li-38"><div class="para" id="p-143">Find the expected number of different toys collected if <span class="process-math">\(M\)</span> kiddie meals are purchased.</div></li>
+</ol>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-16" id="solution-16"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-16"><div class="solution solution-like"><div class="para" id="p-144">to be added</div></div></div>
+</div></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-3"><div class="fn"><code class="code-inline tex2jax_ignore">geogebra.org</code></div></div>
 </div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-random-variables-theory.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h4 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">2.2.14.1</span><span class="period">.</span>
+</h4>
+<div class="para logical">
+<div class="para">Consider, for <span class="process-math">\(k=1,\dots,n\text{,}\)</span> the following indicator random variable.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+I_k = \begin {cases}
+1 \amp \text{ if the } k \text{th person gets his hat back} \\
+0 \amp \text{ otherwise}
+\end {cases}
+\end{equation*}
+</div>
+<div class="para">Notice that <span class="process-math">\(E(I_k)\)</span> equals the probability that the <span class="process-math">\(k\)</span>th person gets their hat back, which as we discovered in the previous example is <span class="process-math">\(\tfrac1n\text{.}\)</span> Now we use the linearity of expectation:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E(X) 
+= E\left( \sum_{k=1}^n I_k \right)
+= \sum_{k=1}^n E(X_k) = \sum_{k=1}^n \frac1n = 1.
+\end{equation*}
+</div>
+</div> <div class="para logical">
+<div class="displaymath process-math">
+\begin{align*}
+E(X^2) \amp = E \left[ \left( \sum_{k=1}^n I_k \right)^2 \right]\\
+\amp = E \left[ \sum_{k=1}^n I_k^2 + \sum_{j\ne k} I_j I_k \right]\\
+\amp = \sum_{k=1}^n E[I_k^2] + \sum_{j \ne k} E[I_j I_k]\\
+\amp = \sum_{k=1}^n \frac{1}{n} + \sum_{j\ne k} \frac{1}{n(n-1)} \\
+\amp = 1 + n(n-1)\frac{1}{n(n-1)}\\
+\amp = 2
+\end{align*}
+</div>
+<div class="para">For that we needed to compute <span class="process-math">\(E[I_j I_k]\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+E(I_j I_k) \amp = 1P(\text{both } j \text{ and } k \text{ get their hat back}) + 0P(\text{at least one doesn't}) \\
+\amp = 1\cdot \frac{1}{n(n-1)} + 0 
+\end{align*}
+</div>
+<div class="para">Now we can conclude that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\var(X) = E(X^2) - E(X)^2 = 2 - 1 = 1.
+\end{equation*}
+</div>
+</div>
+</div>
+<span class="incontext"><a href="sec-discrete-rvs.html#solution-15" class="internal">in-context</a></span>
+</body>
+</html>

@@ -376,7 +376,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.2",
   "title": "Discrete random variables",
-  "body": " Discrete random variables    We perform independent trials, each with a fixed probability of success. The total number of successes at the end is a binomial random variable with parameters and ; we write . Find its probability mass function.    Fix . There are -many ways of choosing which of the trials will end in success. Then the probability that these trials succeed and the other fail is (by independence) . Multiplying these gives the value of the pmf at : You can view a graph of this pmf at this GeoGebra link .    Verify that .  "
+  "body": " Discrete random variables     We perform independent trials, each with a fixed probability of success. The total number of successes at the end is a binomial random variable with parameters and ; we write . Find its probability mass function.    Fix . There are -many ways of choosing which of the trials will end in success. Then the probability that these trials succeed and the other fail is (by independence) . Multiplying these gives the value of the pmf at : You can view a graph of this pmf at this GeoGebra link .  Later we will make precise the guess that the center of mass of this pmf occurs at .    Verify that .    Two random variables and on the same probability space are independent if for all the events and are independent.  If and are discrete, then it is equivalent to require that for all the events and are independent.    Then a random variable is if and only if it is a sum of independent random variables:     Independent trials are performed, each with a fixed probability of success. The number of trials required to see the first success is a geometric random variable with parameter , and if it's called then we write . Compute the pmf of a random variable.    The possible values of are . Fix a positive integer . The probability that the first trials fail and the th succeeds is     Verify for the pmf of a random variable that     The expectation of a discrete random variable    The expected value , expectation , or mean of a discrete random variable with pmf is defined as follows. whenever this sum converges absolutely. (Otherwise the expected value does not exist.)    Verify that this agrees with the gradeschool notion of mean in the case .   A random variable has mean :   In particular, .    In order to compute the expectation of , we must make sense of the following quantity. After some thought, we might notice that this is the following function of and evaluated at , . (We have used the Binomial Theorem.) Now, plugging in and gives But this is much easier using the linearity of expectation!     The expectation operator is linear; that is,     It is useful to notice that, for fixed , , and that this is a disjoint union. Thus, by the additivity of the probability measure, . We will use this fact and a similar one with the roles of and interchanged in what follows.   The proof that is easier and is left as an exercise.     Now it is much easier to compute the expectation of a binomial random variable: if then there are independent random variables of which is the sum, and now we can use the linearity of expectation:      Suppose that is a discrete random variable with pmf and that is any function. Then the expectation of the random variable can be computed as follows.     Exercise.      Let be a random variable. For we define the th moment of , denoted , to be . The th central moment of , denoted , to be .  Of particular note is , the variance of .    The variance of measures the tendency of to deviate from its mean.  Show that .    Compute the variance of a random variable.    We see that so the variance is given by      Matching, revisited   Recall , in which we determined that, when people's hats are randomly shuffled, the probability that at least one person gets their hat back is a quantity that tends as to .  Now, letting be the number of people who receive their own hat, find and .    Consider, for , the following indicator random variable. Notice that equals the probability that the th person gets their hat back, which as we discovered in the previous example is . Now we use the linearity of expectation:    For that we needed to compute : Now we can conclude that      Coupon Collector   A fast-food restaurant offers kiddie meals that each include a toy. There are different toys available, and toys are equally likely to be in a given meal.   Find the expected number of meals needed to collect all the toys.   Find the expected number of different toys collected if kiddie meals are purchased.      to be added     "
 },
 {
   "id": "example-18",
@@ -385,16 +385,151 @@ var ptx_lunr_docs = [
   "type": "Example",
   "number": "2.2.1",
   "title": "",
-  "body": "  We perform independent trials, each with a fixed probability of success. The total number of successes at the end is a binomial random variable with parameters and ; we write . Find its probability mass function.    Fix . There are -many ways of choosing which of the trials will end in success. Then the probability that these trials succeed and the other fail is (by independence) . Multiplying these gives the value of the pmf at : You can view a graph of this pmf at this GeoGebra link .   "
+  "body": "  We perform independent trials, each with a fixed probability of success. The total number of successes at the end is a binomial random variable with parameters and ; we write . Find its probability mass function.    Fix . There are -many ways of choosing which of the trials will end in success. Then the probability that these trials succeed and the other fail is (by independence) . Multiplying these gives the value of the pmf at : You can view a graph of this pmf at this GeoGebra link .  Later we will make precise the guess that the center of mass of this pmf occurs at .   "
 },
 {
   "id": "exercise-1",
   "level": "2",
   "url": "sec-discrete-rvs.html#exercise-1",
   "type": "Checkpoint",
-  "number": "2.2.2",
+  "number": "[STRUCT].1",
   "title": "",
   "body": "Verify that . "
+},
+{
+  "id": "def-indep-rv",
+  "level": "2",
+  "url": "sec-discrete-rvs.html#def-indep-rv",
+  "type": "Definition",
+  "number": "2.2.2",
+  "title": "",
+  "body": "  Two random variables and on the same probability space are independent if for all the events and are independent.  If and are discrete, then it is equivalent to require that for all the events and are independent.   "
+},
+{
+  "id": "example-19",
+  "level": "2",
+  "url": "sec-discrete-rvs.html#example-19",
+  "type": "Example",
+  "number": "2.2.3",
+  "title": "",
+  "body": "  Independent trials are performed, each with a fixed probability of success. The number of trials required to see the first success is a geometric random variable with parameter , and if it's called then we write . Compute the pmf of a random variable.    The possible values of are . Fix a positive integer . The probability that the first trials fail and the th succeeds is    "
+},
+{
+  "id": "exercise-2",
+  "level": "2",
+  "url": "sec-discrete-rvs.html#exercise-2",
+  "type": "Checkpoint",
+  "number": "[STRUCT].3",
+  "title": "",
+  "body": "Verify for the pmf of a random variable that  "
+},
+{
+  "id": "def-expectation-discrete",
+  "level": "2",
+  "url": "sec-discrete-rvs.html#def-expectation-discrete",
+  "type": "Definition",
+  "number": "2.2.4",
+  "title": "",
+  "body": "  The expected value , expectation , or mean of a discrete random variable with pmf is defined as follows. whenever this sum converges absolutely. (Otherwise the expected value does not exist.)   "
+},
+{
+  "id": "exercise-3",
+  "level": "2",
+  "url": "sec-discrete-rvs.html#exercise-3",
+  "type": "Checkpoint",
+  "number": "2.2.5",
+  "title": "",
+  "body": "Verify that this agrees with the gradeschool notion of mean in the case . "
+},
+{
+  "id": "example-20",
+  "level": "2",
+  "url": "sec-discrete-rvs.html#example-20",
+  "type": "Example",
+  "number": "2.2.6",
+  "title": "",
+  "body": " A random variable has mean :   In particular, .  "
+},
+{
+  "id": "example-21",
+  "level": "2",
+  "url": "sec-discrete-rvs.html#example-21",
+  "type": "Example",
+  "number": "2.2.7",
+  "title": "",
+  "body": " In order to compute the expectation of , we must make sense of the following quantity. After some thought, we might notice that this is the following function of and evaluated at , . (We have used the Binomial Theorem.) Now, plugging in and gives But this is much easier using the linearity of expectation!  "
+},
+{
+  "id": "thm-linearity-expectation-discrete",
+  "level": "2",
+  "url": "sec-discrete-rvs.html#thm-linearity-expectation-discrete",
+  "type": "Theorem",
+  "number": "2.2.8",
+  "title": "",
+  "body": "  The expectation operator is linear; that is,     It is useful to notice that, for fixed , , and that this is a disjoint union. Thus, by the additivity of the probability measure, . We will use this fact and a similar one with the roles of and interchanged in what follows.   The proof that is easier and is left as an exercise.   "
+},
+{
+  "id": "example-22",
+  "level": "2",
+  "url": "sec-discrete-rvs.html#example-22",
+  "type": "Example",
+  "number": "2.2.9",
+  "title": "",
+  "body": " Now it is much easier to compute the expectation of a binomial random variable: if then there are independent random variables of which is the sum, and now we can use the linearity of expectation:   "
+},
+{
+  "id": "lem-lotus",
+  "level": "2",
+  "url": "sec-discrete-rvs.html#lem-lotus",
+  "type": "Lemma",
+  "number": "2.2.10",
+  "title": "",
+  "body": "  Suppose that is a discrete random variable with pmf and that is any function. Then the expectation of the random variable can be computed as follows.     Exercise.   "
+},
+{
+  "id": "def-moments",
+  "level": "2",
+  "url": "sec-discrete-rvs.html#def-moments",
+  "type": "Definition",
+  "number": "2.2.11",
+  "title": "",
+  "body": "  Let be a random variable. For we define the th moment of , denoted , to be . The th central moment of , denoted , to be .  Of particular note is , the variance of .   "
+},
+{
+  "id": "exercise-4",
+  "level": "2",
+  "url": "sec-discrete-rvs.html#exercise-4",
+  "type": "Checkpoint",
+  "number": "2.2.12",
+  "title": "",
+  "body": "Show that . "
+},
+{
+  "id": "example-23",
+  "level": "2",
+  "url": "sec-discrete-rvs.html#example-23",
+  "type": "Example",
+  "number": "2.2.13",
+  "title": "",
+  "body": "  Compute the variance of a random variable.    We see that so the variance is given by    "
+},
+{
+  "id": "example-24",
+  "level": "2",
+  "url": "sec-discrete-rvs.html#example-24",
+  "type": "Example",
+  "number": "2.2.14",
+  "title": "Matching, revisited.",
+  "body": " Matching, revisited   Recall , in which we determined that, when people's hats are randomly shuffled, the probability that at least one person gets their hat back is a quantity that tends as to .  Now, letting be the number of people who receive their own hat, find and .    Consider, for , the following indicator random variable. Notice that equals the probability that the th person gets their hat back, which as we discovered in the previous example is . Now we use the linearity of expectation:    For that we needed to compute : Now we can conclude that    "
+},
+{
+  "id": "example-25",
+  "level": "2",
+  "url": "sec-discrete-rvs.html#example-25",
+  "type": "Example",
+  "number": "2.2.15",
+  "title": "Coupon Collector.",
+  "body": " Coupon Collector   A fast-food restaurant offers kiddie meals that each include a toy. There are different toys available, and toys are equally likely to be in a given meal.   Find the expected number of meals needed to collect all the toys.   Find the expected number of different toys collected if kiddie meals are purchased.      to be added   "
 },
 {
   "id": "colophon-2",

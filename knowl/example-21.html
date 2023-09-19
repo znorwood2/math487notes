@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.7</span><span class="period">.</span>
+</h4>
+<div class="para logical">
+<div class="para">In order to compute the expectation of <span class="process-math">\(Y \sim \binomial(n,p)\text{,}\)</span> we must make sense of the following quantity.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E(Y) = \sum_{k=0}^n k \binom nk p^k (1-p)^{n-k}
+\end{equation*}
+</div>
+<div class="para">After some thought, we might notice that this is the following function of <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> evaluated at <span class="process-math">\(x = p\text{,}\)</span> <span class="process-math">\(y = 1-p\text{.}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+\sum_{k=0}^n k \binom nk x^k y^{n-k}
+\amp = x \frac{d}{dx} \sum_{k=0}^n \binom nk x^k y^{n-k} \\
+\amp = x \frac{d}{dx} (x+y)^{n} \\
+\amp = x n (x+y)^{n-1}  
+\end{align*}
+</div>
+<div class="para">(We have used the Binomial Theorem.) Now, plugging in <span class="process-math">\(x = p\)</span> and <span class="process-math">\(y = 1-p\)</span> gives</div>
+<div class="displaymath process-math">
+\begin{equation*}
+pn(p + 1-p)^{n-1} = pn.
+\end{equation*}
+</div>
+<div class="para">But this is much easier using the linearity of expectation!</div>
+</div></article><span class="incontext"><a href="sec-discrete-rvs.html#example-21" class="internal">in-context</a></span>
+</body>
+</html>
