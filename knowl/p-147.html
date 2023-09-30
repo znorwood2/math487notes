@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">Consider <span class="process-math">\(X \sim \binomial(n,p)\)</span> and let <span class="process-math">\(n\to\infty\)</span> and <span class="process-math">\(p\to 0\)</span> while fixing <span class="process-math">\(\lambda = np\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+\binom nk p^k (1-p)^{n-k} \amp = \binom nk \left( \frac{\lambda}{n} \right)^k \left( 1 - \frac{\lambda}{n}\right)^{n-k} \\
+\amp = \frac{n(n-1)(n-2)\cdots(n-k+1)}{k!} \cdot \frac{\lambda^k}{n^k}\left( 1 - \frac{\lambda}{n}\right)^n \left( 1 - \frac{\lambda}{n}\right)^{-k}\\
+\amp = \frac{n(n-1)(n-2)\cdots(n-k+1)}{n^k} \cdot \frac{\lambda^k}{k!}\left( 1 - \frac{\lambda}{n}\right)^n \left( 1 - \frac{\lambda}{n}\right)^{-k}\\
+\amp \underset{n\to\infty}{\longrightarrow} 1 \cdot \frac{\lambda^k}{k!} \cdot e^{-\lambda} \cdot 1
+= \frac{\lambda^k}{k!} e^{-\lambda} 
+\end{align*}
+</div>
+</div>
+<span class="incontext"><a href="sec-discrete-rvs.html#p-147" class="internal">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="displaymath process-math">
+\begin{align*}
+P(X = k) \amp = \sum_{n \ge k} P(X = k \mid N = n) P(N = n) \\
+\amp = \sum_{n\ge k} \binom nk p^k (1-p)^{n-k} \frac{\lambda^n}{n!} e^{-\lambda} \\
+\amp = \frac{p^k e^{-\lambda}}{k!} \lambda^k \sum_{n \ge k} \frac{(1-p)^{n-k}}{(n-k)!} \lambda^{n-k} \\
+\amp = \frac{p^k e^{-\lambda}}{k!} \lambda^k \sum_{m \ge 0} \frac{(1-p)^m}{m!} \lambda^m \\
+\amp = \frac{(\lambda p)^k e^{-\lambda p}}{k!} 
+\end{align*}
+</div>
+<span class="incontext"><a href="sec-discrete-rvs.html#md-12" class="internal">in-context</a></span>
+</body>
+</html>

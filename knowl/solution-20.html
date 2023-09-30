@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h4 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">2.2.22.1</span><span class="period">.</span>
+</h4>
+<div class="para logical">
+<div class="para">We must show for all <span class="process-math">\(k,l\)</span> that the events <span class="process-math">\(\{X = k\}\)</span> and <span class="process-math">\(\{Y = l\}\)</span> are independent, i.e., that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(X = k \text{ and } Y = l) = P(X = k) P(Y = l).
+\end{equation*}
+</div>
+<div class="para">Start with the lefthand side:</div>
+<div class="displaymath process-math">
+\begin{align*}
+P(X = k \text{ and } Y = l) \amp = P(X = k \text{ and } Y = l \mid N = k+l)P(N = k+l) \\
+\amp = \binom{k+l}{l} p^k (1-p)^l \frac{\lambda^{k+l}}{(k+l)!} e^{-\lambda} \\
+\amp = \frac{(k+l)!}{k! l!} p^k (1-p)^l \frac{\lambda^{k+l}}{(k+l)!} e^{-\lambda} \\
+\amp = \frac{ (p\lambda)^k ((1-p)\lambda)^l}{k! l! } e^{-\lambda}
+\end{align*}
+</div>
+<div class="para">Toward the righthand side, start by using the Law of Total Probability:</div>
+<div class="displaymath process-math">
+\begin{align*}
+P(X = k) \amp = \sum_{n \ge k} P(X = k \mid N = n) P(N = n) \\
+\amp = \sum_{n\ge k} \binom nk p^k (1-p)^{n-k} \frac{\lambda^n}{n!} e^{-\lambda} \\
+\amp = \frac{p^k e^{-\lambda}}{k!} \lambda^k \sum_{n \ge k} \frac{(1-p)^{n-k}}{(n-k)!} \lambda^{n-k} \\
+\amp = \frac{p^k e^{-\lambda}}{k!} \lambda^k \sum_{m \ge 0} \frac{(1-p)^m}{m!} \lambda^m \\
+\amp = \frac{(\lambda p)^k e^{-\lambda p}}{k!} 
+\end{align*}
+</div>
+<div class="para">Similarly,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(Y = l) = \frac{ (\lambda(1-p))^l e^{-\lambda(1-p)}}{l !}
+\end{equation*}
+</div>
+<div class="para">Combining all this, we get:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(X = k)P(Y = l) = \frac{(\lambda p)^k (\lambda(1-p))^l e^{-\lambda}}{ k! l!} = P(X = k \text{ and } Y = l)
+\end{equation*}
+</div>
+</div>
+</div>
+<span class="incontext"><a href="sec-discrete-rvs.html#solution-20" class="internal">in-context</a></span>
+</body>
+</html>

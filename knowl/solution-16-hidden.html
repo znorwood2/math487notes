@@ -10,5 +10,44 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body class="ignore-math"><div class="solution solution-like"><div class="para">to be added</div></div></body>
+<body class="ignore-math"><div class="solution solution-like">
+<div class="para">Let <span class="process-math">\(X\)</span> be the number of meals before all <span class="process-math">\(N\)</span> toys are collected. Then <span class="process-math">\(X = X_0 + X_1 + \cdots + X_{N-1}\text{,}\)</span> where <span class="process-math">\(X_k\)</span> is the number of additional meals after <span class="process-math">\(k\)</span> different toys have collected to get another toy. By linearity of expectation, <span class="process-math">\(E(X) = \sum_{k=0}^{N-1} E(X_k)\text{.}\)</span> Notice that <span class="process-math">\(X_k \sim \geometric\left(\frac{N-k}{N}\right)\text{,}\)</span> since after <span class="process-math">\(k\)</span> different toys have been collected, the chance of any particular meal giving us a new toy is <span class="process-math">\(\frac{N-k}{N}\text{.}\)</span>
+</div> <div class="para logical">
+<div class="para">Recalling that a <span class="process-math">\(\geometric(p)\)</span> random variable has expectation <span class="process-math">\(\tfrac1p\text{,}\)</span> we are now in position to compute the expectation of <span class="process-math">\(X\text{.}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+E(X) \amp = \sum_{k=0}^{N-1} E(X_k) \\
+\amp = 1 + \frac{N}{N-1} + \frac{N}{N-2} + \cdots + N\\
+\amp = N\left( \frac{1}{N} + \frac{1}{N-1} + \cdots + 1\right) \\
+\amp = N H(N) ,
+\end{align*}
+</div>
+<div class="para">where <span class="process-math">\(H(N)\)</span> is the <span class="process-math">\(N\)</span>th <dfn class="terminology">harmonic number</dfn>. This quantity for <span class="process-math">\(N=6\)</span> is approximately <span class="process-math">\(15\)</span> and for <span class="process-math">\(N = 8\)</span> is approximately <span class="process-math">\(22\text{.}\)</span>
+</div>
+</div> <div class="para logical">
+<div class="para">For part (b), let <span class="process-math">\(X\)</span> be the number of different toys collected if <span class="process-math">\(M\)</span> kiddie meals are purchased, and let <span class="process-math">\(Y = N - X\)</span> be the number of toys missing from the collection after <span class="process-math">\(M\)</span> meals. Then <span class="process-math">\(Y\)</span> can be written as a sum</div>
+<div class="displaymath process-math">
+\begin{equation*}
+Y = Y_1 + \cdots + Y_N,
+\end{equation*}
+</div>
+<div class="para">where</div>
+<div class="displaymath process-math">
+\begin{equation*}
+Y_k = \begin {cases} 0 \amp \text{ if the } k \text{th toy is in the collection} \\
+1 \amp \text{ if it's missing}
+\end {cases}
+\end{equation*}
+</div>
+<div class="para">Note that <span class="process-math">\(E(Y_k) = 1p+0(1-p) = p\text{,}\)</span> where <span class="process-math">\(p\)</span> is the probability that we didn’t get the <span class="process-math">\(k\)</span>th toy in <span class="process-math">\(M\)</span> meals, which is <span class="process-math">\(\left( \frac{N-1}{N}\right)^M\text{.}\)</span> Now <span class="process-math">\(E(Y) = \sum_{k=1}^N E(Y_k) = N\left(1-\frac{1}{N}\right)^M\text{.}\)</span> And we can compute the expected value of <span class="process-math">\(X\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E(X) = N - E(Y) = N - N\left(1 - \frac{1}{N}\right)^M
+\end{equation*}
+</div>
+<div class="para">Notice that this quantity approaches <span class="process-math">\(N\)</span> as <span class="process-math">\(M\to\infty\text{,}\)</span> as expected.</div>
+</div>
+</div></body>
 </html>

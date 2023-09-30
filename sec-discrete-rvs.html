@@ -211,6 +211,8 @@ window.MathJax = {
 \newcommand {\Bernoulli}{\operatorname{Bernoulli}}
 \newcommand {\binomial}{\operatorname{binomial}}
 \newcommand {\geometric}{\operatorname{geometric}}
+\newcommand {\NegBinom} {\operatorname{NegBinom}}
+\newcommand {\Poisson} {\operatorname{Poisson}}
 \newcommand {\var} {\operatorname{var}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
@@ -248,7 +250,11 @@ window.MathJax = {
 </li>
 <li class="active">
 <div class="toc-item"><a href="sec-discrete-rvs.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Discrete random variables</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-discrete-rvs.html#subsec-expectation-discrete" class="internal"><span class="codenumber">2.2.1</span> <span class="title">The expectation of a discrete random variable</span></a></div></li></ul>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-discrete-rvs.html#subsec-expectation-discrete" class="internal"><span class="codenumber">2.2.1</span> <span class="title">The expectation of a discrete random variable</span></a></div></li>
+<li><div class="toc-item"><a href="sec-discrete-rvs.html#subsec-poisson" class="internal"><span class="codenumber">2.2.2</span> <span class="title">The Poisson Distribution</span></a></div></li>
+<li><div class="toc-item"><a href="sec-discrete-rvs.html#subsec-discrete-more-examples" class="internal"><span class="codenumber">2.2.3</span> <span class="title">More examples of discrete distributions</span></a></div></li>
+</ul>
 </li>
 </ul>
 </li>
@@ -502,7 +508,175 @@ E(I_j I_k) \amp = 1P(\text{both } j \text{ and } k \text{ get their hat back}) +
 </ol>
 </div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-16" id="solution-16"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-16"><div class="solution solution-like"><div class="para" id="p-144">to be added</div></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-16" id="solution-16"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-16"><div class="solution solution-like">
+<div class="para" id="p-144">Let <span class="process-math">\(X\)</span> be the number of meals before all <span class="process-math">\(N\)</span> toys are collected. Then <span class="process-math">\(X = X_0 + X_1 + \cdots + X_{N-1}\text{,}\)</span> where <span class="process-math">\(X_k\)</span> is the number of additional meals after <span class="process-math">\(k\)</span> different toys have collected to get another toy. By linearity of expectation, <span class="process-math">\(E(X) = \sum_{k=0}^{N-1} E(X_k)\text{.}\)</span> Notice that <span class="process-math">\(X_k \sim \geometric\left(\frac{N-k}{N}\right)\text{,}\)</span> since after <span class="process-math">\(k\)</span> different toys have been collected, the chance of any particular meal giving us a new toy is <span class="process-math">\(\frac{N-k}{N}\text{.}\)</span>
+</div> <div class="para logical" id="p-145">
+<div class="para">Recalling that a <span class="process-math">\(\geometric(p)\)</span> random variable has expectation <span class="process-math">\(\tfrac1p\text{,}\)</span> we are now in position to compute the expectation of <span class="process-math">\(X\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="md-7">
+\begin{align*}
+E(X) \amp = \sum_{k=0}^{N-1} E(X_k) \\
+\amp = 1 + \frac{N}{N-1} + \frac{N}{N-2} + \cdots + N\\
+\amp = N\left( \frac{1}{N} + \frac{1}{N-1} + \cdots + 1\right) \\
+\amp = N H(N) ,
+\end{align*}
+</div>
+<div class="para">where <span class="process-math">\(H(N)\)</span> is the <span class="process-math">\(N\)</span>th <dfn class="terminology">harmonic number</dfn>. This quantity for <span class="process-math">\(N=6\)</span> is approximately <span class="process-math">\(15\)</span> and for <span class="process-math">\(N = 8\)</span> is approximately <span class="process-math">\(22\text{.}\)</span>
+</div>
+</div> <div class="para logical" id="p-146">
+<div class="para">For part (b), let <span class="process-math">\(X\)</span> be the number of different toys collected if <span class="process-math">\(M\)</span> kiddie meals are purchased, and let <span class="process-math">\(Y = N - X\)</span> be the number of toys missing from the collection after <span class="process-math">\(M\)</span> meals. Then <span class="process-math">\(Y\)</span> can be written as a sum</div>
+<div class="displaymath process-math">
+\begin{equation*}
+Y = Y_1 + \cdots + Y_N,
+\end{equation*}
+</div>
+<div class="para">where</div>
+<div class="displaymath process-math">
+\begin{equation*}
+Y_k = \begin {cases} 0 \amp \text{ if the } k \text{th toy is in the collection} \\
+1 \amp \text{ if it's missing}
+\end {cases}
+\end{equation*}
+</div>
+<div class="para">Note that <span class="process-math">\(E(Y_k) = 1p+0(1-p) = p\text{,}\)</span> where <span class="process-math">\(p\)</span> is the probability that we didn’t get the <span class="process-math">\(k\)</span>th toy in <span class="process-math">\(M\)</span> meals, which is <span class="process-math">\(\left( \frac{N-1}{N}\right)^M\text{.}\)</span> Now <span class="process-math">\(E(Y) = \sum_{k=1}^N E(Y_k) = N\left(1-\frac{1}{N}\right)^M\text{.}\)</span> And we can compute the expected value of <span class="process-math">\(X\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E(X) = N - E(Y) = N - N\left(1 - \frac{1}{N}\right)^M
+\end{equation*}
+</div>
+<div class="para">Notice that this quantity approaches <span class="process-math">\(N\)</span> as <span class="process-math">\(M\to\infty\text{,}\)</span> as expected.</div>
+</div>
+</div></div>
+</div></article></section><section class="subsection" id="subsec-poisson"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.2.2</span><span class="space"> </span><span class="title">The Poisson Distribution</span>
+</h3>
+<div class="para logical" id="p-147">
+<div class="para">Consider <span class="process-math">\(X \sim \binomial(n,p)\)</span> and let <span class="process-math">\(n\to\infty\)</span> and <span class="process-math">\(p\to 0\)</span> while fixing <span class="process-math">\(\lambda = np\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="md-8">
+\begin{align*}
+\binom nk p^k (1-p)^{n-k} \amp = \binom nk \left( \frac{\lambda}{n} \right)^k \left( 1 - \frac{\lambda}{n}\right)^{n-k} \\
+\amp = \frac{n(n-1)(n-2)\cdots(n-k+1)}{k!} \cdot \frac{\lambda^k}{n^k}\left( 1 - \frac{\lambda}{n}\right)^n \left( 1 - \frac{\lambda}{n}\right)^{-k}\\
+\amp = \frac{n(n-1)(n-2)\cdots(n-k+1)}{n^k} \cdot \frac{\lambda^k}{k!}\left( 1 - \frac{\lambda}{n}\right)^n \left( 1 - \frac{\lambda}{n}\right)^{-k}\\
+\amp \underset{n\to\infty}{\longrightarrow} 1 \cdot \frac{\lambda^k}{k!} \cdot e^{-\lambda} \cdot 1
+= \frac{\lambda^k}{k!} e^{-\lambda} 
+\end{align*}
+</div>
+</div>
+<article class="definition definition-like" id="def-poisson"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.2.16</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="p-148">
+<div class="para">A random variable is said to follow a <dfn class="terminology">Poisson</dfn> distribution with parameter <span class="process-math">\(\lambda\in (0,\infty)\)</span> if its pmf <span class="process-math">\(f\)</span> is given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(k) = \frac{\lambda^k}{k!} e^{-\lambda}
+\end{equation*}
+</div>
+</div></article><div class="para" id="p-149">A <span class="process-math">\(\Poisson(\lambda)\)</span> random variable is a good model for a rare event that occurs on average <span class="process-math">\(\lambda\)</span> times per unit time.</div>
+<article class="exercise exercise-like" id="exercise-5"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-5"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.2.17</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-5"><article class="exercise exercise-like"><div class="para" id="p-150">Verify that <span class="process-math">\(\sum_{k\ge 0} \frac{\lambda^k}{k!} e^{-\lambda} = 1\text{.}\)</span>
+</div></article></div>
+<article class="example example-like" id="example-26"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.18</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-151">Compute the expected value of a <span class="process-math">\(\Poisson(\lambda)\)</span> random variable.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-17" id="solution-17"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-17"><div class="solution solution-like"><div class="para logical" id="p-152"><div class="displaymath process-math" id="md-9">
+\begin{align*}
+E(X) \amp = \sum_{k\ge 0} k f(k) \\
+\amp = \sum_{k\ge 0} k \frac{\lambda^k}{k!} e^{-\lambda} \\
+\amp = \lambda e^{-\lambda} \sum_{k\ge 1} \frac{\lambda^{k-1}}{(k-1)!}\\
+\amp = \lambda e^{-\lambda} \sum_{m\ge0} \frac{\lambda^m}{m!} \\
+\amp = \lambda e^{-\lambda} e^{\lambda} \\
+\amp = \lambda 
+\end{align*}
+</div></div></div></div>
+</div></article><article class="exercise exercise-like" id="exercise-6"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-6"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.2.19</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-6"><article class="exercise exercise-like"><div class="para" id="p-153">Show that <span class="process-math">\(\var(X) = \lambda\)</span> too.</div></article></div>
+<article class="example example-like" id="example-27"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.20</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-154">Astronomers estimate that on average one large meteorite hits Earth every 100 years. Compute the probability that no large meteorite hits Earth in the next 100 years.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-18" id="solution-18"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-18"><div class="solution solution-like"><div class="para" id="p-155">We model the number of meteorites coming in the next century by a <span class="process-math">\(\Poisson(1)\)</span> random variable. The probability that no meteorite comes in the next century is <span class="process-math">\(\frac{1e^{-1}}{0!} = \frac{1}{e} \approx 0.37\text{.}\)</span> This means there is a <span class="process-math">\(63\%\)</span> chance that at least one meteorite will hit in the next 100 years.</div></div></div>
+</div></article><article class="example example-like" id="example-28"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.21</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-156">Our observations indicate that on average <span class="process-math">\(1\)</span> gram of radioactive material discharges <span class="process-math">\(3.2\)</span> ɑ particles per second. Compute the probability that at most two ɑ particles will appear.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-19" id="solution-19"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-19"><div class="solution solution-like"><div class="para logical" id="p-157">
+<div class="displaymath process-math" id="md-10">
+\begin{align*}
+P(E) \amp = f(0) + f(1) + f(2) \\
+\amp = e^{-3.2} + 3.2 e^{-3.2} + \frac{3.2^2}{2!}e^{-3.2} \\
+\amp \approx 0.3799 
+\end{align*}
+</div>
+<div class="para">So approximately a <span class="process-math">\(38\%\)</span> chance.</div>
+</div></div></div>
+</div></article><article class="example example-like" id="example-29"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.22</span><span class="period">.</span><span class="space"> </span><span class="title">Poisson Coin Flips.</span>
+</h4>
+<div class="para" id="p-158">Suppose that a coin with probability <span class="process-math">\(p\)</span> of showing heads is tossed <span class="process-math">\(N\)</span> times. Let <span class="process-math">\(X\)</span> be the number of heads and <span class="process-math">\(Y\)</span> the number of tails. Then <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are certainly not independent; from the value of one we can compute the value of the other!</div> <div class="para" id="p-159">Nonetheless, show that if we toss the coin a <em class="emphasis">random</em> number <span class="process-math">\(N \sim \Poisson(\lambda)\)</span> of times, then <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are independent!</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-20" id="solution-20"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-20"><div class="solution solution-like"><div class="para logical" id="p-160">
+<div class="para">We must show for all <span class="process-math">\(k,l\)</span> that the events <span class="process-math">\(\{X = k\}\)</span> and <span class="process-math">\(\{Y = l\}\)</span> are independent, i.e., that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(X = k \text{ and } Y = l) = P(X = k) P(Y = l).
+\end{equation*}
+</div>
+<div class="para">Start with the lefthand side:</div>
+<div class="displaymath process-math" id="md-11">
+\begin{align*}
+P(X = k \text{ and } Y = l) \amp = P(X = k \text{ and } Y = l \mid N = k+l)P(N = k+l) \\
+\amp = \binom{k+l}{l} p^k (1-p)^l \frac{\lambda^{k+l}}{(k+l)!} e^{-\lambda} \\
+\amp = \frac{(k+l)!}{k! l!} p^k (1-p)^l \frac{\lambda^{k+l}}{(k+l)!} e^{-\lambda} \\
+\amp = \frac{ (p\lambda)^k ((1-p)\lambda)^l}{k! l! } e^{-\lambda}
+\end{align*}
+</div>
+<div class="para">Toward the righthand side, start by using the Law of Total Probability:</div>
+<div class="displaymath process-math" id="md-12">
+\begin{align*}
+P(X = k) \amp = \sum_{n \ge k} P(X = k \mid N = n) P(N = n) \\
+\amp = \sum_{n\ge k} \binom nk p^k (1-p)^{n-k} \frac{\lambda^n}{n!} e^{-\lambda} \\
+\amp = \frac{p^k e^{-\lambda}}{k!} \lambda^k \sum_{n \ge k} \frac{(1-p)^{n-k}}{(n-k)!} \lambda^{n-k} \\
+\amp = \frac{p^k e^{-\lambda}}{k!} \lambda^k \sum_{m \ge 0} \frac{(1-p)^m}{m!} \lambda^m \\
+\amp = \frac{(\lambda p)^k e^{-\lambda p}}{k!} 
+\end{align*}
+</div>
+<div class="para">Similarly,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(Y = l) = \frac{ (\lambda(1-p))^l e^{-\lambda(1-p)}}{l !}
+\end{equation*}
+</div>
+<div class="para">Combining all this, we get:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(X = k)P(Y = l) = \frac{(\lambda p)^k (\lambda(1-p))^l e^{-\lambda}}{ k! l!} = P(X = k \text{ and } Y = l)
+\end{equation*}
+</div>
+</div></div></div>
+</div></article></section><section class="subsection" id="subsec-discrete-more-examples"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.2.3</span><span class="space"> </span><span class="title">More examples of discrete distributions</span>
+</h3>
+<article class="definition definition-like" id="def-neg-binom"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.2.23</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="p-161">
+<div class="para">Independent <span class="process-math">\(\Bernoulli(p)\)</span> trials are performed until a total of <span class="process-math">\(r\)</span> successes are achieved. Let <span class="process-math">\(X\)</span> be the number of trials required. Notice that the pmf of <span class="process-math">\(X\)</span> is given by the following formula.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(X = n) = \binom{n-1}{r-1} p^r (1-p)^{n-r}, \qquad n=r,r+1,\dots
+\end{equation*}
+</div>
+<div class="para">(The <span class="process-math">\(n\)</span>th trial must be a success; there are <span class="process-math">\(\binom{n-1}{r-1}\)</span> many ways to choose which of the remaining trials succeed; then the chance that the trials that are supposed to succeed do succeed and the others fail is <span class="process-math">\(p^r (1-p)^{n-r}\text{.}\)</span>)</div>
+</div> <div class="para" id="p-162">A random variable with this pmf is said to follow a <dfn class="terminology">negative binomial</dfn> distribution with parameters <span class="process-math">\(r\)</span> and <span class="process-math">\(p\text{;}\)</span> we write <span class="process-math">\(X \sim \NegBinom(r,p)\text{.}\)</span>
 </div></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-3"><div class="fn"><code class="code-inline tex2jax_ignore">geogebra.org</code></div></div>
 </div>
 <div class="ptx-content-footer">
