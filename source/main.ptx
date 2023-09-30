@@ -9,6 +9,8 @@
       \newcommand {\Bernoulli}{\operatorname{Bernoulli}}
       \newcommand {\binomial}{\operatorname{binomial}}
       \newcommand {\geometric}{\operatorname{geometric}}
+      \newcommand {\NegBinom} {\operatorname{NegBinom}}
+      \newcommand {\Poisson} {\operatorname{Poisson}}
       \newcommand {\var} {\operatorname{var}}
     </macros>
     <latex-image-preamble>
@@ -1219,10 +1221,228 @@
             </statement>
             <solution>
               <p>
-                to be added
+                Let <m>X</m> be the number of meals before all <m>N</m> toys are collected.
+                Then <m>X = X_0 + X_1 + \cdots + X_{N-1}</m>,
+                where <m>X_k</m> is the number of additional meals after <m>k</m>
+                different toys have collected to get another toy.
+                By linearity of expectation, <m>E(X) = \sum_{k=0}^{N-1} E(X_k)</m>.
+                Notice that <m>X_k \sim \geometric\left(\frac{N-k}{N}\right)</m>,
+                since after <m>k</m> different toys have been collected,
+                the chance of any particular meal giving us a new toy is <m>\frac{N-k}{N}</m>.
+              </p>
+              <p>
+                Recalling that a <m>\geometric(p)</m> random variable has expectation <m>\tfrac1p</m>,
+                we are now in position to compute the expectation of <m>X</m>.
+                <md>
+                  <mrow> E(X) \amp = \sum_{k=0}^{N-1} E(X_k) </mrow>
+                  <mrow> \amp = 1 + \frac{N}{N-1} + \frac{N}{N-2} + \cdots + N</mrow>
+                  <mrow> \amp = N\left( \frac{1}{N} + \frac{1}{N-1} + \cdots + 1\right) </mrow>
+                  <mrow> \amp = N H(N) ,</mrow>
+                </md>
+                where <m>H(N)</m> is the <m>N</m>th <term>harmonic number</term>.
+                This quantity for <m>N=6</m> is approximately <m>15</m>
+                and for <m>N = 8</m> is approximately <m>22</m>.
+              </p>
+              <p>
+                For part (b), let <m>X</m> be the number of different toys
+                collected if <m>M</m> kiddie meals are purchased,
+                and let <m>Y = N - X</m> be the number of toys missing from the 
+                collection after <m>M</m> meals. 
+                Then <m>Y</m> can be written as a sum
+                <me>
+                  Y = Y_1 + \cdots + Y_N,
+                </me>
+                where
+                <me>
+                  Y_k = \begin {cases} 0 \amp \text{ if the } k \text{th toy is in the collection} \\
+                  1 \amp \text{ if it's missing}
+                  \end {cases}
+                </me>
+                Note that <m>E(Y_k) = 1p+0(1-p) = p</m>,
+                where <m>p</m> is the probability that we didn't get the <m>k</m>th
+                toy in <m>M</m> meals, which is <m>\left( \frac{N-1}{N}\right)^M</m>.
+                Now <m>E(Y) = \sum_{k=1}^N E(Y_k) = N\left(1-\frac{1}{N}\right)^M</m>.
+                And we can compute the expected value of <m>X</m>:
+                <me>
+                  E(X) = N - E(Y) = N - N\left(1 - \frac{1}{N}\right)^M
+                </me>
+                Notice that this quantity approaches <m>N</m> as <m>M\to\infty</m>,
+                as expected.
               </p>
             </solution>
           </example>
+        </subsection>
+        <subsection xml:id="subsec-poisson">
+          <title>The Poisson Distribution</title>
+          <p>
+            Consider <m>X \sim \binomial(n,p)</m> and let <m>n\to\infty</m>
+            and <m>p\to 0</m> while fixing <m>\lambda = np</m>:
+            <md>
+              <mrow> \binom nk p^k (1-p)^{n-k} \amp = \binom nk \left( \frac{\lambda}{n} \right)^k \left( 1 - \frac{\lambda}{n}\right)^{n-k} </mrow>
+              <mrow> \amp = \frac{n(n-1)(n-2)\cdots(n-k+1)}{k!} \cdot \frac{\lambda^k}{n^k}\left( 1 - \frac{\lambda}{n}\right)^n \left( 1 - \frac{\lambda}{n}\right)^{-k}</mrow>
+              <mrow> \amp = \frac{n(n-1)(n-2)\cdots(n-k+1)}{n^k} \cdot \frac{\lambda^k}{k!}\left( 1 - \frac{\lambda}{n}\right)^n \left( 1 - \frac{\lambda}{n}\right)^{-k}</mrow>
+              <mrow> \amp \underset{n\to\infty}{\longrightarrow} 1 \cdot \frac{\lambda^k}{k!} \cdot e^{-\lambda} \cdot 1
+                = \frac{\lambda^k}{k!} e^{-\lambda} </mrow>
+            </md>
+          </p>
+          <definition xml:id="def-poisson">
+            <statement>
+              <p>
+                A random variable is said to follow a <term>Poisson</term> distribution
+                with parameter <m>\lambda\in (0,\infty)</m> if its pmf <m>f</m> is given by
+                <me>
+                  f(k) = \frac{\lambda^k}{k!} e^{-\lambda}
+                </me>
+              </p>
+            </statement>
+          </definition>
+          <p>
+            A <m>\Poisson(\lambda)</m> random variable is a good model for
+            a rare event that occurs on average <m>\lambda</m> times per unit time.
+          </p>
+          <exercise>
+            <p>
+              Verify that <m>\sum_{k\ge 0} \frac{\lambda^k}{k!} e^{-\lambda} = 1</m>.
+            </p>
+          </exercise>
+          <example>
+            <statement>
+              <p>
+                Compute the expected value of a <m>\Poisson(\lambda)</m>
+                random variable.
+              </p>
+            </statement>
+            <solution>
+              <p>
+                <md>
+                  <mrow> E(X) \amp = \sum_{k\ge 0} k f(k) </mrow>
+                  <mrow> \amp = \sum_{k\ge 0} k \frac{\lambda^k}{k!} e^{-\lambda} </mrow>
+                  <mrow> \amp = \lambda e^{-\lambda} \sum_{k\ge 1} \frac{\lambda^{k-1}}{(k-1)!}</mrow>
+                  <mrow> \amp = \lambda e^{-\lambda} \sum_{m\ge0} \frac{\lambda^m}{m!} </mrow>
+                  <mrow> \amp = \lambda e^{-\lambda} e^{\lambda} </mrow>
+                  <mrow> \amp = \lambda </mrow>
+                </md>
+              </p>
+            </solution>
+          </example>
+          <exercise>
+            <p>
+              Show that <m>\var(X) = \lambda</m> too.
+            </p>
+          </exercise>
+          <example>
+            <statement>
+              <p>
+                Astronomers estimate that on average one large meteorite
+                hits Earth every 100 years. Compute the probability that 
+                no large meteorite hits Earth in the next 100 years.
+              </p>
+            </statement>
+            <solution>
+              <p>
+                We model the number of meteorites coming in the next century by a 
+                <m>\Poisson(1)</m> random variable.
+                The probability that no meteorite comes in the next century
+                is <m>\frac{1e^{-1}}{0!} = \frac{1}{e} \approx 0.37</m>.
+                This means there is a <m>63\%</m> chance that at least one meteorite
+                will hit in the next 100 years.
+              </p>
+            </solution>
+          </example>
+          <example>
+            <statement>
+              <p>
+                Our observations indicate that on average <m>1</m> gram of 
+                radioactive material discharges <m>3.2</m> ɑ particles per second.
+                Compute the probability that at most two ɑ particles will appear.
+              </p>
+            </statement>
+            <solution>
+              <p>
+                <md>
+                  <mrow> P(E) \amp = f(0) + f(1) + f(2) </mrow>
+                  <mrow> \amp = e^{-3.2} + 3.2 e^{-3.2} + \frac{3.2^2}{2!}e^{-3.2} </mrow>
+                  <mrow> \amp \approx 0.3799 </mrow>
+                </md>
+                So approximately a <m>38\%</m> chance.
+              </p>
+            </solution>
+          </example>
+          <example>
+            <title>Poisson Coin Flips</title>
+            <statement>
+              <p>
+                Suppose that a coin with probability <m>p</m> of showing heads
+                is tossed <m>N</m> times. Let <m>X</m> be the number of heads
+                and <m>Y</m> the number of tails.
+                Then <m>X</m> and <m>Y</m> are certainly not independent;
+                from the value of one we can compute the value of the other!
+              </p>
+              <p>
+                Nonetheless, show that if we toss the coin a <em>random</em>
+                number <m>N \sim \Poisson(\lambda)</m> of times,
+                then <m>X</m> and <m>Y</m> are independent!
+              </p>
+            </statement>
+            <solution>
+              <p>
+                We must show for all <m>k,l</m> that the events
+                <m>\{X = k\}</m> and <m>\{Y = l\}</m> are independent,
+                i.e., that
+                <me>
+                  P(X = k \text{ and } Y = l) = P(X = k) P(Y = l).
+                </me>
+                Start with the lefthand side:
+                <md>
+                  <mrow> P(X = k \text{ and } Y = l) \amp = P(X = k \text{ and } Y = l \mid N = k+l)P(N = k+l) </mrow>
+                  <mrow> \amp = \binom{k+l}{l} p^k (1-p)^l \frac{\lambda^{k+l}}{(k+l)!} e^{-\lambda} </mrow>
+                  <mrow> \amp = \frac{(k+l)!}{k! l!} p^k (1-p)^l \frac{\lambda^{k+l}}{(k+l)!} e^{-\lambda} </mrow>
+                  <mrow> \amp = \frac{ (p\lambda)^k ((1-p)\lambda)^l}{k! l! } e^{-\lambda}</mrow>
+                </md>
+                Toward the righthand side, start by using the Law of Total Probability:
+                <md>
+                  <mrow> P(X = k) \amp = \sum_{n \ge k} P(X = k \mid N = n) P(N = n) </mrow>
+                  <mrow> \amp = \sum_{n\ge k} \binom nk p^k (1-p)^{n-k} \frac{\lambda^n}{n!} e^{-\lambda} </mrow>
+                  <mrow> \amp = \frac{p^k e^{-\lambda}}{k!} \lambda^k \sum_{n \ge k} \frac{(1-p)^{n-k}}{(n-k)!} \lambda^{n-k} </mrow>
+                  <mrow> \amp = \frac{p^k e^{-\lambda}}{k!} \lambda^k \sum_{m \ge 0} \frac{(1-p)^m}{m!} \lambda^m </mrow>
+                  <mrow> \amp = \frac{(\lambda p)^k e^{-\lambda p}}{k!} </mrow>
+                </md>
+                Similarly,
+                <me>
+                  P(Y = l) = \frac{ (\lambda(1-p))^l e^{-\lambda(1-p)}}{l !}
+                </me>
+                Combining all this, we get:
+                <me>
+                  P(X = k)P(Y = l) = \frac{(\lambda p)^k (\lambda(1-p))^l e^{-\lambda}}{ k! l!} = P(X = k \text{ and } Y = l)
+                </me>
+              </p>
+            </solution>
+          </example>
+        </subsection>
+        <subsection xml:id="subsec-discrete-more-examples">
+          <title>More examples of discrete distributions</title>
+          <definition xml:id="def-neg-binom">
+            <statement>
+              <p>
+                Independent <m>\Bernoulli(p)</m> trials are performed until
+                a total of <m>r</m> successes are achieved.
+                Let <m>X</m> be the number of trials required.
+                Notice that the pmf of <m>X</m> is given by the following formula.
+                <me>
+                  P(X = n) = \binom{n-1}{r-1} p^r (1-p)^{n-r}, \qquad n=r,r+1,\dots
+                </me>
+                (The <m>n</m>th trial must be a success; there are <m>\binom{n-1}{r-1}</m>
+                many ways to choose which of the remaining trials succeed; then the chance
+                that the trials that are supposed to succeed do succeed and the others
+                fail is <m>p^r (1-p)^{n-r}</m>.)
+              </p>
+              <p>
+                A random variable with this pmf is said to follow 
+                a <term>negative binomial</term> distribution with parameters
+                <m>r</m> and <m>p</m>; we write <m>X \sim \NegBinom(r,p)</m>.
+              </p>
+            </statement>
+          </definition>
         </subsection>
       </section>
     </chapter>
