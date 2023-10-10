@@ -101,7 +101,7 @@ window.MathJax = {
 <div id="searchempty" class="searchempty"><span>No results.</span></div>
 <ol id="searchresults" class="searchresults"></ol>
 </div>
-</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-random-variables-theory.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-random-variables.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span><div class="searchbox"><div class="searchwidget">
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-random-variables-theory.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-random-variables.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-cts-rvs.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span><div class="searchbox"><div class="searchwidget">
 <input id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" class="searchbutton" type="button" onclick="doSearch()" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button>
 </div></div>
 <span class="nav-runestone-controls"><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="avatarbutton" class="avatarbutton name">You!</span><div id="preferences_menu_holder" class="preferences_menu_holder hidden"><ol id="preferences_menu" class="preferences_menu" style="font-family: 'Roboto Serif', serif;">
@@ -208,6 +208,7 @@ window.MathJax = {
 </li>
 </ol></div></button></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
 \newcommand{\N}{\mathbb N}
+\newcommand {\abs} [1] {\left| #1 \right|}
 \newcommand {\Bernoulli}{\operatorname{Bernoulli}}
 \newcommand {\binomial}{\operatorname{binomial}}
 \newcommand {\geometric}{\operatorname{geometric}}
@@ -254,8 +255,10 @@ window.MathJax = {
 <li><div class="toc-item"><a href="sec-discrete-rvs.html#subsec-expectation-discrete" class="internal"><span class="codenumber">2.2.1</span> <span class="title">The expectation of a discrete random variable</span></a></div></li>
 <li><div class="toc-item"><a href="sec-discrete-rvs.html#subsec-poisson" class="internal"><span class="codenumber">2.2.2</span> <span class="title">The Poisson Distribution</span></a></div></li>
 <li><div class="toc-item"><a href="sec-discrete-rvs.html#subsec-discrete-more-examples" class="internal"><span class="codenumber">2.2.3</span> <span class="title">More examples of discrete distributions</span></a></div></li>
+<li><div class="toc-item"><a href="sec-discrete-rvs.html#subsec-variance-correlation" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Correlation and variance</span></a></div></li>
 </ul>
 </li>
+<li><div class="toc-item"><a href="sec-cts-rvs.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Continuous random variables</span></a></div></li>
 </ul>
 </li>
 <li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
@@ -677,10 +680,93 @@ P(X = n) = \binom{n-1}{r-1} p^r (1-p)^{n-r}, \qquad n=r,r+1,\dots
 </div>
 <div class="para">(The <span class="process-math">\(n\)</span>th trial must be a success; there are <span class="process-math">\(\binom{n-1}{r-1}\)</span> many ways to choose which of the remaining trials succeed; then the chance that the trials that are supposed to succeed do succeed and the others fail is <span class="process-math">\(p^r (1-p)^{n-r}\text{.}\)</span>)</div>
 </div> <div class="para" id="p-162">A random variable with this pmf is said to follow a <dfn class="terminology">negative binomial</dfn> distribution with parameters <span class="process-math">\(r\)</span> and <span class="process-math">\(p\text{;}\)</span> we write <span class="process-math">\(X \sim \NegBinom(r,p)\text{.}\)</span>
+</div></article></section><section class="subsection" id="subsec-variance-correlation"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.2.4</span><span class="space"> </span><span class="title">Correlation and variance</span>
+</h3>
+<div class="para" id="p-163">Recall that <span class="process-math">\(\var(X)\)</span> is defined to be <span class="process-math">\(E((X-E(X))^2)\)</span> and is equal to <span class="process-math">\(E(X^2) - E(X)^2\text{.}\)</span> We should not expect this statistic to be linear, since as we will verify we expect <span class="process-math">\(\var(aX) = a^2 \var(X)\text{.}\)</span> But it is natural to wonder under what conditions it is <em class="emphasis">additive</em>, meaning <span class="process-math">\(\var(X+Y) = \var(X) + \var(Y)\text{.}\)</span>
+</div>
+<article class="definition definition-like" id="def-uncorrelated"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.2.24</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-164">Two random variables <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are <dfn class="terminology">uncorrelated</dfn> if <span class="process-math">\(E(XY) = E(X)E(Y)\text{.}\)</span>
+</div></article><article class="lemma theorem-like" id="lem-independent-uncorrelated"><h4 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">2.2.25</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-165">If <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are independent, then they are uncorrelated.</div></article><article class="hiddenproof" id="proof-5"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-5"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-5"><article class="hiddenproof"><div class="para logical" id="p-166"><div class="displaymath process-math" id="md-13">
+\begin{align*}
+E(XY) \amp = \sum_{x,y} xy P(X = x \text{ and } Y = y) \\
+\amp = \sum_{x,y} xy P(X = x) P(Y = y) \\
+\amp = \sum_{x} x P(X = x) \sum_y y P(Y = y) \\
+\amp = E(X) E(Y) 
+\end{align*}
+</div></div></article></div>
+<div class="para" id="p-167">The converse is false!</div>
+<article class="example example-like" id="example-30"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.26</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-168">Let <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> be independent Bernoulli random variables with parameter <span class="process-math">\(1/2\text{.}\)</span> Show that <span class="process-math">\(X+Y\)</span> and <span class="process-math">\(\abs{X-Y}\)</span> are dependent but uncorrelated.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-21" id="solution-21"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-21"><div class="solution solution-like">
+<div class="para" id="p-169">To show that <span class="process-math">\(X+Y\)</span> and <span class="process-math">\(\abs{X-Y}\)</span> are dependent, it is enough to show that the events <span class="process-math">\(\{X+Y = 0\}\)</span> and <span class="process-math">\(\{\abs{X-Y} = 0\}\)</span> are dependent. But of course! The only way for <span class="process-math">\(X+Y\)</span> to equal <span class="process-math">\(0\)</span> is for <span class="process-math">\(X = Y = 0\text{,}\)</span> and this implies that <span class="process-math">\(\abs{X-Y} = 0\text{.}\)</span> In other words, <span class="process-math">\(P(X+Y = 0 \text{ and } \abs{X-Y} = 0) = 
+P(X+Y = 0) = \tfrac14\)</span> and <span class="process-math">\(P(\abs{X-Y}=0) = \tfrac12\text{,}\)</span> and <span class="process-math">\(\tfrac14 \cdot \tfrac12 \ne \tfrac14\text{.}\)</span>
+</div> <div class="para logical" id="p-170">
+<div class="para">To see that <span class="process-math">\(X+Y\)</span> and <span class="process-math">\(\abs{X-Y}\)</span> are uncorrelated, we compute all the relevant expected values by hand:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E(X+Y) = E(X) + E(Y) = \tfrac12 + \tfrac12 = 1.
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E(\abs{X-Y}) = 0P(\abs{X-Y}=0) + 1P(\abs{X-Y} = 1) = \tfrac12
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E(\abs{X-Y}(X+Y)) = 0P(Z = 0) + 1P(Z = 1) + 2P(Z = 2)
+= 1P(\abs{X-Y}(X+Y)=1) = \tfrac12
+\end{equation*}
+</div>
+<div class="para">And <span class="process-math">\(\tfrac12 \cdot 1 = \tfrac12\text{,}\)</span> so <span class="process-math">\(X+Y\)</span> and <span class="process-math">\(\abs{X-Y}\)</span> are uncorrelated.</div>
+</div>
+</div></div>
+</div></article><div class="para" id="p-171">And here is the reason for making the definition:</div>
+<article class="proposition theorem-like" id="prop-variance-uncorrelated"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.2.27</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="p-172"><ol class="lower-alpha">
+<li id="li-39"><div class="para" id="p-173"><span class="process-math">\(\displaystyle \var(aX) = a^2 \var(X)\)</span></div></li>
+<li id="li-40"><div class="para" id="p-174">If <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are uncorrelated, then <span class="process-math">\(\var(X+Y) = \var(X) + \var(Y)\text{.}\)</span>
+</div></li>
+</ol></div></article><article class="hiddenproof" id="proof-6"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-6"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-6"><article class="hiddenproof"><div class="para logical" id="p-175">
+<div class="para">The first part follows immediately from the definition of variance and the linearity of expectation:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\var(aX) = E((aX - E(aX)^2))
+= E(a^2 (X - E(X))^2)
+= a^2 \var(X)
+\end{equation*}
+</div>
+</div> <div class="para logical" id="p-176">
+<div class="para">The second part follows from our other characterization of variance:</div>
+<div class="displaymath process-math" id="md-14">
+\begin{align*}
+\var(X+Y) \amp = E((X+Y)^2) - (E(X+Y))^2 \\
+\amp = E(X^2 + 2XY + Y^2) - E(X)^2 - 2E(X)E(Y) - E(Y)^2 \\
+\amp = E(X^2) + 2E(XY) + E(Y^2) - E(X)^2 - 2E(X)E(Y) - E(Y)^2 \\
+\amp = \var(X) + \var(Y) 
+\end{align*}
+</div>
+<div class="para">That’s it.</div>
+</div></article></div>
+<article class="example example-like" id="example-31"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.28</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-177">A <span class="process-math">\(\binomial(n,p)\)</span> random variable <span class="process-math">\(X\)</span> can be expressed as a sum <span class="process-math">\(X = X_1 + \cdots + X_n\)</span> of independent <span class="process-math">\(\Bernoulli(p)\)</span> random variables. Recall that the variance of a <span class="process-math">\(\Bernoulli(p)\)</span> random variable is <span class="process-math">\(p(1-p)\text{.}\)</span> Since the <span class="process-math">\(X_k\)</span> are independent, they are uncorrelated. So <span class="process-math">\(\var(X) = \sum_{k=1}^n p(1-p) = np(1-p)\text{.}\)</span>
 </div></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-3"><div class="fn"><code class="code-inline tex2jax_ignore">geogebra.org</code></div></div>
 </div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="sec-random-variables-theory.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="sec-random-variables-theory.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-cts-rvs.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
