@@ -2,6 +2,9 @@
 # ensure this file is tracked
 !.gitignore
 
+# don't track todo file
+todo.txt
+
 # don't track unpublished builds
 output
 

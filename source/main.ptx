@@ -13,6 +13,7 @@
       \newcommand {\NegBinom} {\operatorname{NegBinom}}
       \newcommand {\Poisson} {\operatorname{Poisson}}
       \newcommand {\var} {\operatorname{var}}
+      \newcommand {\cov} {\operatorname{cov}}
     </macros>
     <latex-image-preamble>
       \usepackage{tikz}
@@ -1578,6 +1579,7 @@
       </section>
       <section xml:id="sec-cts-rvs">
         <title>Continuous random variables</title>
+        <introduction>
         <p>
           Now we develop the theory of continuous random variables in much the same
           way as we did for the discrete case.
@@ -1594,7 +1596,251 @@
             </p>
           </statement>
         </definition>
+      </introduction>
+        <subsection xml:id="subsec-exponential">
+          <title>The exponential distribution</title>
+          <p>
+            to be added
+          </p>
+        </subsection>
+        <subsection xml:id="subsec-gaussian">
+          <title>The Gaussian distribution</title>
+          <p>
+            to be added
+          </p>
+        </subsection>
       </section>
+    </chapter>
+
+    <chapter xml:id="ch-joint-distributions">
+      <title>Jointly distributed random variables</title>
+      <section>
+        <title>Definitions and examples</title>
+        <p>
+        If <m>X</m> and <m>Y</m> are random variables on the same probability
+        space, then their cdfs <m>F_X</m> and <m>F_Y</m> tell us about
+        how they are distributed, individually. But with only this 
+        information, we don't know how they act relative to each other.
+      </p>
+      <example>
+        <p>
+          <alert>Situation A.</alert>
+          Flip two coins and define
+          <me>
+            X = \begin {cases} 1 \amp \text{1st is heads} \\
+            0 \amp \text{otherwise}
+            \end{cases}
+            \qquad
+            Y = \begin {cases} 1 \amp \text{2nd is heads} \\
+            0 \amp \text{otherwise}
+            \end {cases} .
+          </me>
+          Then <m>X</m> and <m>Y</m> are identically distributed;
+          they both follow a <m>\Bernoulli(1/2)</m> distribution
+          and therefore have the same pmf and cdf.
+        </p>
+        <p>
+          <alert>Situation B.</alert>
+          Now flip only one coin and consider <m>X = 1_H</m> and <m>Y = 1_T</m>.
+          (That is, <m>X</m> is the indicator rv of the event that the result
+          is a heads, and <m>Y</m> indicates whether the result is a tails.)
+          Then <m>X</m> and <m>Y</m> are identically distributed <m>\Bernoulli(1/2)</m>
+          random variables, just as in Situation A.
+        </p>
+        <p>
+          But clearly these two situations are different!
+          How do we capture that?
+          It might occur to us to record <term>joint probabilies</term>
+          in a 2D array:
+          <me>
+            A: \begin {array} {c | cc}
+             X / Y \amp 0 \amp 1 \\\hline
+             0 \amp 1/4 \amp 1/4  \\
+            1 \amp 1/4 \amp 1/4
+            \end {array}
+            \qquad 
+            B: \begin {array} {c | cc}
+             X / Y \amp 0 \amp 1 \\\hline
+             0 \amp 0 \amp 1/2  \\
+            1 \amp 1/2 \amp 0
+            \end {array}
+          </me>
+        </p>
+      </example>
+      <definition xml:id="def-jmf">
+        <statement>
+          <p>
+            The <term>joint mass function</term> of discrete random
+            variables <m>X</m> and <m>Y</m> is defined by
+            <me>
+              f_{X,Y}(x,y) = P(X = x \text{ and } Y = y).
+            </me>
+          </p>
+        </statement>
+      </definition>
+      <remark>
+        <p>
+          <ol>
+            <li>
+                Discrete random variables <m>X</m> and <m>Y</m>
+                are independent if and only if their joint mass function
+                is the pointwise product of their mass functions:
+                <me>
+                  f_{X,Y}(x,y) = f_X(x) f_Y(y) \quad \forall x,y
+                </me>
+                (This holds in Situation A of the example but not
+                in Situation B.)
+            </li>
+            <li>The definition of <term>joint mass function</term>
+            can be extended to more than two random variables.
+          We probably won't worry about that much, though.</li>
+          <li>
+            <p>
+            <m>f_X(x) = \sum_y f(x,y)</m> and <m>f_Y(y) = \sum_x f(x,y)</m>.
+          Follows from the Law of Total Probability.
+        Thus, we get the so-called <term>marginal mass functions</term> by 
+      taking sums down columns and rows in the joint mass function tables:
+      <me>
+        A: \begin {array} {c | cc | c}
+         X / Y \amp 0 \amp 1 \amp f_X \\\hline
+         0 \amp 1/4 \amp 1/4 \amp 1/2 \\
+        1 \amp 1/4 \amp 1/4 \amp 1/2 \\\hline
+        f_Y \amp 1/2 \amp 1/2 \amp 
+        \end {array}
+        \qquad 
+        B: \begin {array} {c | cc | c}
+         X / Y \amp 0 \amp 1 \amp f_X \\\hline
+         0 \amp 0 \amp 1/2 \amp 1/2 \\
+        1 \amp 1/2 \amp 0 \amp 1/2 \\\hline
+        f_Y \amp 1/2 \amp 1/2 \amp
+        \end {array}
+      </me>
+    </p></li>
+          </ol>
+        </p>
+      </remark>
+      <p>
+        In Situation A, <m>X</m> and <m>Y</m> are uncorrelated.
+        In Situation B, they are correlated. By how much?
+      </p>
+      <definition xml:id="def-cov">
+        <statement>
+          <p>
+            The <term>covariance</term> of random variables <m>X</m> and 
+            <m>Y</m> is defined by
+            <me>
+              \cov(X,Y) = E((X - EX)(Y - EY)).
+            </me>
+            The <term>correlation coefficient</term>
+            of <m>X</m> and <m>Y</m> is
+            <me>
+              \rho(X,Y) = \frac{ \cov(X,Y)}{\sqrt{\var(X)}\sqrt{\var(Y)}},
+            </me>
+            provided <m>\var(X)</m> and <m>\var(Y)</m> are both nonzero.
+          </p>
+        </statement>
+      </definition>
+      <remark>
+        <p>
+          Some properties:
+          <ol>
+            <li>
+              <m>\cov(X,X) = \var(X)</m>
+            </li>
+            <li>
+              Recall that <m>\var(X) = E(X\cdot X) - E(X)E(X)</m>.
+              In a moment we will prove that
+              <m>
+                \cov(X,Y) = E(XY) - E(X)E(Y).
+              </m>
+            </li>
+            <li><m>\cov(X,Y) = 0</m> iff <m>X</m> and <m>Y</m> are uncorrelated.
+            This follows immediately from the previous item.</li>
+            <li>
+              <m>\abs{\rho(X,Y)} \le 1</m>.
+              (This will also be proved soon.)
+            </li>
+          </ol>
+        </p>
+      </remark>
+<lemma xml:id="lem-cov-formula">
+  <statement>
+    <p>
+      For all random variables <m>X</m> and <m>Y</m>, we have 
+      <me>
+        \cov(X,Y) = E(XY) - E(X)E(Y).
+      </me>
+    </p>
+  </statement>
+  <proof>
+    <p>
+      Essentially the same proof we gave for the case <m>X = Y</m>.
+      Just expand and use linearity of expectation:
+      <md>
+        <mrow> \cov(X,Y) \amp = E(XY - YE(X) - XE(Y) + E(X)E(Y)) </mrow>
+        <mrow> \amp = E(XY) - E(X)E(Y) - E(X)E(Y) + E(X)E(Y) </mrow>
+        <mrow> \amp = E(XY) - E(X)E(Y) </mrow>
+      </md>
+    </p>
+  </proof>
+</lemma>
+<example>
+  <p>
+    Back to our example with Situations A and B.
+    In Situation A we have <m>\cov(X,Y) = 0</m> since <m>X</m> and 
+    <m>Y</m> are independent therefore uncorrelated.
+
+    In Situation B, we have:
+    <me>
+      \cov(X,Y) = E(XY) - E(X)E(Y) = 0 - \frac14 = -\frac14.
+    </me>
+    So <m>X</m> and <m>Y</m> are <term>negatively correlated</term>,
+    meaning when <m>X</m> decreases then <m>Y</m> increases, and vice versa.
+    More specifically,
+    <me>
+      \rho(X,Y) = \frac{-1/4}{\sqrt{1/4 \cdot 1/4}} = -1,
+    </me>
+    which (as we will show) is as negative as possible.
+    So <m>X</m> and <m>Y</m> in this example are as negatively correlated
+    as possible.
+  </p>
+</example>
+<example>
+  <p>
+    Suppose that <m>1_A</m> and <m>1_B</m> are indicator random variables
+    for events <m>A</m> and <m>B</m>. We have the following:
+    <me>
+      E(1_A) = P(A), \quad E(1_B) = P(B), \quad E(1_A 1_B) = P(A \cap B).
+    </me>
+    So the covariance of <m>1_A</m> and <m>1_B</m> is given by
+    <me>
+      \cov(1_A,1_B) = P(A \cap B) - P(A) P(B) = P(B)( P(A \mid B) - P(A)).
+    </me>
+    This means that <m>1_A</m> and <m>1_B</m> are ...
+    <md>
+      <mrow> \text{positively correlated} \amp \text{ iff } P(A \mid B) \gt P(A) ;</mrow>
+      <mrow> \text{negatively correlated} \amp \text{ iff } P(A \mid B) \lt P(A)  ;\text { and} </mrow>
+<mrow> \text{uncorrelated} \amp \text{ iff } P(A \mid B) = P(A). </mrow>
+    </md>
+  </p>
+</example>
+<example>
+  <statement>
+    <p>
+      Flip a fair coin three times.
+      Let <m>X</m> count the number of heads in the first 2 flips.
+      Let <m>Y</m> count the number of heads in the last 2 flips.
+      Compute <m>\cov(X,Y)</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      
+    </p>
+  </solution>
+</example>
+
+</section>
     </chapter>
 
     <backmatter xml:id="backmatter">
