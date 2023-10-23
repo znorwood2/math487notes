@@ -8,7 +8,7 @@
 <html lang="en-US" dir="ltr">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Continuous random variables</title>
+<title>Definitions and examples</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
@@ -101,7 +101,7 @@ window.MathJax = {
 <div id="searchempty" class="searchempty"><span>No results.</span></div>
 <ol id="searchresults" class="searchresults"></ol>
 </div>
-</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-discrete-rvs.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-random-variables.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-joint-distributions.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span><div class="searchbox"><div class="searchwidget">
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="ch-joint-distributions.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-joint-distributions.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span><div class="searchbox"><div class="searchwidget">
 <input id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" class="searchbutton" type="button" onclick="doSearch()" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button>
 </div></div>
 <span class="nav-runestone-controls"><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="avatarbutton" class="avatarbutton name">You!</span><div id="preferences_menu_holder" class="preferences_menu_holder hidden"><ol id="preferences_menu" class="preferences_menu" style="font-family: 'Roboto Serif', serif;">
@@ -259,7 +259,7 @@ window.MathJax = {
 <li><div class="toc-item"><a href="sec-discrete-rvs.html#subsec-variance-correlation" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Correlation and variance</span></a></div></li>
 </ul>
 </li>
-<li class="active">
+<li>
 <div class="toc-item"><a href="sec-cts-rvs.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Continuous random variables</span></a></div>
 <ul class="structural">
 <li><div class="toc-item"><a href="sec-cts-rvs.html#subsec-exponential" class="internal"><span class="codenumber">2.3.1</span> <span class="title">The exponential distribution</span></a></div></li>
@@ -270,32 +270,194 @@ window.MathJax = {
 </li>
 <li>
 <div class="toc-item"><a href="ch-joint-distributions.html" class="internal"><span class="codenumber">3</span> <span class="title">Jointly distributed random variables</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="section-7.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Definitions and examples</span></a></div></li></ul>
+<ul class="structural"><li class="active"><div class="toc-item"><a href="section-7.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Definitions and examples</span></a></div></li></ul>
 </li>
 <li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-cts-rvs"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">2.3</span><span class="space"> </span><span class="title">Continuous random variables</span>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="section-7"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">3.1</span><span class="space"> </span><span class="title">Definitions and examples</span>
 </h2>
-<section class="introduction" id="introduction-2"><div class="para" id="p-178">Now we develop the theory of continuous random variables in much the same way as we did for the discrete case.</div> <article class="definition definition-like" id="def-expectation-cts"><h3 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.3.1</span><span class="period">.</span>
+<div class="para" id="p-182">If <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are random variables on the same probability space, then their cdfs <span class="process-math">\(F_X\)</span> and <span class="process-math">\(F_Y\)</span> tell us about how they are distributed, individually. But with only this information, we don’t know how they act relative to each other.</div>
+<article class="example example-like" id="example-32"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.1</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="p-179">
-<div class="para">The <dfn class="terminology">expected value</dfn> or <dfn class="terminology">expectation</dfn> of a continuous random variable <span class="process-math">\(X\)</span> with pdf <span class="process-math">\(f\)</span> is defined as the following integral, when it converges.</div>
+<div class="para logical" id="p-183">
+<div class="para">
+<em class="alert">Situation A.</em> Flip two coins and define</div>
 <div class="displaymath process-math">
 \begin{equation*}
-E(X) = \int_{-\infty}^\infty xf(x)\,dx
+X = \begin {cases} 1 \amp \text{1st is heads} \\
+0 \amp \text{otherwise}
+\end{cases}
+\qquad
+Y = \begin {cases} 1 \amp \text{2nd is heads} \\
+0 \amp \text{otherwise}
+\end {cases} .
 \end{equation*}
 </div>
-</div></article></section><section class="subsection" id="subsec-exponential"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.3.1</span><span class="space"> </span><span class="title">The exponential distribution</span>
+<div class="para">Then <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are identically distributed; they both follow a <span class="process-math">\(\Bernoulli(1/2)\)</span> distribution and therefore have the same pmf and cdf.</div>
+</div> <div class="para" id="p-184">
+<em class="alert">Situation B.</em> Now flip only one coin and consider <span class="process-math">\(X = 1_H\)</span> and <span class="process-math">\(Y = 1_T\text{.}\)</span> (That is, <span class="process-math">\(X\)</span> is the indicator rv of the event that the result is a heads, and <span class="process-math">\(Y\)</span> indicates whether the result is a tails.) Then <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are identically distributed <span class="process-math">\(\Bernoulli(1/2)\)</span> random variables, just as in Situation A.</div> <div class="para logical" id="p-185">
+<div class="para">But clearly these two situations are different! How do we capture that? It might occur to us to record <dfn class="terminology">joint probabilies</dfn> in a 2D array:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A: \begin {array} {c | cc}
+X / Y \amp 0 \amp 1 \\\hline
+0 \amp 1/4 \amp 1/4  \\
+1 \amp 1/4 \amp 1/4
+\end {array}
+\qquad 
+B: \begin {array} {c | cc}
+X / Y \amp 0 \amp 1 \\\hline
+0 \amp 0 \amp 1/2  \\
+1 \amp 1/2 \amp 0
+\end {array}
+\end{equation*}
+</div>
+</div></article><article class="definition definition-like" id="def-jmf"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.2</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-180">to be added</div></section><section class="subsection" id="subsec-gaussian"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.3.2</span><span class="space"> </span><span class="title">The Gaussian distribution</span>
+<div class="para logical" id="p-186">
+<div class="para">The <dfn class="terminology">joint mass function</dfn> of discrete random variables <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> is defined by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f_{X,Y}(x,y) = P(X = x \text{ and } Y = y).
+\end{equation*}
+</div>
+</div></article><article class="remark remark-like" id="remark-7"><h3 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">3.1.3</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-181">to be added</div></section></section></div>
+<div class="para logical" id="p-187"><ol class="decimal">
+<li id="li-41"><div class="para" id="p-derived-li-41">Discrete random variables <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are independent if and only if their joint mass function is the pointwise product of their mass functions:<div class="displaymath process-math">
+\begin{equation*}
+f_{X,Y}(x,y) = f_X(x) f_Y(y) \quad \forall x,y
+\end{equation*}
+</div>(This holds in Situation A of the example but not in Situation B.)</div></li>
+<li id="li-42"><div class="para" id="p-derived-li-42">The definition of <dfn class="terminology">joint mass function</dfn> can be extended to more than two random variables. We probably won’t worry about that much, though.</div></li>
+<li id="li-43"><div class="para logical" id="p-188">
+<div class="para">
+<span class="process-math">\(f_X(x) = \sum_y f(x,y)\)</span> and <span class="process-math">\(f_Y(y) = \sum_x f(x,y)\text{.}\)</span> Follows from the Law of Total Probability. Thus, we get the so-called <dfn class="terminology">marginal mass functions</dfn> by taking sums down columns and rows in the joint mass function tables:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A: \begin {array} {c | cc | c}
+X / Y \amp 0 \amp 1 \amp f_X \\\hline
+0 \amp 1/4 \amp 1/4 \amp 1/2 \\
+1 \amp 1/4 \amp 1/4 \amp 1/2 \\\hline
+f_Y \amp 1/2 \amp 1/2 \amp 
+\end {array}
+\qquad 
+B: \begin {array} {c | cc | c}
+X / Y \amp 0 \amp 1 \amp f_X \\\hline
+0 \amp 0 \amp 1/2 \amp 1/2 \\
+1 \amp 1/2 \amp 0 \amp 1/2 \\\hline
+f_Y \amp 1/2 \amp 1/2 \amp
+\end {array}
+\end{equation*}
+</div>
+</div></li>
+</ol></div></article><div class="para" id="p-189">In Situation A, <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are uncorrelated. In Situation B, they are correlated. By how much?</div>
+<article class="definition definition-like" id="def-cov"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.4</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="p-190">
+<div class="para">The <dfn class="terminology">covariance</dfn> of random variables <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> is defined by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\cov(X,Y) = E((X - EX)(Y - EY)).
+\end{equation*}
+</div>
+<div class="para">The <dfn class="terminology">correlation coefficient</dfn> of <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\rho(X,Y) = \frac{ \cov(X,Y)}{\sqrt{\var(X)}\sqrt{\var(Y)}},
+\end{equation*}
+</div>
+<div class="para">provided <span class="process-math">\(\var(X)\)</span> and <span class="process-math">\(\var(Y)\)</span> are both nonzero.</div>
+</div></article><article class="remark remark-like" id="remark-8"><h3 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">3.1.5</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="p-191">
+<div class="para">Some properties:</div>
+<ol class="decimal">
+<li id="li-44"><div class="para" id="p-derived-li-44"><span class="process-math">\(\displaystyle \cov(X,X) = \var(X)\)</span></div></li>
+<li id="li-45"><div class="para" id="p-derived-li-45">Recall that <span class="process-math">\(\var(X) = E(X\cdot X) - E(X)E(X)\text{.}\)</span> In a moment we will prove that <span class="process-math">\(\cov(X,Y) = E(XY) - E(X)E(Y).\)</span>
+</div></li>
+<li id="li-46"><div class="para" id="p-derived-li-46">
+<span class="process-math">\(\cov(X,Y) = 0\)</span> iff <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are uncorrelated. This follows immediately from the previous item.</div></li>
+<li id="li-47"><div class="para" id="p-derived-li-47">
+<span class="process-math">\(\abs{\rho(X,Y)} \le 1\text{.}\)</span> (This will also be proved soon.)</div></li>
+</ol>
+</div></article><article class="lemma theorem-like" id="lem-cov-formula"><h3 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">3.1.6</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="p-192">
+<div class="para">For all random variables <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\text{,}\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\cov(X,Y) = E(XY) - E(X)E(Y).
+\end{equation*}
+</div>
+</div></article><article class="hiddenproof" id="proof-7"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-7"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-7"><article class="hiddenproof"><div class="para logical" id="p-193">
+<div class="para">Essentially the same proof we gave for the case <span class="process-math">\(X = Y\text{.}\)</span> Just expand and use linearity of expectation:</div>
+<div class="displaymath process-math" id="md-15">
+\begin{align*}
+\cov(X,Y) \amp = E(XY - YE(X) - XE(Y) + E(X)E(Y)) \\
+\amp = E(XY) - E(X)E(Y) - E(X)E(Y) + E(X)E(Y) \\
+\amp = E(XY) - E(X)E(Y) 
+\end{align*}
+</div>
+</div></article></div>
+<article class="example example-like" id="example-33"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.7</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="p-194">
+<div class="para">Back to our example with Situations A and B. In Situation A we have <span class="process-math">\(\cov(X,Y) = 0\)</span> since <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are independent therefore uncorrelated. In Situation B, we have:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\cov(X,Y) = E(XY) - E(X)E(Y) = 0 - \frac14 = -\frac14.
+\end{equation*}
+</div>
+<div class="para">So <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are <dfn class="terminology">negatively correlated</dfn>, meaning when <span class="process-math">\(X\)</span> decreases then <span class="process-math">\(Y\)</span> increases, and vice versa. More specifically,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\rho(X,Y) = \frac{-1/4}{\sqrt{1/4 \cdot 1/4}} = -1,
+\end{equation*}
+</div>
+<div class="para">which (as we will show) is as negative as possible. So <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> in this example are as negatively correlated as possible.</div>
+</div></article><article class="example example-like" id="example-34"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.8</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="p-195">
+<div class="para">Suppose that <span class="process-math">\(1_A\)</span> and <span class="process-math">\(1_B\)</span> are indicator random variables for events <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{.}\)</span> We have the following:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E(1_A) = P(A), \quad E(1_B) = P(B), \quad E(1_A 1_B) = P(A \cap B).
+\end{equation*}
+</div>
+<div class="para">So the covariance of <span class="process-math">\(1_A\)</span> and <span class="process-math">\(1_B\)</span> is given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\cov(1_A,1_B) = P(A \cap B) - P(A) P(B) = P(B)( P(A \mid B) - P(A)).
+\end{equation*}
+</div>
+<div class="para">This means that <span class="process-math">\(1_A\)</span> and <span class="process-math">\(1_B\)</span> are ...</div>
+<div class="displaymath process-math" id="md-16">
+\begin{align*}
+\text{positively correlated} \amp \text{ iff } P(A \mid B) \gt P(A) ;\\
+\text{negatively correlated} \amp \text{ iff } P(A \mid B) \lt P(A)  ;\text { and} \\
+\text{uncorrelated} \amp \text{ iff } P(A \mid B) = P(A). 
+\end{align*}
+</div>
+</div></article><article class="example example-like" id="example-35"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.9</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-196">Flip a fair coin three times. Let <span class="process-math">\(X\)</span> count the number of heads in the first 2 flips. Let <span class="process-math">\(Y\)</span> count the number of heads in the last 2 flips. Compute <span class="process-math">\(\cov(X,Y)\text{.}\)</span>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-22" id="solution-22"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-22"><div class="solution solution-like"><div class="para" id="p-197"></div></div></div>
+</div></article></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="sec-discrete-rvs.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-joint-distributions.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="ch-joint-distributions.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">

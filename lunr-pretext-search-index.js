@@ -655,7 +655,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.3",
   "title": "Continuous random variables",
-  "body": " Continuous random variables  Now we develop the theory of continuous random variables in much the same way as we did for the discrete case.    The expected value or expectation of a continuous random variable with pdf is defined as the following integral, when it converges.     "
+  "body": " Continuous random variables   Now we develop the theory of continuous random variables in much the same way as we did for the discrete case.    The expected value or expectation of a continuous random variable with pdf is defined as the following integral, when it converges.       The exponential distribution  to be added    The Gaussian distribution  to be added   "
 },
 {
   "id": "def-expectation-cts",
@@ -665,6 +665,96 @@ var ptx_lunr_docs = [
   "number": "2.3.1",
   "title": "",
   "body": "  The expected value or expectation of a continuous random variable with pdf is defined as the following integral, when it converges.    "
+},
+{
+  "id": "section-7",
+  "level": "1",
+  "url": "section-7.html",
+  "type": "Section",
+  "number": "3.1",
+  "title": "Definitions and examples",
+  "body": " Definitions and examples  If and are random variables on the same probability space, then their cdfs and tell us about how they are distributed, individually. But with only this information, we don't know how they act relative to each other.    Situation A. Flip two coins and define Then and are identically distributed; they both follow a distribution and therefore have the same pmf and cdf.   Situation B. Now flip only one coin and consider and . (That is, is the indicator rv of the event that the result is a heads, and indicates whether the result is a tails.) Then and are identically distributed random variables, just as in Situation A.  But clearly these two situations are different! How do we capture that? It might occur to us to record joint probabilies in a 2D array:      The joint mass function of discrete random variables and is defined by        Discrete random variables and are independent if and only if their joint mass function is the pointwise product of their mass functions: (This holds in Situation A of the example but not in Situation B.)  The definition of joint mass function can be extended to more than two random variables. We probably won't worry about that much, though.    and . Follows from the Law of Total Probability. Thus, we get the so-called marginal mass functions by taking sums down columns and rows in the joint mass function tables:      In Situation A, and are uncorrelated. In Situation B, they are correlated. By how much?    The covariance of random variables and is defined by The correlation coefficient of and is provided and are both nonzero.     Some properties:     Recall that . In a moment we will prove that   iff and are uncorrelated. This follows immediately from the previous item.   . (This will also be proved soon.)       For all random variables and , we have     Essentially the same proof we gave for the case . Just expand and use linearity of expectation:      Back to our example with Situations A and B. In Situation A we have since and are independent therefore uncorrelated. In Situation B, we have: So and are negatively correlated , meaning when decreases then increases, and vice versa. More specifically, which (as we will show) is as negative as possible. So and in this example are as negatively correlated as possible.    Suppose that and are indicator random variables for events and . We have the following: So the covariance of and is given by This means that and are ...      Flip a fair coin three times. Let count the number of heads in the first 2 flips. Let count the number of heads in the last 2 flips. Compute .        "
+},
+{
+  "id": "example-32",
+  "level": "2",
+  "url": "section-7.html#example-32",
+  "type": "Example",
+  "number": "3.1.1",
+  "title": "",
+  "body": "  Situation A. Flip two coins and define Then and are identically distributed; they both follow a distribution and therefore have the same pmf and cdf.   Situation B. Now flip only one coin and consider and . (That is, is the indicator rv of the event that the result is a heads, and indicates whether the result is a tails.) Then and are identically distributed random variables, just as in Situation A.  But clearly these two situations are different! How do we capture that? It might occur to us to record joint probabilies in a 2D array:   "
+},
+{
+  "id": "def-jmf",
+  "level": "2",
+  "url": "section-7.html#def-jmf",
+  "type": "Definition",
+  "number": "3.1.2",
+  "title": "",
+  "body": "  The joint mass function of discrete random variables and is defined by    "
+},
+{
+  "id": "remark-7",
+  "level": "2",
+  "url": "section-7.html#remark-7",
+  "type": "Remark",
+  "number": "3.1.3",
+  "title": "",
+  "body": "   Discrete random variables and are independent if and only if their joint mass function is the pointwise product of their mass functions: (This holds in Situation A of the example but not in Situation B.)  The definition of joint mass function can be extended to more than two random variables. We probably won't worry about that much, though.    and . Follows from the Law of Total Probability. Thus, we get the so-called marginal mass functions by taking sums down columns and rows in the joint mass function tables:     "
+},
+{
+  "id": "def-cov",
+  "level": "2",
+  "url": "section-7.html#def-cov",
+  "type": "Definition",
+  "number": "3.1.4",
+  "title": "",
+  "body": "  The covariance of random variables and is defined by The correlation coefficient of and is provided and are both nonzero.   "
+},
+{
+  "id": "remark-8",
+  "level": "2",
+  "url": "section-7.html#remark-8",
+  "type": "Remark",
+  "number": "3.1.5",
+  "title": "",
+  "body": " Some properties:     Recall that . In a moment we will prove that   iff and are uncorrelated. This follows immediately from the previous item.   . (This will also be proved soon.)    "
+},
+{
+  "id": "lem-cov-formula",
+  "level": "2",
+  "url": "section-7.html#lem-cov-formula",
+  "type": "Lemma",
+  "number": "3.1.6",
+  "title": "",
+  "body": "  For all random variables and , we have     Essentially the same proof we gave for the case . Just expand and use linearity of expectation:    "
+},
+{
+  "id": "example-33",
+  "level": "2",
+  "url": "section-7.html#example-33",
+  "type": "Example",
+  "number": "3.1.7",
+  "title": "",
+  "body": " Back to our example with Situations A and B. In Situation A we have since and are independent therefore uncorrelated. In Situation B, we have: So and are negatively correlated , meaning when decreases then increases, and vice versa. More specifically, which (as we will show) is as negative as possible. So and in this example are as negatively correlated as possible.  "
+},
+{
+  "id": "example-34",
+  "level": "2",
+  "url": "section-7.html#example-34",
+  "type": "Example",
+  "number": "3.1.8",
+  "title": "",
+  "body": " Suppose that and are indicator random variables for events and . We have the following: So the covariance of and is given by This means that and are ...   "
+},
+{
+  "id": "example-35",
+  "level": "2",
+  "url": "section-7.html#example-35",
+  "type": "Example",
+  "number": "3.1.9",
+  "title": "",
+  "body": "  Flip a fair coin three times. Let count the number of heads in the first 2 flips. Let count the number of heads in the last 2 flips. Compute .       "
 },
 {
   "id": "colophon-2",

@@ -8,7 +8,7 @@
 <html lang="en-US" dir="ltr">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Continuous random variables</title>
+<title>Jointly distributed random variables</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
@@ -101,7 +101,7 @@ window.MathJax = {
 <div id="searchempty" class="searchempty"><span>No results.</span></div>
 <ol id="searchresults" class="searchresults"></ol>
 </div>
-</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-discrete-rvs.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-random-variables.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-joint-distributions.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span><div class="searchbox"><div class="searchwidget">
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-cts-rvs.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="math-487-notes.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="section-7.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span><div class="searchbox"><div class="searchwidget">
 <input id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" class="searchbutton" type="button" onclick="doSearch()" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button>
 </div></div>
 <span class="nav-runestone-controls"><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="avatarbutton" class="avatarbutton name">You!</span><div id="preferences_menu_holder" class="preferences_menu_holder hidden"><ol id="preferences_menu" class="preferences_menu" style="font-family: 'Roboto Serif', serif;">
@@ -259,7 +259,7 @@ window.MathJax = {
 <li><div class="toc-item"><a href="sec-discrete-rvs.html#subsec-variance-correlation" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Correlation and variance</span></a></div></li>
 </ul>
 </li>
-<li class="active">
+<li>
 <div class="toc-item"><a href="sec-cts-rvs.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Continuous random variables</span></a></div>
 <ul class="structural">
 <li><div class="toc-item"><a href="sec-cts-rvs.html#subsec-exponential" class="internal"><span class="codenumber">2.3.1</span> <span class="title">The exponential distribution</span></a></div></li>
@@ -268,34 +268,18 @@ window.MathJax = {
 </li>
 </ul>
 </li>
-<li>
+<li class="active">
 <div class="toc-item"><a href="ch-joint-distributions.html" class="internal"><span class="codenumber">3</span> <span class="title">Jointly distributed random variables</span></a></div>
 <ul class="structural"><li><div class="toc-item"><a href="section-7.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Definitions and examples</span></a></div></li></ul>
 </li>
 <li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-cts-rvs"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">2.3</span><span class="space"> </span><span class="title">Continuous random variables</span>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="chapter" id="ch-joint-distributions"><h2 class="heading">
+<span class="type">Chapter</span><span class="space"> </span><span class="codenumber">3</span><span class="space"> </span><span class="title">Jointly distributed random variables</span>
 </h2>
-<section class="introduction" id="introduction-2"><div class="para" id="p-178">Now we develop the theory of continuous random variables in much the same way as we did for the discrete case.</div> <article class="definition definition-like" id="def-expectation-cts"><h3 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.3.1</span><span class="period">.</span>
-</h3>
-<div class="para logical" id="p-179">
-<div class="para">The <dfn class="terminology">expected value</dfn> or <dfn class="terminology">expectation</dfn> of a continuous random variable <span class="process-math">\(X\)</span> with pdf <span class="process-math">\(f\)</span> is defined as the following integral, when it converges.</div>
-<div class="displaymath process-math">
-\begin{equation*}
-E(X) = \int_{-\infty}^\infty xf(x)\,dx
-\end{equation*}
-</div>
-</div></article></section><section class="subsection" id="subsec-exponential"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.3.1</span><span class="space"> </span><span class="title">The exponential distribution</span>
-</h3>
-<div class="para" id="p-180">to be added</div></section><section class="subsection" id="subsec-gaussian"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.3.2</span><span class="space"> </span><span class="title">The Gaussian distribution</span>
-</h3>
-<div class="para" id="p-181">to be added</div></section></section></div>
+<nav class="summary-links"><ul><li><a href="section-7.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Definitions and examples</span></a></li></ul></nav></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="sec-discrete-rvs.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-joint-distributions.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="sec-cts-rvs.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="section-7.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
