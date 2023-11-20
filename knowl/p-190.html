@@ -13,20 +13,14 @@
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">The <dfn class="terminology">covariance</dfn> of random variables <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> is defined by</div>
+<div class="para">Put <span class="process-math">\(A = \{X \ge a\}\text{.}\)</span> Since <span class="process-math">\(X \ge 0\text{,}\)</span> we have <span class="process-math">\(X \ge a 1_A\text{.}\)</span> (Check this, perhaps by considering separately the cases <span class="process-math">\(X \le a\)</span> and <span class="process-math">\(X \gt a\text{.}\)</span>) Take the expectation of each side:</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\cov(X,Y) = E((X - EX)(Y - EY)).
+E(X) \ge E(a1_A) = a P(A).
 \end{equation*}
 </div>
-<div class="para">The <dfn class="terminology">correlation coefficient</dfn> of <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> is</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\rho(X,Y) = \frac{ \cov(X,Y)}{\sqrt{\var(X)}\sqrt{\var(Y)}},
-\end{equation*}
+<div class="para">Rearrange to get what we want.</div>
 </div>
-<div class="para">provided <span class="process-math">\(\var(X)\)</span> and <span class="process-math">\(\var(Y)\)</span> are both nonzero.</div>
-</div>
-<span class="incontext"><a href="section-7.html#p-190" class="internal">in-context</a></span>
+<span class="incontext"><a href="sec-some-inequalities.html#p-190" class="internal">in-context</a></span>
 </body>
 </html>

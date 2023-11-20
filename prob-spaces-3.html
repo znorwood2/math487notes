@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Conditional probability and independence</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Math 487 at UNL">
+<meta property="book:author" content="Zach Norwood">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.33/pretext_search.js"></script><link href="https://pretextbook.org/css/0.83/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.33</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.33/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.33/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.33/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="https://pretextbook.org/css/0.83/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""><img src="external/dice.png" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="math-487-notes.html"><span class="title">Math 487 at UNL:</span> <span class="subtitle">Fall 2023 lecture notes</span></a></h1>
+<p class="byline">Zach Norwood</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="prob-axioms.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="prob-spaces.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-more-examples.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
+\newcommand {\abs} [1] {\left| #1 \right|}
+\newcommand {\Bernoulli}{\operatorname{Bernoulli}}
+\newcommand {\binomial}{\operatorname{binomial}}
+\newcommand {\geometric}{\operatorname{geometric}}
+\newcommand {\NegBinom} {\operatorname{NegBinom}}
+\newcommand {\Poisson} {\operatorname{Poisson}}
+\newcommand {\gauss} {\mathcal{N}}
+\newcommand {\var} {\operatorname{var}}
+\newcommand {\cov} {\operatorname{cov}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="prob-spaces.html" class="internal"><span class="codenumber">1</span> <span class="title">Probability spaces</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="prob-axioms.html" class="internal"><span class="codenumber">1.1</span> <span class="title">The Axioms of Probability</span></a></div></li>
+<li class="toc-item toc-section active">
+<div class="toc-title-box"><a href="prob-spaces-3.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Conditional probability and independence</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="prob-spaces-3.html#subsec-conditional-prob" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Conditional Probability</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="prob-spaces-3.html#subsec-independence" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Independence</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-more-examples.html" class="internal"><span class="codenumber">1.3</span> <span class="title">More Examples</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-random-variables.html" class="internal"><span class="codenumber">2</span> <span class="title">Random variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-random-variables-theory.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Random variables: definition and examples</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-random-variables-theory.html#subsec-random-variables" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Random variables: the basics</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-random-variables-theory.html#subsec-discrete-rvs" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Discrete random variables</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-random-variables-theory.html#subsec-cts-rvs" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Continuous random variables</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-discrete-rvs.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Discrete random variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-discrete-rvs.html#subsec-expectation-discrete" class="internal"><span class="codenumber">2.2.1</span> <span class="title">The expectation of a discrete random variable</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-discrete-rvs.html#subsec-poisson" class="internal"><span class="codenumber">2.2.2</span> <span class="title">The Poisson Distribution</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-discrete-rvs.html#subsec-discrete-more-examples" class="internal"><span class="codenumber">2.2.3</span> <span class="title">More examples of discrete distributions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-discrete-rvs.html#subsec-variance-correlation" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Correlation and variance</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-cts-rvs.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Continuous random variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-cts-rvs.html#subsec-exponential" class="internal"><span class="codenumber">2.3.1</span> <span class="title">The exponential distribution</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-cts-rvs.html#subsec-gaussian" class="internal"><span class="codenumber">2.3.2</span> <span class="title">The Gaussian distribution</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-some-inequalities.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Some Inequalities</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-joint-distributions.html" class="internal"><span class="codenumber">3</span> <span class="title">Jointly distributed random variables</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-joint-distributions-2.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Definitions and examples</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="prob-spaces-3"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">1.2</span><span class="space"> </span><span class="title">Conditional probability and independence</span>
+</h2>
+<section class="subsection" id="subsec-conditional-prob"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.2.1</span><span class="space"> </span><span class="title">Conditional Probability</span>
+</h3>
+<article class="definition definition-like" id="def-conditional-prob"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.2.1</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="def-conditional-prob-1-1">
+<div class="para">If <span class="process-math">\(P(B) \gt 0\)</span> then the <dfn class="terminology">conditional probability of <span class="process-math">\(A\)</span> given <span class="process-math">\(B\)</span></dfn>, written <span class="process-math">\(P(A | B)\text{,}\)</span> is the quantity</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(A | B) = \frac{P(A\cap B)}{P(B)} .
+\end{equation*}
+</div>
+</div></article><div class="para" id="subsec-conditional-prob-3">Note that the rearranged form <span class="process-math">\(P(A\cap B) = P(A | B) P(B)\)</span> of the equation can be useful.</div>
+<article class="example example-like" id="subsec-conditional-prob-4"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.2</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="subsec-conditional-prob-4-1-1">
+<div class="para">In September 40% of days are warm and the rest are cool. On warm days there is a 60% chance of rain; on cool days there is a 30% chance.</div>
+<ol class="decimal">
+<li id="subsec-conditional-prob-4-1-1-1-1"><div class="para" id="subsec-conditional-prob-4-1-1-1-1-1">What is the probability that it will rain on a September day?</div></li>
+<li id="subsec-conditional-prob-4-1-1-1-2"><div class="para" id="subsec-conditional-prob-4-1-1-1-2-1">What is the probability that it is warm, given that it is raining?</div></li>
+</ol>
+</div>
+<div class="solutions"><details id="subsec-conditional-prob-4-2" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like"><div class="para" id="subsec-conditional-prob-4-2-1"></div></div></details></div></article><article class="theorem theorem-like" id="thm-law-total-prob"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.2.3</span><span class="period">.</span><span class="space"> </span><span class="title">The Law of Total Probability.</span>
+</h4>
+<div class="para logical" id="thm-law-total-prob-2-1">
+<div class="para">Suppose that events <span class="process-math">\(B_1,\dots,B_n\)</span> partition <span class="process-math">\(\Omega\text{.}\)</span> Then for any event <span class="process-math">\(A\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(A) = \sum_{i=1}^n P(A | B_i) P(B_i) = \sum_{i=1}^n P(A\cap B_i) .
+\end{equation*}
+</div>
+</div></article></section><section class="subsection" id="subsec-independence"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.2.2</span><span class="space"> </span><span class="title">Independence</span>
+</h3>
+<article class="definition definition-like" id="def-independence"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.2.4</span><span class="period">.</span>
+</h4>
+<div class="para" id="def-independence-1-1">Events <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> in a probability space are <dfn class="terminology">independent</dfn> if <span class="process-math">\(P(A\cap B) = P(A)P(B)\text{.}\)</span>
+</div> <div class="para logical" id="def-independence-1-2">
+<div class="para">More generally, events <span class="process-math">\(A_i\text{,}\)</span> <span class="process-math">\(i\in I\text{,}\)</span> are <dfn class="terminology">mutually independent</dfn> if for any finite subset <span class="process-math">\(J \subseteq I\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P\left( \bigcap_{i\in J} A_i \right) = \prod_{i\in J} P(A_i).
+\end{equation*}
+</div>
+<div class="para">The <span class="process-math">\(A_i\)</span> are said to be <dfn class="terminology">pairwise independent</dfn> if for any distinct indices <span class="process-math">\(i,j\in I\)</span> the two events <span class="process-math">\(A_i\)</span> and <span class="process-math">\(A_j\)</span> are independent.</div>
+</div></article><article class="remark remark-like" id="subsec-independence-3"><h4 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">1.2.5</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="subsec-independence-3-1"><ul class="disc">
+<li id="subsec-independence-3-1-1-1"><div class="para" id="subsec-independence-3-1-1-1-1">Notice that <span class="process-math">\(P(A\cap B) = P(A | B) P(B) = P(B | A) P(A)\text{.}\)</span> So, as long as <span class="process-math">\(P(A) \gt 0\)</span> and <span class="process-math">\(P(B) \gt 0\)</span> the independence of <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> is equivalent to either <span class="process-math">\(P(A | B) = P(A)\)</span> or <span class="process-math">\(P(B | A) = P(B)\text{;}\)</span> that is, information about either event doesn’t change the probability of the other.</div></li>
+<li id="subsec-independence-3-1-1-2"><div class="para" id="subsec-independence-3-1-1-2-1">Independence is not the same as disjointness; independent events <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> may or may not satisfy <span class="process-math">\(A \cap B = \emptyset\text{.}\)</span>
+</div></li>
+</ul></div></article><article class="example example-like" id="subsec-independence-4"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.6</span><span class="period">.</span>
+</h4>
+<div class="para" id="subsec-independence-4-1-1">Roll two fair 6-sided dice. Let <span class="process-math">\(A\)</span> denote the event that the first roll is a 3, <span class="process-math">\(B\)</span> denote the event that the second roll is a 4, and <span class="process-math">\(C\)</span> denote the event that the sum of the two rolls equals 7.</div> <div class="para" id="subsec-independence-4-1-2">The events <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are certainly independent: of the 36 possible outcomes, 6 are in <span class="process-math">\(A\)</span> and 6 are in <span class="process-math">\(B\text{;}\)</span> and exactly 1 is common to <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{.}\)</span>
+</div> <div class="para" id="subsec-independence-4-1-3">Show that the three events <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(B\text{,}\)</span> and <span class="process-math">\(C\)</span> are <em class="emphasis">pairwise</em> but not <em class="emphasis">mutually</em> independent.</div>
+<div class="solutions"><details id="subsec-independence-4-2" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">
+<div class="para logical" id="subsec-independence-4-2-1">
+<div class="para">That <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are independent is explained in the statement of the example. For <span class="process-math">\(A\)</span> and <span class="process-math">\(C\text{,}\)</span> first notice that <span class="process-math">\(P(A) = P(B) = P(C) = \tfrac16\text{.}\)</span> Then notice that <span class="process-math">\(A \cap C = A \cap B\)</span> and so we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(A \cap C) = P(A \cap B) = P(A) P(B) = P(A) P(C).
+\end{equation*}
+</div>
+<div class="para">A similar argument shows that <span class="process-math">\(B\)</span> and <span class="process-math">\(C\)</span> are independent.</div>
+</div> <div class="para logical" id="subsec-independence-4-2-2">
+<div class="para">But <span class="process-math">\(A \cap B \cap C = A \cap B\text{,}\)</span> so the three events are not mutually independent:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(A \cap B \cap C) = P(A \cap B) = \tfrac{1}{36} \ne (\tfrac16)^3.
+\end{equation*}
+</div>
+</div>
+</div></details></div></article><article class="example example-like" id="subsec-independence-5"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.7</span><span class="period">.</span>
+</h4>
+<div class="para" id="subsec-independence-5-1-1">Draw one card from a standard 52-card deck. Show that suit is independent of rank; for example, show that drawing a jack is independent of drawing a heart.</div>
+<div class="solutions"><details id="subsec-independence-5-2" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like"><div class="para" id="subsec-independence-5-2-1">The probability of drawing a jack is <span class="process-math">\(\tfrac{4}{52} = \tfrac{1}{13}\text{,}\)</span> and the probability of drawing a heart is <span class="process-math">\(\tfrac{13}{52} = \tfrac14\text{.}\)</span> The probability of drawing the Jack of Hearts is <span class="process-math">\(\tfrac{1}{52} = \tfrac{1}{13} \cdot \tfrac{1}{4}\text{.}\)</span>
+</div></div></details></div></article></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="prob-axioms.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-more-examples.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

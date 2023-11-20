@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">It might be informative to solve this directly from the definition, even though we have the convenient formula of <a href="" class="xref" data-knowl="./knowl/lem-cov-formula.html" title="Lemma 3.1.6">Lemma 3.1.6</a>. Notice that <span class="process-math">\(E(X) = E(Y) = 1\text{.}\)</span> Look at the joint mass function:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-cov-formula.html">
+\begin{equation*}
+\begin {array} {c | ccc | c}
+X / Y \amp 0 \amp 1 \amp 2 \amp f_X \\\hline
+0 \amp 1/8 \amp 1/8 \amp 0 \amp 1/4 \\
+1 \amp 1/8 \amp 1/4 \amp 1/8 \amp 1/2 \\
+2 \amp 0 \amp 1/8 \amp 1/8 \amp 1/4 \\\hline
+f_Y \amp 1/4 \amp 1/2 \amp 1/4 \amp 
+\end {array}
+\end{equation*}
+</div>
+<div class="para">and compute the covariance directly from the definition:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-cov-formula.html">
+\begin{align*}
+\cov(X,Y) \amp = E((X-EX)(Y-EY)) \\
+\amp = \sum_{i,j} f_{X,Y}(x_i,y_j)(x_i-1)(y_j-1) \\
+\amp = \frac18(0-1)(0-1) + \frac18(2-1)(2-1) = \frac14
+\end{align*}
+</div>
+</div>
+<span class="incontext"><a href="section-8.html#p-214" class="internal">in-context</a></span>
+</body>
+</html>

@@ -13,14 +13,13 @@
 <body class="ignore-math">
 <article class="hiddenproof"><h3 class="heading"><span class="type">Proof</span></h3>
 <div class="para logical">
-<div class="para">Essentially the same proof we gave for the case <span class="process-math">\(X = Y\text{.}\)</span> Just expand and use linearity of expectation:</div>
+<div class="para">Put <span class="process-math">\(A = \{X \ge a\}\text{.}\)</span> Since <span class="process-math">\(X \ge 0\text{,}\)</span> we have <span class="process-math">\(X \ge a 1_A\text{.}\)</span> (Check this, perhaps by considering separately the cases <span class="process-math">\(X \le a\)</span> and <span class="process-math">\(X \gt a\text{.}\)</span>) Take the expectation of each side:</div>
 <div class="displaymath process-math">
-\begin{align*}
-\cov(X,Y) \amp = E(XY - YE(X) - XE(Y) + E(X)E(Y)) \\
-\amp = E(XY) - E(X)E(Y) - E(X)E(Y) + E(X)E(Y) \\
-\amp = E(XY) - E(X)E(Y) 
-\end{align*}
+\begin{equation*}
+E(X) \ge E(a1_A) = a P(A).
+\end{equation*}
 </div>
-</div></article><span class="incontext"><a href="section-7.html#proof-7" class="internal">in-context</a></span>
+<div class="para">Rearrange to get what we want.</div>
+</div></article><span class="incontext"><a href="sec-some-inequalities.html#proof-7" class="internal">in-context</a></span>
 </body>
 </html>

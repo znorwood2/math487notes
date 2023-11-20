@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Definitions and examples</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Math 487 at UNL">
+<meta property="book:author" content="Zach Norwood">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.33/pretext_search.js"></script><link href="https://pretextbook.org/css/0.83/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.33</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.33/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.33/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.33/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="https://pretextbook.org/css/0.83/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""><img src="external/dice.png" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="math-487-notes.html"><span class="title">Math 487 at UNL:</span> <span class="subtitle">Fall 2023 lecture notes</span></a></h1>
+<p class="byline">Zach Norwood</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="ch-joint-distributions.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-joint-distributions.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
+\newcommand {\abs} [1] {\left| #1 \right|}
+\newcommand {\Bernoulli}{\operatorname{Bernoulli}}
+\newcommand {\binomial}{\operatorname{binomial}}
+\newcommand {\geometric}{\operatorname{geometric}}
+\newcommand {\NegBinom} {\operatorname{NegBinom}}
+\newcommand {\Poisson} {\operatorname{Poisson}}
+\newcommand {\gauss} {\mathcal{N}}
+\newcommand {\var} {\operatorname{var}}
+\newcommand {\cov} {\operatorname{cov}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="prob-spaces.html" class="internal"><span class="codenumber">1</span> <span class="title">Probability spaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="prob-axioms.html" class="internal"><span class="codenumber">1.1</span> <span class="title">The Axioms of Probability</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="prob-spaces-3.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Conditional probability and independence</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="prob-spaces-3.html#subsec-conditional-prob" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Conditional Probability</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="prob-spaces-3.html#subsec-independence" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Independence</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-more-examples.html" class="internal"><span class="codenumber">1.3</span> <span class="title">More Examples</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-random-variables.html" class="internal"><span class="codenumber">2</span> <span class="title">Random variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-random-variables-theory.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Random variables: definition and examples</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-random-variables-theory.html#subsec-random-variables" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Random variables: the basics</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-random-variables-theory.html#subsec-discrete-rvs" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Discrete random variables</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-random-variables-theory.html#subsec-cts-rvs" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Continuous random variables</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-discrete-rvs.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Discrete random variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-discrete-rvs.html#subsec-expectation-discrete" class="internal"><span class="codenumber">2.2.1</span> <span class="title">The expectation of a discrete random variable</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-discrete-rvs.html#subsec-poisson" class="internal"><span class="codenumber">2.2.2</span> <span class="title">The Poisson Distribution</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-discrete-rvs.html#subsec-discrete-more-examples" class="internal"><span class="codenumber">2.2.3</span> <span class="title">More examples of discrete distributions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-discrete-rvs.html#subsec-variance-correlation" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Correlation and variance</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-cts-rvs.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Continuous random variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-cts-rvs.html#subsec-exponential" class="internal"><span class="codenumber">2.3.1</span> <span class="title">The exponential distribution</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-cts-rvs.html#subsec-gaussian" class="internal"><span class="codenumber">2.3.2</span> <span class="title">The Gaussian distribution</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-some-inequalities.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Some Inequalities</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-joint-distributions.html" class="internal"><span class="codenumber">3</span> <span class="title">Jointly distributed random variables</span></a></div>
+<ul class="structural toc-item-list contains-active"><li class="toc-item toc-section active"><div class="toc-title-box"><a href="ch-joint-distributions-2.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Definitions and examples</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="ch-joint-distributions-2"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">3.1</span><span class="space"> </span><span class="title">Definitions and examples</span>
+</h2>
+<div class="para" id="ch-joint-distributions-2-2">If <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are random variables on the same probability space, then their cdfs <span class="process-math">\(F_X\)</span> and <span class="process-math">\(F_Y\)</span> tell us about how they are distributed, individually. But with only this information, we don’t know how they act relative to each other.</div>
+<article class="example example-like" id="ch-joint-distributions-2-3"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.1</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="ch-joint-distributions-2-3-1">
+<div class="para">
+<em class="alert">Situation A.</em> Flip two coins and define</div>
+<div class="displaymath process-math">
+\begin{equation*}
+X = \begin {cases} 1 \amp \text{1st is heads} \\
+0 \amp \text{otherwise}
+\end{cases}
+\qquad
+Y = \begin {cases} 1 \amp \text{2nd is heads} \\
+0 \amp \text{otherwise}
+\end {cases} .
+\end{equation*}
+</div>
+<div class="para">Then <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are identically distributed; they both follow a <span class="process-math">\(\Bernoulli(1/2)\)</span> distribution and therefore have the same pmf and cdf.</div>
+</div> <div class="para" id="ch-joint-distributions-2-3-2">
+<em class="alert">Situation B.</em> Now flip only one coin and consider <span class="process-math">\(X = 1_H\)</span> and <span class="process-math">\(Y = 1_T\text{.}\)</span> (That is, <span class="process-math">\(X\)</span> is the indicator rv of the event that the result is a heads, and <span class="process-math">\(Y\)</span> indicates whether the result is a tails.) Then <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are identically distributed <span class="process-math">\(\Bernoulli(1/2)\)</span> random variables, just as in Situation A.</div> <div class="para logical" id="ch-joint-distributions-2-3-3">
+<div class="para">But clearly these two situations are different! How do we capture that? It might occur to us to record <dfn class="terminology">joint probabilies</dfn> in a 2D array:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A: \begin {array} {c | cc}
+X / Y \amp 0 \amp 1 \\\hline
+0 \amp 1/4 \amp 1/4  \\
+1 \amp 1/4 \amp 1/4
+\end {array}
+\qquad 
+B: \begin {array} {c | cc}
+X / Y \amp 0 \amp 1 \\\hline
+0 \amp 0 \amp 1/2  \\
+1 \amp 1/2 \amp 0
+\end {array}
+\end{equation*}
+</div>
+</div></article><article class="definition definition-like" id="def-jmf"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.2</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="def-jmf-1-1">
+<div class="para">The <dfn class="terminology">joint mass function</dfn> of discrete random variables <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> is defined by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f_{X,Y}(x,y) = P(X = x \text{ and } Y = y).
+\end{equation*}
+</div>
+</div></article><article class="remark remark-like" id="ch-joint-distributions-2-5"><h3 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">3.1.3</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="ch-joint-distributions-2-5-1"><ol class="decimal">
+<li id="ch-joint-distributions-2-5-1-1-1"><div class="para" id="p-derived-ch-joint-distributions-2-5-1-1-1">Discrete random variables <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are independent if and only if their joint mass function is the pointwise product of their mass functions:<div class="displaymath process-math">
+\begin{equation*}
+f_{X,Y}(x,y) = f_X(x) f_Y(y) \quad \forall x,y
+\end{equation*}
+</div>(This holds in Situation A of the example but not in Situation B.)</div></li>
+<li id="ch-joint-distributions-2-5-1-1-2"><div class="para" id="p-derived-ch-joint-distributions-2-5-1-1-2">The definition of <dfn class="terminology">joint mass function</dfn> can be extended to more than two random variables. We probably won’t worry about that much, though.</div></li>
+<li id="ch-joint-distributions-2-5-1-1-3"><div class="para logical" id="ch-joint-distributions-2-5-1-1-3-1">
+<div class="para">
+<span class="process-math">\(f_X(x) = \sum_y f(x,y)\)</span> and <span class="process-math">\(f_Y(y) = \sum_x f(x,y)\text{.}\)</span> Follows from the Law of Total Probability. Thus, we get the so-called <dfn class="terminology">marginal mass functions</dfn> by taking sums down columns and rows in the joint mass function tables:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A: \begin {array} {c | cc | c}
+X / Y \amp 0 \amp 1 \amp f_X \\\hline
+0 \amp 1/4 \amp 1/4 \amp 1/2 \\
+1 \amp 1/4 \amp 1/4 \amp 1/2 \\\hline
+f_Y \amp 1/2 \amp 1/2 \amp 
+\end {array}
+\qquad 
+B: \begin {array} {c | cc | c}
+X / Y \amp 0 \amp 1 \amp f_X \\\hline
+0 \amp 0 \amp 1/2 \amp 1/2 \\
+1 \amp 1/2 \amp 0 \amp 1/2 \\\hline
+f_Y \amp 1/2 \amp 1/2 \amp
+\end {array}
+\end{equation*}
+</div>
+</div></li>
+</ol></div></article><div class="para" id="ch-joint-distributions-2-6">In Situation A, <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are uncorrelated. In Situation B, they are correlated. By how much?</div>
+<article class="definition definition-like" id="def-cov"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.4</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="def-cov-1-1">
+<div class="para">The <dfn class="terminology">covariance</dfn> of random variables <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> is defined by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\cov(X,Y) = E((X - EX)(Y - EY)).
+\end{equation*}
+</div>
+<div class="para">The <dfn class="terminology">correlation coefficient</dfn> of <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\rho(X,Y) = \frac{ \cov(X,Y)}{\sqrt{\var(X)}\sqrt{\var(Y)}},
+\end{equation*}
+</div>
+<div class="para">provided <span class="process-math">\(\var(X)\)</span> and <span class="process-math">\(\var(Y)\)</span> are both nonzero.</div>
+</div></article><article class="remark remark-like" id="ch-joint-distributions-2-8"><h3 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">3.1.5</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="ch-joint-distributions-2-8-1">
+<div class="para">Some properties:</div>
+<ol class="decimal">
+<li id="ch-joint-distributions-2-8-1-1-1"><div class="para" id="p-derived-ch-joint-distributions-2-8-1-1-1"><span class="process-math">\(\displaystyle \cov(X,X) = \var(X)\)</span></div></li>
+<li id="ch-joint-distributions-2-8-1-1-2"><div class="para" id="p-derived-ch-joint-distributions-2-8-1-1-2">Recall that <span class="process-math">\(\var(X) = E(X\cdot X) - E(X)E(X)\text{.}\)</span> In a moment we will prove that <span class="process-math">\(\cov(X,Y) = E(XY) - E(X)E(Y).\)</span>
+</div></li>
+<li id="ch-joint-distributions-2-8-1-1-3"><div class="para" id="p-derived-ch-joint-distributions-2-8-1-1-3">
+<span class="process-math">\(\cov(X,Y) = 0\)</span> iff <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are uncorrelated. This follows immediately from the previous item.</div></li>
+<li id="ch-joint-distributions-2-8-1-1-4"><div class="para" id="p-derived-ch-joint-distributions-2-8-1-1-4">
+<span class="process-math">\(\abs{\rho(X,Y)} \le 1\text{.}\)</span> (This will also be proved soon.)</div></li>
+</ol>
+</div></article><article class="lemma theorem-like" id="lem-cov-formula"><h3 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">3.1.6</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="lem-cov-formula-1-1">
+<div class="para">For all random variables <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\text{,}\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\cov(X,Y) = E(XY) - E(X)E(Y).
+\end{equation*}
+</div>
+</div></article><details id="lem-cov-formula-2" class="hiddenproof born-hidden-knowl"><summary><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof"><div class="para logical" id="lem-cov-formula-2-1">
+<div class="para">Essentially the same proof we gave for the case <span class="process-math">\(X = Y\text{.}\)</span> Just expand and use linearity of expectation:</div>
+<div class="displaymath process-math" id="lem-cov-formula-2-1-2">
+\begin{align*}
+\cov(X,Y) \amp = E(XY - YE(X) - XE(Y) + E(X)E(Y)) \\
+\amp = E(XY) - E(X)E(Y) - E(X)E(Y) + E(X)E(Y) \\
+\amp = E(XY) - E(X)E(Y) 
+\end{align*}
+</div>
+</div></article></details><article class="example example-like" id="ch-joint-distributions-2-10"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.7</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="ch-joint-distributions-2-10-1">
+<div class="para">Back to our example with Situations A and B. In Situation A we have <span class="process-math">\(\cov(X,Y) = 0\)</span> since <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are independent therefore uncorrelated. In Situation B, we have:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\cov(X,Y) = E(XY) - E(X)E(Y) = 0 - \frac14 = -\frac14.
+\end{equation*}
+</div>
+<div class="para">So <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are <dfn class="terminology">negatively correlated</dfn>, meaning when <span class="process-math">\(X\)</span> decreases then <span class="process-math">\(Y\)</span> increases, and vice versa. More specifically,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\rho(X,Y) = \frac{-1/4}{\sqrt{1/4 \cdot 1/4}} = -1,
+\end{equation*}
+</div>
+<div class="para">which (as we will show) is as negative as possible. So <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> in this example are as negatively correlated as possible.</div>
+</div></article><article class="example example-like" id="ch-joint-distributions-2-11"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.8</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="ch-joint-distributions-2-11-1">
+<div class="para">Suppose that <span class="process-math">\(1_A\)</span> and <span class="process-math">\(1_B\)</span> are indicator random variables for events <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{.}\)</span> We have the following:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E(1_A) = P(A), \quad E(1_B) = P(B), \quad E(1_A 1_B) = P(A \cap B).
+\end{equation*}
+</div>
+<div class="para">So the covariance of <span class="process-math">\(1_A\)</span> and <span class="process-math">\(1_B\)</span> is given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\cov(1_A,1_B) = P(A \cap B) - P(A) P(B) = P(B)( P(A \mid B) - P(A)).
+\end{equation*}
+</div>
+<div class="para">This means that <span class="process-math">\(1_A\)</span> and <span class="process-math">\(1_B\)</span> are ...</div>
+<div class="displaymath process-math" id="ch-joint-distributions-2-11-1-11">
+\begin{align*}
+\text{positively correlated} \amp \text{ iff } P(A \mid B) \gt P(A) ;\\
+\text{negatively correlated} \amp \text{ iff } P(A \mid B) \lt P(A)  ;\text { and} \\
+\text{uncorrelated} \amp \text{ iff } P(A \mid B) = P(A). 
+\end{align*}
+</div>
+</div></article><article class="example example-like" id="ch-joint-distributions-2-12"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.9</span><span class="period">.</span>
+</h3>
+<div class="para" id="ch-joint-distributions-2-12-1-1">Flip a fair coin three times. Let <span class="process-math">\(X\)</span> count the number of heads in the first 2 flips. Let <span class="process-math">\(Y\)</span> count the number of heads in the last 2 flips. Compute <span class="process-math">\(\cov(X,Y)\text{.}\)</span>
+</div>
+<div class="solutions"><details id="ch-joint-distributions-2-12-2" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">
+<div class="para logical" id="ch-joint-distributions-2-12-2-1">
+<div class="para">It might be informative to solve this directly from the definition, even though we have the convenient formula of <a href="" class="xref" data-knowl="./knowl/xref/lem-cov-formula.html" title="Lemma 3.1.6">Lemma 3.1.6</a>. Notice that <span class="process-math">\(E(X) = E(Y) = 1\text{.}\)</span> Look at the joint mass function:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/lem-cov-formula.html">
+\begin{equation*}
+\begin {array} {c | ccc | c}
+X / Y \amp 0 \amp 1 \amp 2 \amp f_X \\\hline
+0 \amp 1/8 \amp 1/8 \amp 0 \amp 1/4 \\
+1 \amp 1/8 \amp 1/4 \amp 1/8 \amp 1/2 \\
+2 \amp 0 \amp 1/8 \amp 1/8 \amp 1/4 \\\hline
+f_Y \amp 1/4 \amp 1/2 \amp 1/4 \amp 
+\end {array}
+\end{equation*}
+</div>
+<div class="para">and compute the covariance directly from the definition:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/lem-cov-formula.html" id="ch-joint-distributions-2-12-2-1-4">
+\begin{align*}
+\cov(X,Y) \amp = E((X-EX)(Y-EY)) \\
+\amp = \sum_{i,j} f_{X,Y}(x_i,y_j)(x_i-1)(y_j-1) \\
+\amp = \frac18(0-1)(0-1) + \frac18(2-1)(2-1) = \frac14
+\end{align*}
+</div>
+</div> <div class="para logical" id="ch-joint-distributions-2-12-2-2">
+<div class="para">It is easier (and in more complicated examples this will be truer) to use the formula, though:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E(XY) = 1\frac28 + 2\frac18 + 2\frac18 + 4\frac18 = \frac54,
+\end{equation*}
+</div>
+<div class="para">so</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\cov(X,Y) = E(XY) - E(X)E(Y) = \frac54 - 1 = \frac14.
+\end{equation*}
+</div>
+</div>
+</div></details></div></article></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="ch-joint-distributions.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

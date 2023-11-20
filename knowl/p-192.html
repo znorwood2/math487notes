@@ -11,15 +11,16 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
+<h3 class="heading"><span class="type">Paragraph</span></h3>
 <div class="para logical">
-<div class="para">For all random variables <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\text{,}\)</span> we have</div>
+<div class="para">Apply Markov’s Inequality to <span class="process-math">\(b = a^2\)</span> and <span class="process-math">\(Y = X^2\)</span> to get</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\cov(X,Y) = E(XY) - E(X)E(Y).
+P(X^2 \ge a^2) = P(Y \ge b) \le \frac{E(Y)}{b} = \frac{E(X^2)}{a^2}.
 \end{equation*}
 </div>
+<div class="para">Notice that <span class="process-math">\(X^2 \ge a^2\)</span> iff <span class="process-math">\(|X| \ge a\text{,}\)</span> so we have Chebyshev’s Inequality.</div>
 </div>
-<span class="incontext"><a href="section-7.html#p-192" class="internal">in-context</a></span>
+<span class="incontext"><a href="sec-some-inequalities.html#p-192" class="internal">in-context</a></span>
 </body>
 </html>

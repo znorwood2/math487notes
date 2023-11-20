@@ -13,23 +13,15 @@
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">But clearly these two situations are different! How do we capture that? It might occur to us to record <dfn class="terminology">joint probabilies</dfn> in a 2D array:</div>
+<div class="para">For <span class="process-math">\(a = k \sigma\text{,}\)</span> we have</div>
 <div class="displaymath process-math">
 \begin{equation*}
-A: \begin {array} {c | cc}
-X / Y \amp 0 \amp 1 \\\hline
-0 \amp 1/4 \amp 1/4  \\
-1 \amp 1/4 \amp 1/4
-\end {array}
-\qquad 
-B: \begin {array} {c | cc}
-X / Y \amp 0 \amp 1 \\\hline
-0 \amp 0 \amp 1/2  \\
-1 \amp 1/2 \amp 0
-\end {array}
+P(X \text{ is more than } k \text{ standard deviations from its mean}) \le \frac{1}{k^2}.
 \end{equation*}
 </div>
+<div class="para">This is valid <em class="emphasis">regardless</em> of the distribution of <span class="process-math">\(X\)</span>
 </div>
-<span class="incontext"><a href="section-7.html#p-185" class="internal">in-context</a></span>
+</div>
+<span class="incontext"><a href="sec-some-inequalities.html#p-185" class="internal">in-context</a></span>
 </body>
 </html>

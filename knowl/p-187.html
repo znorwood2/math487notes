@@ -12,35 +12,17 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para logical"><ol class="decimal">
-<li><div class="para">Discrete random variables <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are independent if and only if their joint mass function is the pointwise product of their mass functions:<div class="displaymath process-math">
-\begin{equation*}
-f_{X,Y}(x,y) = f_X(x) f_Y(y) \quad \forall x,y
-\end{equation*}
-</div>(This holds in Situation A of the example but not in Situation B.)</div></li>
-<li><div class="para">The definition of <dfn class="terminology">joint mass function</dfn> can be extended to more than two random variables. We probably won’t worry about that much, though.</div></li>
-<li><div class="para logical">
-<div class="para">
-<span class="process-math">\(f_X(x) = \sum_y f(x,y)\)</span> and <span class="process-math">\(f_Y(y) = \sum_x f(x,y)\text{.}\)</span> Follows from the Law of Total Probability. Thus, we get the so-called <dfn class="terminology">marginal mass functions</dfn> by taking sums down columns and rows in the joint mass function tables:</div>
+<div class="para logical">
+<div class="para">Suppose <span class="process-math">\(X \sim \gauss(0,1)\text{.}\)</span> We can compute <span class="process-math">\(P(|X| \ge k)\)</span> by direct computation:</div>
 <div class="displaymath process-math">
-\begin{equation*}
-A: \begin {array} {c | cc | c}
-X / Y \amp 0 \amp 1 \amp f_X \\\hline
-0 \amp 1/4 \amp 1/4 \amp 1/2 \\
-1 \amp 1/4 \amp 1/4 \amp 1/2 \\\hline
-f_Y \amp 1/2 \amp 1/2 \amp 
-\end {array}
-\qquad 
-B: \begin {array} {c | cc | c}
-X / Y \amp 0 \amp 1 \amp f_X \\\hline
-0 \amp 0 \amp 1/2 \amp 1/2 \\
-1 \amp 1/2 \amp 0 \amp 1/2 \\\hline
-f_Y \amp 1/2 \amp 1/2 \amp
-\end {array}
-\end{equation*}
+\begin{align*}
+P(|X| \ge k) \amp = 2 \frac{1}{\sqrt{2\pi}} \int_k^\infty e^{-x^2/2}\,dx \\
+\amp \le \sqrt{\frac2\pi} \int_k^\infty \frac{x}{k} e^{-x^2}{2}\,dx \\
+\amp = \cdots = \frac{2}{k\sqrt\pi} e^{-k^2}{2} 
+\end{align*}
 </div>
-</div></li>
-</ol></div>
-<span class="incontext"><a href="section-7.html#p-187" class="internal">in-context</a></span>
+<div class="para">This is <em class="emphasis">much</em> smaller than <span class="process-math">\(\frac{1}{k^2}\text{,}\)</span> the bound given by Chebyshev.</div>
+</div>
+<span class="incontext"><a href="sec-some-inequalities.html#p-187" class="internal">in-context</a></span>
 </body>
 </html>

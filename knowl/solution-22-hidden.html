@@ -10,5 +10,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body class="ignore-math"><div class="solution solution-like"><div class="para"></div></div></body>
+<body class="ignore-math"><div class="solution solution-like"><div class="para logical"><ol class="decimal">
+<li><div class="para">By Markov, <span class="process-math">\(P(X \ge 75) \le \frac{E(X)}{75} = \frac{50}{75} = \frac23\text{.}\)</span>
+</div></li>
+<li><div class="para logical">
+<div class="para">Apply Chebyshev to <span class="process-math">\(X - 50\text{,}\)</span> which has the same variance as <span class="process-math">\(X\)</span> but mean 0:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P( |X - 50| \ge 10) \le \frac{E(X^2)}{10^2} = \frac{25}{100} = \frac14.
+\end{equation*}
+</div>
+</div></li>
+</ol></div></div></body>
 </html>

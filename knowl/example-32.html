@@ -12,41 +12,17 @@
 </head>
 <body class="ignore-math">
 <article class="example example-like"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.1</span><span class="period">.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.2</span><span class="period">.</span>
 </h3>
 <div class="para logical">
-<div class="para">
-<em class="alert">Situation A.</em> Flip two coins and define</div>
+<div class="para">For <span class="process-math">\(a = k \sigma\text{,}\)</span> we have</div>
 <div class="displaymath process-math">
 \begin{equation*}
-X = \begin {cases} 1 \amp \text{1st is heads} \\
-0 \amp \text{otherwise}
-\end{cases}
-\qquad
-Y = \begin {cases} 1 \amp \text{2nd is heads} \\
-0 \amp \text{otherwise}
-\end {cases} .
+P(X \text{ is more than } k \text{ standard deviations from its mean}) \le \frac{1}{k^2}.
 \end{equation*}
 </div>
-<div class="para">Then <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are identically distributed; they both follow a <span class="process-math">\(\Bernoulli(1/2)\)</span> distribution and therefore have the same pmf and cdf.</div>
-</div> <div class="para">
-<em class="alert">Situation B.</em> Now flip only one coin and consider <span class="process-math">\(X = 1_H\)</span> and <span class="process-math">\(Y = 1_T\text{.}\)</span> (That is, <span class="process-math">\(X\)</span> is the indicator rv of the event that the result is a heads, and <span class="process-math">\(Y\)</span> indicates whether the result is a tails.) Then <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are identically distributed <span class="process-math">\(\Bernoulli(1/2)\)</span> random variables, just as in Situation A.</div> <div class="para logical">
-<div class="para">But clearly these two situations are different! How do we capture that? It might occur to us to record <dfn class="terminology">joint probabilies</dfn> in a 2D array:</div>
-<div class="displaymath process-math">
-\begin{equation*}
-A: \begin {array} {c | cc}
-X / Y \amp 0 \amp 1 \\\hline
-0 \amp 1/4 \amp 1/4  \\
-1 \amp 1/4 \amp 1/4
-\end {array}
-\qquad 
-B: \begin {array} {c | cc}
-X / Y \amp 0 \amp 1 \\\hline
-0 \amp 0 \amp 1/2  \\
-1 \amp 1/2 \amp 0
-\end {array}
-\end{equation*}
+<div class="para">This is valid <em class="emphasis">regardless</em> of the distribution of <span class="process-math">\(X\)</span>
 </div>
-</div></article><span class="incontext"><a href="section-7.html#example-32" class="internal">in-context</a></span>
+</div></article><span class="incontext"><a href="sec-some-inequalities.html#example-32" class="internal">in-context</a></span>
 </body>
 </html>

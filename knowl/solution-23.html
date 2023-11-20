@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h3 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">3.1.9.1</span><span class="period">.</span>
+</h3>
+<div class="para logical">
+<div class="para">It might be informative to solve this directly from the definition, even though we have the convenient formula of <a href="" class="xref" data-knowl="./knowl/lem-cov-formula.html" title="Lemma 3.1.6">Lemma 3.1.6</a>. Notice that <span class="process-math">\(E(X) = E(Y) = 1\text{.}\)</span> Look at the joint mass function:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-cov-formula.html">
+\begin{equation*}
+\begin {array} {c | ccc | c}
+X / Y \amp 0 \amp 1 \amp 2 \amp f_X \\\hline
+0 \amp 1/8 \amp 1/8 \amp 0 \amp 1/4 \\
+1 \amp 1/8 \amp 1/4 \amp 1/8 \amp 1/2 \\
+2 \amp 0 \amp 1/8 \amp 1/8 \amp 1/4 \\\hline
+f_Y \amp 1/4 \amp 1/2 \amp 1/4 \amp 
+\end {array}
+\end{equation*}
+</div>
+<div class="para">and compute the covariance directly from the definition:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-cov-formula.html">
+\begin{align*}
+\cov(X,Y) \amp = E((X-EX)(Y-EY)) \\
+\amp = \sum_{i,j} f_{X,Y}(x_i,y_j)(x_i-1)(y_j-1) \\
+\amp = \frac18(0-1)(0-1) + \frac18(2-1)(2-1) = \frac14
+\end{align*}
+</div>
+</div> <div class="para logical">
+<div class="para">It is easier (and in more complicated examples this will be truer) to use the formula, though:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E(XY) = 1\frac28 + 2\frac18 + 2\frac18 + 4\frac18 = \frac54,
+\end{equation*}
+</div>
+<div class="para">so</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\cov(X,Y) = E(XY) - E(X)E(Y) = \frac54 - 1 = \frac14.
+\end{equation*}
+</div>
+</div>
+</div>
+<span class="incontext"><a href="section-8.html#solution-23" class="internal">in-context</a></span>
+</body>
+</html>
