@@ -12,6 +12,7 @@
       \newcommand {\geometric}{\operatorname{geometric}}
       \newcommand {\NegBinom} {\operatorname{NegBinom}}
       \newcommand {\Poisson} {\operatorname{Poisson}}
+      \newcommand {\gauss} {\mathcal{N}}
       \newcommand {\var} {\operatorname{var}}
       \newcommand {\cov} {\operatorname{cov}}
     </macros>
@@ -1610,6 +1611,132 @@
           </p>
         </subsection>
       </section>
+      <section xml:id="sec-some-inequalities">
+        <title>Some Inequalities</title>
+      <p>How likely is a random variable to deviate greatly from its mean?</p>
+      <theorem xml:id="thm-chebyshev">
+        <title>Chebyshev's Inequality</title>
+        <statement>
+          <p>
+            Let <m>X</m> be a random variable and <m>a \gt 0</m>. Then
+            <me>
+              P( |X| \ge a) \le \frac{E(X^2)}{a^2}.
+            </me>
+          </p>
+          <p>
+            In particular, when <m>\mu = E(X) = 0</m> and <m>\var(X) = \sigma^2</m>, we have
+            <me>
+              P(|X| \ge a) \le \frac{\sigma^2}{a^2}.
+            </me>
+            So <m>X</m> must concentrate around its mean in a way that's bounded by its variance.
+          </p>
+        </statement>
+      </theorem>
+      <example>
+        <p>
+          For <m>a = k \sigma</m>, we have
+          <me>
+            P(X \text{ is more than } k \text{ standard deviations from its mean}) \le \frac{1}{k^2}.
+          </me>
+          This is valid <em>regardless</em> of the distribution of <m>X</m>
+        </p>
+      </example>
+      <p>
+        So Chebyshev is very general; it needs only the first two moments of <m>X</m>.
+        But there is a trade-off: in specific cases it can give a poor estimate.
+      </p>
+      <example>
+        <p>
+          Suppose <m>X \sim \gauss(0,1)</m>. We can compute <m>P(|X| \ge k)</m> by direct computation:
+          <md>
+            <mrow>P(|X| \ge k) \amp = 2 \frac{1}{\sqrt{2\pi}} \int_k^\infty e^{-x^2/2}\,dx </mrow>
+            <mrow> \amp \le \sqrt{\frac2\pi} \int_k^\infty \frac{x}{k} e^{-x^2}{2}\,dx </mrow>
+            <mrow> \amp = \cdots = \frac{2}{k\sqrt\pi} e^{-k^2}{2} </mrow>
+          </md>
+          This is <em>much</em> smaller than <m>\frac{1}{k^2}</m>, the bound given by Chebyshev.
+        </p>
+      </example>
+      <p>
+        Soon we'll prove Chebyshev's Inequality, but it will be easier to first prove another inequality.
+      </p>
+      <theorem xml:id="thm-markov">
+        <title>Markov's Inequality</title>     
+        <statement>
+          <p>
+            Let <m>X \ge 0</m> be a random variable and <m>a \gt 0</m> be a constant. Then
+            <me>
+              P(X \ge a) \le \frac{E(X)}{a}.
+            </me>
+          </p>
+        </statement>
+        <proof>
+          <p>Put <m>A = \{X \ge a\}</m>. Since <m>X \ge 0</m>, we have <m>X \ge a 1_A</m>. (Check this, perhaps by considering 
+          separately the cases <m>X \le a</m> and <m>X \gt a</m>.)
+         Take the expectation of each side:
+         <me>
+          E(X) \ge E(a1_A) = a P(A).
+         </me>
+         Rearrange to get what we want.
+        </p>
+        </proof>
+      </theorem>
+      <p>
+        Note that Markov's Inequality applies even when <m>\var(X)</m> isn't finite (or is unknown),
+        unlike Chebyshev's.
+      </p>
+      
+      <proof>
+        <title>Proof of <xref ref="thm-chebyshev"/></title>
+        <p>
+          Apply Markov's Inequality to <m>b = a^2</m> and <m>Y = X^2</m> to get
+          <me>
+            P(X^2 \ge a^2) = P(Y \ge b) \le \frac{E(Y)}{b} = \frac{E(X^2)}{a^2}.
+          </me>
+          Notice that <m>X^2 \ge a^2</m> iff <m>|X| \ge a</m>, so we have Chebyshev's Inequality.
+        </p>
+      </proof>
+
+      <example>
+        <statement>
+          <p>
+            A factory produces an average of 50 items per day.
+            <ol>
+              <li>
+                <p>
+                  Comment on the probability that today's production exceeds 75 items.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If the standard deviation is 5 items per day, what can be said about the probability
+                  that today's production level will be between 40 and 60 items?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+        <solution>
+          <p>
+            <ol>
+              <li>
+                <p>
+                  By Markov, <m>P(X \ge 75) \le \frac{E(X)}{75} = \frac{50}{75} = \frac23</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Apply Chebyshev to <m>X - 50</m>, which has the same variance as <m>X</m> but mean 0:
+                  <me>
+                    P( |X - 50| \ge 10) \le \frac{E(X^2)}{10^2} = \frac{25}{100} = \frac14.
+                  </me>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </solution>
+      </example>
+
+      </section>
     </chapter>
 
     <chapter xml:id="ch-joint-distributions">
@@ -1835,11 +1962,39 @@
   </statement>
   <solution>
     <p>
-      
+      It might be informative to solve this directly from the definition,
+      even though we have the convenient formula of <xref ref="lem-cov-formula"/>.
+      Notice that <m>E(X) = E(Y) = 1</m>.
+      Look at the joint mass function:
+      <me>
+        \begin {array} {c | ccc | c}
+         X / Y \amp 0 \amp 1 \amp 2 \amp f_X \\\hline
+         0 \amp 1/8 \amp 1/8 \amp 0 \amp 1/4 \\
+        1 \amp 1/8 \amp 1/4 \amp 1/8 \amp 1/2 \\
+        2 \amp 0 \amp 1/8 \amp 1/8 \amp 1/4 \\\hline
+        f_Y \amp 1/4 \amp 1/2 \amp 1/4 \amp 
+        \end {array}
+      </me>
+      and compute the covariance directly from the definition:
+      <md>
+        <mrow> \cov(X,Y) \amp = E((X-EX)(Y-EY)) </mrow>
+        <mrow> \amp = \sum_{i,j} f_{X,Y}(x_i,y_j)(x_i-1)(y_j-1) </mrow>
+        <mrow> \amp = \frac18(0-1)(0-1) + \frac18(2-1)(2-1) = \frac14</mrow>
+      </md>
+    </p>
+    <p>
+      It is easier (and in more complicated examples this will be truer)
+      to use the formula, though:
+      <me>
+        E(XY) = 1\frac28 + 2\frac18 + 2\frac18 + 4\frac18 = \frac54,
+      </me>
+      so
+      <me>
+        \cov(X,Y) = E(XY) - E(X)E(Y) = \frac54 - 1 = \frac14.
+      </me>
     </p>
   </solution>
 </example>
-
 </section>
     </chapter>
 
