@@ -41,10 +41,11 @@
       <colophon>
 
         <website>
-          <name>
+          <url href="https://math.unl.edu"></url>
+          <!-- <name>
             <c>math.unl.edu</c>
           </name>
-          <address>https://math.unl.edu</address>
+          <address>https://math.unl.edu</address> -->
         </website>
 
         <copyright>
@@ -1998,6 +1999,215 @@
 </section>
     </chapter>
 
+    <chapter xml:id="ch-generating-fns-limit-thms">
+      <title>Generating Functions and Limit Theorems</title>
+      <section xml:id="sec-pgfs">
+        <title>Probability generating functions</title>
+        <p>
+          What is a pgf?
+        </p>
+      </section>
+      <section xml:id="sec-characteristic-fns">
+        <title>Characteristic functions</title>
+        <definition xml:id="def-char-fn">
+          <statement>
+            <p>
+              The <term>characteristic function</term> of a random variable <m>X</m> is the function
+              <m>\phi_X \colon \R\to\C</m> given by <m>\phi_X(t) = E(e^{itX})</m>.
+            </p>
+            <p>
+              When <m>X</m> is discrete with values in <m>\N</m>, this is
+              <m>\phi_X(t) = G_X(e^{it})</m>.
+              When <m>X</m> is continuous with density function <m>f_X</m>, this is
+              <m>\phi_X(t) = \int_\R e^{itx} f_X(x)\,dx</m>, the <term>Fourier Transform</term>
+              of <m>f_X</m>.
+            </p>
+          </statement>
+        </definition>
+        <p>
+          The characteristic function looks like just a mild modification of the mgf,
+          but adding the <m>i</m> to the exponent makes a big difference:
+          recall that for a real number <m>t</m>, <m>\abs{e^{it}} = 1</m>.
+        </p>
+        <remark>
+          <p>
+            Wait, how do we even make sense of <xref ref="def-char-fn"/>?
+            The quantity <m>e^{itX}</m> is not (typically) a real number!
+            We're considering <em>complex-valued</em> random variables now.
+            A function <m>Y \colon \Omega \to \C</m> is a <term>complex-valued random variable</term>
+            if both <m>\Re(Y) \colon \Omega \to \R</m> and <m>\Im(Y) \colon\Omega \to \R</m> are 
+            random variables, so that <m>Y = \Re(Y) + i \Im(y)</m>.
+          </p>
+          <p>
+            In the definition, we are considering <m>Y = e^{itX} = \cos(tX) + i \sin(tX)</m>;
+            both <m>\cos(tX) = \Re(Y)</m> and <m>\sin(tX) = \Im(Y)</m> are random variables by 
+            standard closure properties of random variables.
+            (This is really just jointly distributed random variables repackaged in a complex-numbers
+            format.)
+            Then the expectation of <m>Y</m> is defined to be 
+            <m>E(Y) = E(\Re(Y)) + iE(\Im(Y))</m>.
+          </p>
+        </remark>
+        <lemma xml:id="lem-char-fn-basic">
+          <statement>
+            <p>
+              Suppose that <m>X</m> is a random variable with characteristic function <m>\phi = \phi_X</m>.
+              <ol marker="(a)">
+                <li>
+                  <p>
+                    <m>\phi(0) = 1</m>, and <m>\abs{\phi(t)} \le 1</m> for all <m>t\in\R</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <m>\phi</m> is uniformly continuous on <m>\R</m>.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </statement>
+          <proof>
+            <p>
+              <m>\phi(0) = E(e^0) = 1</m>.
+              We'll prove the second part of (a) for continuous <m>X</m>; the discrete case is similar.
+              <md>
+                <mrow> \abs{\phi(t)} \amp = \abs{E(e^{itx})} = \abs{\int_\R e^{itx} f_X(x)\,dx}</mrow>
+                <mrow> \amp \le \int_\R \abs{f_X(x)} \abs{e^{itx}}\,dx</mrow>
+                <mrow> \amp \le \int_\R \abs{f_X(x)}\,dx = 1 </mrow>
+              </md>
+            </p>
+            <p>
+              Part (b) requires some analysis. Fix <m>t</m> and <m>h</m>. We must show that <m>\abs{\phi(t+h) - \phi(t)} \to 0</m>
+              as <m>h \to 0</m> in a way that is independent of <m>t</m>.
+              <md>
+                <mrow> \abs{\phi(t+h) - \phi(t)} \amp = \abs{E(e^{itx}(e^{ihx} - 1))} </mrow>
+                <mrow> \amp = \abs{\int_\R e^{itx} (e^{ihx} - 1) f_X(x) \,dx }</mrow>
+                <mrow> \amp \le \int_\R \abs{e^{ihx} - 1} f_X(x)\,dx </mrow>
+                <mrow> \amp \underset{h\to 0}{\longrightarrow} 0 </mrow>
+              </md>
+              (To justify the last line, argue that the integrand is bounded by <m>2f_X(x)</m>
+              and <m>e^{ihx} - 1 \to 0</m> and apply the Dominated Convergence Theorem.)
+            </p>
+          </proof>
+        </lemma>
+        <example>
+          <statement>
+            <p>
+              Find the characteristic functions of these random variables.
+              <ol marker="(a)">
+                <li>
+                  <p>constant r.v. <m>X = a</m> .</p>
+                </li>
+                <li><p>
+                  <m>X \sim \bernoulli(p)</m>
+                </p></li>
+                <li><p>
+                  <m>X \in \{-1,+1\}</m> with <m>P(X = -1) = P(X = 1) = 1/2</m>.
+                </p></li>
+                <li><p>
+                  <m>X \sim\binomial(n,p)</m>
+                </p></li>
+                <li><p>
+                  <m>X \sim \poisson(\lambda)</m>
+                </p></li>
+                <li><p>
+                  <m>X \sim \exponential(\lambda)</m>
+                </p></li>
+              </ol>
+            </p>
+          </statement>
+          <solution>
+            <p>
+              The discrete examples (all but the last one) can be computed using the identity
+              <m>\phi_X(t) = G_X(e^{it})</m> and our work on pgfs:
+              <ol marker="(a)">
+                <li>
+                  <p>
+                    <m>\phi_X(t) = e^{iat}</m>, which traverses the unit circle at speed <m>\abs{a}</m>,
+                    either CW or CCW depending on the sign of <m>a</m>.
+                  </p>
+                </li>
+                <li><p>
+                  <m>X \sim \bernoulli(p)</m>: <m>\phi_X(t) = pe^{it} + 1-p</m>, 
+                  which traverses the circle of radius <m>p</m> centered at <m>1-p</m>.
+                </p></li>
+                <li><p>
+                  <m>X \in \{-1,+1\}</m> with <m>P(X = -1) = P(X = 1) = 1/2</m>.
+                  <m>\phi_X(t) = \frac12 e^{it} + \frac12 e^{-it} = \cos(t)</m>.
+                </p></li>
+                <li><p>
+                  <m>X \sim\binomial(n,p)</m>:
+                  <m>\phi_X(t) = (pe^{it} + 1-p)^n</m> by a fact that we're about to prove
+                  or by our work on pgfs.
+                </p></li>
+                <li><p>
+                  <m>X \sim \poisson(\lambda)</m>:
+                  <m>\phi_X(t) = G_X(e^{it}) = e^{\lambda(e^{it} - 1)}</m>.
+                </p></li>
+                <li><p>
+                  <m>X \sim \exponential(\lambda)</m>:
+                  <md>
+                    <mrow> \phi_X(t) \amp = \int_0^\infty \lambda e^{-\lambda x} e^{itx} \,dx </mrow>
+                    <mrow> \amp = \lambda \int_{x=0}^\infty e^{x(it - \lambda)}\,dx</mrow>
+                    <mrow> \amp = \lambda \left[ \frac{e^{x(it - \lambda)}{it - \lambda}} \right]_{x=0}^\infty </mrow>
+                    <mrow> \amp = \frac{\lambda}{\lambda - it} </mrow>
+                  </md>
+                </p></li>
+              </ol>
+            </p>
+          </solution>
+        </example>
+        <example>
+          <title>The characteristic function of a normal rv</title>
+          <p>
+            Suppose that <m>X \sim \gauss(0,1)</m>, so that the density of <m>X</m> is given by
+            <m>f_X(t) = \frac{1}{\sqrt{2\pi}} e^{-t^2/2}</m>. First, we just apply the definition:
+            <me>
+              \phi_X(t) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} e^{itx} e^{-x^2/2} \,dx 
+              = \int_{-\infty}^\infty e^{itx - x^2/2}\,dx .
+            </me>
+            Now we do something non-obvious:
+            for a real number <m>a\in \R</m> we have the following.
+            <md>
+              <mrow> \frac{1}{\sqrt{2\pi}} \int_{-\infty}^\infty e^{ax - x^2/2}\,dx 
+                \amp = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^\infty e^{a^2/2} e^{-(x-a)^2/2} \,dx </mrow>
+              <mrow> \amp = e^{a^2/2} \frac{1}{\sqrt{2\pi}} \int_{-\infty}^\infty e^{-(x-a)^2/2} \,dx </mrow>
+              <mrow> \amp = e^{a^2/2} \frac{1}{\sqrt{2\pi}} \int_{u=-\infty}^\infty e^{-u^2/2} \,du </mrow>
+              <mrow> \amp = e^{a^2/2} </mrow>
+            </md>
+            We have shown that the functions
+            <me>
+              \frac{1}{\sqrt{2\pi}} \int_{-\infty}^\infty e^{ax - x^2/2}\,dx \quad\text{and}\quad e^{a^2/2}
+            </me>
+            of a complex variable <m>a\in\C</m> agree for all <m>a\in\R</m>.
+            Both of these functions are analytic, so they must agree for all <m>a\in\C</m>,
+            in particular for all <m>a = it</m>, <m>t\in\R</m>. Thus,
+            <me>
+              \phi_X(t) = e^{(it)^2/2} = e^{-t^2/2}.
+            </me>
+          </p>
+          <p>
+            The fact that the density function of a <m>\gauss(0,1)</m> random variable is an eigenfunction
+            of the Fourier Transform is in some sense why the Central Limit Theorem is true.
+          </p>
+        </example>
+        <exercise>
+          <p>
+            Show that the characteristic function of <m>X \sim \gauss(\mu,\sigma^2)</m>
+            is given by <m>\phi_X(t) = e^{i\mu t - (\sigma t)^2/2}</m>.
+          </p>
+        </exercise>
+        <lemma xml:id="lem-char-fn-props">
+          <title>Properties of characteristic functions</title>
+          <statement>
+            <p>
+              what needs to go here?
+            </p>
+          </statement>
+        </lemma>
+        
+      </section>
+    </chapter>
     <backmatter xml:id="backmatter">
       <title>Backmatter</title>
 
