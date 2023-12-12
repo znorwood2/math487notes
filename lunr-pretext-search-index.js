@@ -7,7 +7,7 @@ var ptx_lunr_docs = [
   "type": "Colophon",
   "number": "",
   "title": "Colophon",
-  "body": "  math.unl.edu   copyright  "
+  "body": "     copyright  "
 },
 {
   "id": "prob-axioms",
@@ -818,6 +818,132 @@ var ptx_lunr_docs = [
   "number": "3.1.9",
   "title": "",
   "body": "  Flip a fair coin three times. Let count the number of heads in the first 2 flips. Let count the number of heads in the last 2 flips. Compute .    It might be informative to solve this directly from the definition, even though we have the convenient formula of . Notice that . Look at the joint mass function: and compute the covariance directly from the definition:   It is easier (and in more complicated examples this will be truer) to use the formula, though: so    "
+},
+{
+  "id": "sec-pgfs",
+  "level": "1",
+  "url": "sec-pgfs.html",
+  "type": "Section",
+  "number": "4.1",
+  "title": "Probability generating functions",
+  "body": " Probability generating functions  What is a pgf?  "
+},
+{
+  "id": "sec-characteristic-fns",
+  "level": "1",
+  "url": "sec-characteristic-fns.html",
+  "type": "Section",
+  "number": "4.2",
+  "title": "Characteristic functions",
+  "body": " Characteristic functions    The characteristic function of a random variable is the function given by .  When is discrete with values in , this is . When is continuous with density function , this is , the Fourier Transform of .    The characteristic function looks like just a mild modification of the mgf, but adding the to the exponent makes a big difference: recall that for a real number , .   Wait, how do we even make sense of ? The quantity is not (typically) a real number! We're considering complex-valued random variables now. A function is a complex-valued random variable if both and are random variables, so that .  In the definition, we are considering ; both and are random variables by standard closure properties of random variables. (This is really just jointly distributed random variables repackaged in a complex-numbers format.) Then the expectation of is defined to be .     Suppose that is a random variable with characteristic function .    , and for all .     is uniformly continuous on .        . We'll prove the second part of (a) for continuous ; the discrete case is similar.   Part (b) requires some analysis. Fix and . We must show that as in a way that is independent of . (To justify the last line, argue that the integrand is bounded by and and apply the Dominated Convergence Theorem.)      Find the characteristic functions of these random variables.   constant r.v. .       with .               The discrete examples (all but the last one) can be computed using the identity and our work on pgfs:    , which traverses the unit circle at speed , either CW or CCW depending on the sign of .    : , which traverses the circle of radius centered at .   with . .   : by a fact that we're about to prove or by our work on pgfs.   : .   :        The characteristic function of a normal rv  Suppose that , so that the density of is given by . First, we just apply the definition: Now we do something non-obvious: for a real number we have the following. We have shown that the functions of a complex variable agree for all . Both of these functions are analytic, so they must agree for all , in particular for all , . Thus,   The fact that the density function of a random variable is an eigenfunction of the Fourier Transform is in some sense why the Central Limit Theorem is true.   Show that the characteristic function of is given by .   Properties of characteristic functions   what needs to go here?      If the random variables have distribution functions , then we say that the sequence  converges in distribution to and write if, for all such that , we have .        Recall that iff is continuous at . All but countably many points are continuity points of , and for all in a cocountable set implies .    This is the weakest of several notions of convergence of random variables. Notice that convergence in distribution refers only to the distribution functions, not on the actual values of the random variable. That is, if we replace e.g. with an identically distributed (that are still independent), then that doesn't change whether converges in distribution to .       Central Limit Theorem   Let be a sequence of i.i.d. random variables with common mean and variance . Define and notice that and . Let be the normalized sum, so that and .  Then .     The point of all this business is just to arrange for the distributions to converge; the s have means that go to . In specific examples (see below) we will usually instaed approximate by .    Roll a die 100 times. (We will assume that 100 is large enough for the CLT to provide a reasonable approximation.) Using the CLT we make the approximation We can use this to approximate probabilities:    "
+},
+{
+  "id": "def-char-fn",
+  "level": "2",
+  "url": "sec-characteristic-fns.html#def-char-fn",
+  "type": "Definition",
+  "number": "4.2.1",
+  "title": "",
+  "body": "  The characteristic function of a random variable is the function given by .  When is discrete with values in , this is . When is continuous with density function , this is , the Fourier Transform of .   "
+},
+{
+  "id": "sec-characteristic-fns-4",
+  "level": "2",
+  "url": "sec-characteristic-fns.html#sec-characteristic-fns-4",
+  "type": "Remark",
+  "number": "4.2.2",
+  "title": "",
+  "body": " Wait, how do we even make sense of ? The quantity is not (typically) a real number! We're considering complex-valued random variables now. A function is a complex-valued random variable if both and are random variables, so that .  In the definition, we are considering ; both and are random variables by standard closure properties of random variables. (This is really just jointly distributed random variables repackaged in a complex-numbers format.) Then the expectation of is defined to be .  "
+},
+{
+  "id": "lem-char-fn-basic",
+  "level": "2",
+  "url": "sec-characteristic-fns.html#lem-char-fn-basic",
+  "type": "Lemma",
+  "number": "4.2.3",
+  "title": "",
+  "body": "  Suppose that is a random variable with characteristic function .    , and for all .     is uniformly continuous on .        . We'll prove the second part of (a) for continuous ; the discrete case is similar.   Part (b) requires some analysis. Fix and . We must show that as in a way that is independent of . (To justify the last line, argue that the integrand is bounded by and and apply the Dominated Convergence Theorem.)   "
+},
+{
+  "id": "sec-characteristic-fns-6",
+  "level": "2",
+  "url": "sec-characteristic-fns.html#sec-characteristic-fns-6",
+  "type": "Example",
+  "number": "4.2.4",
+  "title": "",
+  "body": "  Find the characteristic functions of these random variables.   constant r.v. .       with .               The discrete examples (all but the last one) can be computed using the identity and our work on pgfs:    , which traverses the unit circle at speed , either CW or CCW depending on the sign of .    : , which traverses the circle of radius centered at .   with . .   : by a fact that we're about to prove or by our work on pgfs.   : .   :      "
+},
+{
+  "id": "sec-characteristic-fns-7",
+  "level": "2",
+  "url": "sec-characteristic-fns.html#sec-characteristic-fns-7",
+  "type": "Example",
+  "number": "4.2.5",
+  "title": "The characteristic function of a normal rv.",
+  "body": " The characteristic function of a normal rv  Suppose that , so that the density of is given by . First, we just apply the definition: Now we do something non-obvious: for a real number we have the following. We have shown that the functions of a complex variable agree for all . Both of these functions are analytic, so they must agree for all , in particular for all , . Thus,   The fact that the density function of a random variable is an eigenfunction of the Fourier Transform is in some sense why the Central Limit Theorem is true.  "
+},
+{
+  "id": "sec-characteristic-fns-8",
+  "level": "2",
+  "url": "sec-characteristic-fns.html#sec-characteristic-fns-8",
+  "type": "Checkpoint",
+  "number": "4.2.6",
+  "title": "",
+  "body": "Show that the characteristic function of is given by . "
+},
+{
+  "id": "lem-char-fn-props",
+  "level": "2",
+  "url": "sec-characteristic-fns.html#lem-char-fn-props",
+  "type": "Lemma",
+  "number": "4.2.7",
+  "title": "Properties of characteristic functions.",
+  "body": " Properties of characteristic functions   what needs to go here?   "
+},
+{
+  "id": "def-conv-distr",
+  "level": "2",
+  "url": "sec-characteristic-fns.html#def-conv-distr",
+  "type": "Definition",
+  "number": "4.2.8",
+  "title": "",
+  "body": "  If the random variables have distribution functions , then we say that the sequence  converges in distribution to and write if, for all such that , we have .   "
+},
+{
+  "id": "sec-characteristic-fns-11",
+  "level": "2",
+  "url": "sec-characteristic-fns.html#sec-characteristic-fns-11",
+  "type": "Remark",
+  "number": "4.2.9",
+  "title": "",
+  "body": "    Recall that iff is continuous at . All but countably many points are continuity points of , and for all in a cocountable set implies .    This is the weakest of several notions of convergence of random variables. Notice that convergence in distribution refers only to the distribution functions, not on the actual values of the random variable. That is, if we replace e.g. with an identically distributed (that are still independent), then that doesn't change whether converges in distribution to .     "
+},
+{
+  "id": "thm-clt",
+  "level": "2",
+  "url": "sec-characteristic-fns.html#thm-clt",
+  "type": "Theorem",
+  "number": "4.2.10",
+  "title": "Central Limit Theorem.",
+  "body": " Central Limit Theorem   Let be a sequence of i.i.d. random variables with common mean and variance . Define and notice that and . Let be the normalized sum, so that and .  Then .   "
+},
+{
+  "id": "sec-characteristic-fns-13",
+  "level": "2",
+  "url": "sec-characteristic-fns.html#sec-characteristic-fns-13",
+  "type": "Remark",
+  "number": "4.2.11",
+  "title": "",
+  "body": " The point of all this business is just to arrange for the distributions to converge; the s have means that go to . In specific examples (see below) we will usually instaed approximate by .  "
+},
+{
+  "id": "sec-characteristic-fns-14",
+  "level": "2",
+  "url": "sec-characteristic-fns.html#sec-characteristic-fns-14",
+  "type": "Example",
+  "number": "4.2.12",
+  "title": "",
+  "body": " Roll a die 100 times. (We will assume that 100 is large enough for the CLT to provide a reasonable approximation.) Using the CLT we make the approximation We can use this to approximate probabilities:   "
 },
 {
   "id": "backmatter-2",
