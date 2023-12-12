@@ -6,15 +6,20 @@
     <macros>
       \newcommand{\R}{\mathbb R}
       \newcommand{\N}{\mathbb N}
+      \newcommand{\C}{\mathbb C}
       \newcommand {\abs} [1] {\left| #1 \right|}
       \newcommand {\Bernoulli}{\operatorname{Bernoulli}}
       \newcommand {\binomial}{\operatorname{binomial}}
       \newcommand {\geometric}{\operatorname{geometric}}
       \newcommand {\NegBinom} {\operatorname{NegBinom}}
       \newcommand {\Poisson} {\operatorname{Poisson}}
+      \newcommand {\exponential} {\operatorname{exponential}}
       \newcommand {\gauss} {\mathcal{N}}
       \newcommand {\var} {\operatorname{var}}
       \newcommand {\cov} {\operatorname{cov}}
+      \newcommand {\convdistr} {\overset{\longrightarrow}{D}}
+      \renewcommand {\Re} {\operatorname{Re}}
+      \renewcommand {\Im} {\operatorname{Im}}
     </macros>
     <latex-image-preamble>
       \usepackage{tikz}
@@ -2099,7 +2104,7 @@
                   <p>constant r.v. <m>X = a</m> .</p>
                 </li>
                 <li><p>
-                  <m>X \sim \bernoulli(p)</m>
+                  <m>X \sim \Bernoulli(p)</m>
                 </p></li>
                 <li><p>
                   <m>X \in \{-1,+1\}</m> with <m>P(X = -1) = P(X = 1) = 1/2</m>.
@@ -2108,7 +2113,7 @@
                   <m>X \sim\binomial(n,p)</m>
                 </p></li>
                 <li><p>
-                  <m>X \sim \poisson(\lambda)</m>
+                  <m>X \sim \Poisson(\lambda)</m>
                 </p></li>
                 <li><p>
                   <m>X \sim \exponential(\lambda)</m>
@@ -2128,7 +2133,7 @@
                   </p>
                 </li>
                 <li><p>
-                  <m>X \sim \bernoulli(p)</m>: <m>\phi_X(t) = pe^{it} + 1-p</m>, 
+                  <m>X \sim \Bernoulli(p)</m>: <m>\phi_X(t) = pe^{it} + 1-p</m>, 
                   which traverses the circle of radius <m>p</m> centered at <m>1-p</m>.
                 </p></li>
                 <li><p>
@@ -2141,7 +2146,7 @@
                   or by our work on pgfs.
                 </p></li>
                 <li><p>
-                  <m>X \sim \poisson(\lambda)</m>:
+                  <m>X \sim \Poisson(\lambda)</m>:
                   <m>\phi_X(t) = G_X(e^{it}) = e^{\lambda(e^{it} - 1)}</m>.
                 </p></li>
                 <li><p>
@@ -2205,7 +2210,78 @@
             </p>
           </statement>
         </lemma>
-        
+        <definition xml:id="def-conv-distr">
+          <statement>
+            <p>
+              If the random variables <m>X,X_1,X_2,\dots</m> have distribution functions <m>F,F_1,F_2,\dots</m>,
+              then we say that the sequence <m>(X_n)_n</m> <term>converges in distribution</term> to <m>X</m>
+              and write <m>X_n \convdistr X</m> if, for all <m>x\in\R</m> such that <m>P(X = x) = 0</m>,
+              we have <m>\lim_{n\to\infty} F_n(x) = F(x)</m>.
+            </p>
+          </statement>
+        </definition>
+        <remark>
+          <p>
+            <ol>
+              <li>
+                <p>
+                  Recall that <m>P(X = x) = 0</m> iff <m>F_X</m> is continuous at <m>x</m>.
+                  All but countably many points are continuity points of <m>F_X</m>,
+                  and <m>F_X(x) = F_Y(x)</m> for all <m>x</m> in a cocountable set
+                  implies <m>F_X = F_Y</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  This is the weakest of several notions of convergence of random variables.
+                  Notice that convergence in distribution refers only to the distribution 
+                  functions, not on the actual values of the random variable.
+                  That is, if we replace e.g. <m>X_n</m> with an identically distributed
+                  <m>X_n'</m> (that are still independent), then that doesn't change whether
+                  <m>(X_n)_n</m> converges in distribution to <m>X</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </remark>
+        <theorem xml:id="thm-clt">
+          <title>Central Limit Theorem</title>
+          <statement>
+            <p>
+              Let <m>X_1,X_2,\dots</m> be a sequence of i.i.d. random variables with common mean <m>\mu</m>
+              and variance <m>\sigma^2 \ne 0</m>.
+              Define <m>S_n = X_1 + \cdots + X_n</m> and notice that <m>E(S_n) = n\mu</m> and <m>\var(S_n) = n \sigma^2</m>.
+              Let <m>Y_n = \frac{S_n - n\mu}{\sigma\sqrt n}</m> be the normalized sum,
+              so that <m>E(Y_n) = 0</m> and <m>\var(S_n) = 1</m>.
+            </p>
+            <p>Then <m>Y_n \convdistr Z\sim \gauss(0,1)</m>.</p>
+          </statement>
+        </theorem>
+        <remark>
+          <p>
+            The point of all this <m>Y_n</m> business is just to arrange for the distributions to converge;
+            the <m>S_n</m>s have means that go to <m>\infty</m>.
+            In specific examples (see below) we will usually instaed approximate <m>S_n</m> by <m>X \sim \gauss(n\mu, n\sigma^2)</m>.
+          </p>
+        </remark>
+        <example>
+          <p>
+            Roll a die 100 times. (We will assume that 100 is large enough for the CLT to 
+            provide a reasonable approximation.) Using the CLT we make the approximation
+            <me>
+              S_{100} \approx N(100 \cdot \frac72, 100 \cdot \frac{35}{12}).
+            </me>
+            We can use this to approximate probabilities:
+            <md>
+              <mrow> P( 300 \le S_{100} \le 400) \amp = P( \abs{S_{100} - 350} \le 50) </mrow>
+              <mrow> \amp = P(-50 \le S_{100} - 350 \le 50) </mrow>
+              <mrow> \amp =P\left( \frac{-50}{\sqrt{\frac{35}{12}}\sqrt{100}} \le \frac{S_{100} - 350}{\sqrt{\frac{35}{12}\sqrt{100}}} \le \frac{-50}{\sqrt{\frac{35}{12}}\sqrt{100}} \right) </mrow>
+              <mrow> \amp \approx P(-2.9277 \le Z \le 2.9277)</mrow>
+              <mrow> \amp = \Phi(2.9277) - \Phi(-2.9277) </mrow>
+              <mrow> \amp \approx 0.9966 </mrow>
+            </md>
+          </p>
+        </example>
       </section>
     </chapter>
     <backmatter xml:id="backmatter">
